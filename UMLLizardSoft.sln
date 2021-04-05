@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UMLLizardSoft", "UMLLizardSoft\UMLLizardSoft.csproj", "{395E7EC1-4E1A-49B1-AFFE-B77F14CE23A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{395E7EC1-4E1A-49B1-AFFE-B77F14CE23A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{395E7EC1-4E1A-49B1-AFFE-B77F14CE23A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{395E7EC1-4E1A-49B1-AFFE-B77F14CE23A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{395E7EC1-4E1A-49B1-AFFE-B77F14CE23A7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4D823290-E9EE-4BFF-8A3C-AF24A052C744}
+	EndGlobalSection
+EndGlobal
