@@ -112,7 +112,7 @@ namespace UMLLizardSoft
 
         public void addArrowСomposition(Pen _pen, int x1, int y1, int x2, int y2)//Композицыя
         {
-            SolidBrush redBrush = new SolidBrush(Color.Red);
+            SolidBrush solidBrush = new SolidBrush(_pen.Color);
             double ugol = Math.Atan2(x1 - x2, y1 - y2);
 
             _graphics.DrawLine(_pen, x1, y1, Convert.ToInt32(x2 + 50 * Math.Sin(ugol - 0)), Convert.ToInt32(y2 + 50 * Math.Cos(ugol - 0)));
@@ -127,7 +127,7 @@ namespace UMLLizardSoft
             Point point4 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(ugol - 0.4)), Convert.ToInt32(y2 + 25 * Math.Cos(ugol - 0.4)));
             Point[] points = { point1, point2, point3, point4 };
 
-            _graphics.FillClosedCurve(redBrush, points);
+            _graphics.FillClosedCurve(solidBrush, points);
         }
 
 
@@ -176,6 +176,14 @@ namespace UMLLizardSoft
             _pen = new Pen(Color.Red, arrowWeight);                           //line width of otherwise
             bar.SetRange(1, 4);                                               //was 4 --> 1-4
             
+        }
+
+        private void buttonColorPalette_Click(object sender, EventArgs e)
+        {
+            colorDialog1.ShowDialog();
+            buttonColorPalette.BackColor = colorDialog1.Color;
+            _pen.Color = colorDialog1.Color;
+            _penEnd.Color = colorDialog1.Color;
         }
 
         public void AddRectangle1(Pen _pen, int firstPoint, int secondPoint)
