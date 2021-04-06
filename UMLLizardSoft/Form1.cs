@@ -191,7 +191,5 @@ namespace UMLLizardSoft
             _graphics.DrawRectangle(_pen, x1, y1, W, (int)(H * 0.5));
             _graphics.DrawRectangle(_pen, x1, y1, W, (int)(H * 0.8));
         }
-
-
     }
 }
