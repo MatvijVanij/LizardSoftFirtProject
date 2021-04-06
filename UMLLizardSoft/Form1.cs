@@ -65,7 +65,7 @@ namespace UMLLizardSoft
                 _tmpBitmap = (Bitmap)_mainBitmap.Clone();
                 _graphics = Graphics.FromImage(_tmpBitmap);
 
-                AddRectangle1(_pen, x1, y1);
+                AddRectangle(_pen, x1, y1);
 
                 pictureBox1.Image = _tmpBitmap;
                 GC.Collect();
