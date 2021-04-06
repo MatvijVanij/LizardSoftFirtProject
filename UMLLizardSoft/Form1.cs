@@ -37,16 +37,14 @@ namespace UMLLizardSoft
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             _isButtonPressed = true;
-            if (_isButtonPressed)
-            {
-                x1 = e.X;
-                y1 = e.Y;
-            }
+            x1 = e.X;
+            y1 = e.Y;
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             _isButtonPressed = false;
+            _mainBitmap = _tmpBitmap;
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
@@ -129,7 +127,7 @@ namespace UMLLizardSoft
             _graphics.FillClosedCurve(redBrush, points);
         }
 
-       
+
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
@@ -194,6 +192,6 @@ namespace UMLLizardSoft
             _graphics.DrawRectangle(_pen, x1, y1, W, (int)(H * 0.8));
         }
 
-        
+
     }
 }
