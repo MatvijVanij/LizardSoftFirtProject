@@ -172,8 +172,8 @@ namespace UMLLizardSoft
             int maxWeitghValue = bar.Maximum;
             int value = bar.Value;
             arrowWeight = 1 + minWeightValue + value;
-            _penEnd = new Pen(Color.Red, arrowWeight);                        //Line width of "Implimentation" ArrowBody !ONLY!
-            _pen = new Pen(Color.Red, arrowWeight);                           //line width of otherwise
+            _penEnd = new Pen(_pen.Color, arrowWeight);                        //Line width of "Implimentation" ArrowBody !ONLY!
+            _pen = new Pen(_pen.Color, arrowWeight);                           //line width of otherwise
             bar.SetRange(1, 4);                                               //was 4 --> 1-4
             
         }
