@@ -65,7 +65,7 @@ namespace UMLLizardSoft
                 _tmpBitmap = (Bitmap)_mainBitmap.Clone();
                 _graphics = Graphics.FromImage(_tmpBitmap);
 
-                AddRectangle3(_pen, x1, y1);
+                AddRectangle1(_pen, x1, y1);
 
                 pictureBox1.Image = _tmpBitmap;
                 GC.Collect();
@@ -76,6 +76,7 @@ namespace UMLLizardSoft
         {
             double ugol = Math.Atan2(x1 - x2, y1 - y2);
             _pen.DashStyle = DashStyle.Dash;
+
             _graphics.DrawLine(_pen, x1, y1, Convert.ToInt32(x2 + 25 * Math.Sin(ugol - 0)), Convert.ToInt32(y2 + 25 * Math.Cos(ugol - 0)));
             _graphics.DrawLine(_penEnd, x2, y2, Convert.ToInt32(x2 + 25 * Math.Sin(0.4 + ugol)), Convert.ToInt32(y2 + 25 * Math.Cos(0.4 + ugol)));
             _graphics.DrawLine(_penEnd, x2, y2, Convert.ToInt32(x2 + 25 * Math.Sin(ugol - 0.4)), Convert.ToInt32(y2 + 25 * Math.Cos(ugol - 0.4)));
