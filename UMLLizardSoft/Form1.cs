@@ -12,6 +12,8 @@ namespace UMLLizardSoft
         Graphics _graphics;
         Pen _pen;
         Pen _penEnd;
+        Point _pointFirst;
+        Point _pointSecond;
         int arrowWeight;
 
         int x1, y1, x2, y2;
@@ -42,6 +44,7 @@ namespace UMLLizardSoft
             _isButtonPressed = true;
             x1 = e.X;
             y1 = e.Y;
+            _pointFirst = new Point(x1, y1);
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
@@ -56,6 +59,7 @@ namespace UMLLizardSoft
             {
                 x2 = e.X;
                 y2 = e.Y;
+                _pointSecond = new Point(x2, y2);
 
                 _tmpBitmap = (Bitmap)_mainBitmap.Clone();
                 _graphics = Graphics.FromImage(_tmpBitmap);
@@ -65,97 +69,89 @@ namespace UMLLizardSoft
                 pictureBox1.Image = _tmpBitmap;
                 GC.Collect();
             }
-
         }
         public void addArrowImplementation(Pen _pen, int x1, int y1, int x2, int y2)// Имплиментацыя
         {
-            double ugol = Math.Atan2(x1 - x2, y1 - y2);
+            double angle = Math.Atan2(x1 - x2, y1 - y2);
             _penEnd.DashStyle = DashStyle.Dash;
 
-            Point pointFirst = new Point(x1, y1);
-            Point pointSecond = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(ugol - 0)), Convert.ToInt32(y2 + 25 * Math.Cos(ugol - 0)));
+            Point pointSecond = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(angle - 0)), Convert.ToInt32(y2 + 25 * Math.Cos(angle - 0)));
 
-            Point point1 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(0.4 + ugol)), Convert.ToInt32(y2 + 25 * Math.Cos(0.4 + ugol)));
-            Point point2 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(ugol - 0.4)), Convert.ToInt32(y2 + 25 * Math.Cos(ugol - 0.4)));
-            Point point3 = new Point(x2, y2);
-            Point point4 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(0.4 + ugol)), Convert.ToInt32(y2 + 25 * Math.Cos(0.4 + ugol)));
+            Point point1 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(0.4 + angle)), Convert.ToInt32(y2 + 25 * Math.Cos(0.4 + angle)));
+            Point point2 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(angle - 0.4)), Convert.ToInt32(y2 + 25 * Math.Cos(angle - 0.4)));
+            Point point3 = _pointSecond;
+            Point point4 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(0.4 + angle)), Convert.ToInt32(y2 + 25 * Math.Cos(0.4 + angle)));
 
             Point[] points = { point1, point2, point3, point4 };
 
-            _graphics.DrawLine(_penEnd, pointFirst, pointSecond);
+            _graphics.DrawLine(_penEnd, _pointFirst, pointSecond);
 
             _graphics.DrawLines(_pen, points);
-
         }
 
         public void addArrowAsotiation(Pen _pen, int x1, int y1, int x2, int y2)                    //_1 -> old, _2 -> new    pen ~ context
         {
             double angle = Math.Atan2(x1 - x2, y1 - y2);// Асоциация   
 
-            Point pointFirst = new Point(x1, y1);
             Point pointSecond = new Point(x2, y2);
             Point point1 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(0.4 + angle)), Convert.ToInt32(y2 + 25 * Math.Cos(0.4 + angle)));
             Point point3 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(angle - 0.4)), Convert.ToInt32(y2 + 25 * Math.Cos(angle - 0.4)));
-            Point point2 = new Point(x2, y2);
+            Point point2 = _pointSecond;
             Point[] points = { point1, point2, point3 };
 
-            _graphics.DrawLine(_pen, pointFirst, pointSecond);
+            _graphics.DrawLine(_pen, _pointFirst, pointSecond);
 
             _graphics.DrawLines(_pen, points);
-
         }
 
         public void addArrowInheritance(Pen _pen, int x1, int y1, int x2, int y2)//Наследование
         {
-            double ugol = Math.Atan2(x1 - x2, y1 - y2);
+            double angle = Math.Atan2(x1 - x2, y1 - y2);
 
-            Point pointFirst = new Point(x1, y1);
-            Point pointSecond = new Point(Convert.ToInt32(x2 + 23 * Math.Sin(ugol - 0)), Convert.ToInt32(y2 + 23 * Math.Cos(ugol - 0)));
-            Point point1 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(0.4 + ugol)), Convert.ToInt32(y2 + 25 * Math.Cos(0.4 + ugol)));
-            Point point2 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(ugol - 0.4)), Convert.ToInt32(y2 + 25 * Math.Cos(ugol - 0.4)));
-            Point point3 = new Point(x2, y2);
-            Point point4 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(0.4 + ugol)), Convert.ToInt32(y2 + 25 * Math.Cos(0.4 + ugol)));
+            Point pointSecond = new Point(Convert.ToInt32(x2 + 23 * Math.Sin(angle - 0)), Convert.ToInt32(y2 + 23 * Math.Cos(angle - 0)));
+            Point point1 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(0.4 + angle)), Convert.ToInt32(y2 + 25 * Math.Cos(0.4 + angle)));
+            Point point2 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(angle - 0.4)), Convert.ToInt32(y2 + 25 * Math.Cos(angle - 0.4)));
+            Point point3 = _pointSecond;
+            Point point4 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(0.4 + angle)), Convert.ToInt32(y2 + 25 * Math.Cos(0.4 + angle)));
 
             Point[] points = { point1, point2, point3, point4 };
 
-            _graphics.DrawLine(_pen, pointFirst, pointSecond);
+            _graphics.DrawLine(_pen, _pointFirst, pointSecond);
 
             _graphics.DrawLines(_pen, points);
         }
 
         public void addArrowAggregation(Pen _pen, int x1, int y1, int x2, int y2)//Агрегация
         {
-            double ugol = Math.Atan2(x1 - x2, y1 - y2);
+            double angle = Math.Atan2(x1 - x2, y1 - y2);
 
-            Point pointFirst = new Point(x1, y1);
-            Point pointSecond = new Point(Convert.ToInt32(x2 + 50 * Math.Sin(ugol - 0)), Convert.ToInt32(y2 + 50 * Math.Cos(ugol - 0)));
-            Point point1 = new Point(Convert.ToInt32(x2 + 50 * Math.Sin(ugol - 0)), Convert.ToInt32(y2 + 50 * Math.Cos(ugol - 0)));
-            Point point2 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(0.4 + ugol)), Convert.ToInt32(y2 + 25 * Math.Cos(0.4 + ugol)));
-            Point point3 = new Point(x2, y2);
-            Point point4 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(ugol - 0.4)), Convert.ToInt32(y2 + 25 * Math.Cos(ugol - 0.4)));
-            Point point5 = new Point(Convert.ToInt32(x2 + 50 * Math.Sin(ugol - 0)), Convert.ToInt32(y2 + 50 * Math.Cos(ugol - 0)));
+            Point pointSecond = new Point(Convert.ToInt32(x2 + 50 * Math.Sin(angle - 0)), Convert.ToInt32(y2 + 50 * Math.Cos(angle - 0)));
+            Point point1 = new Point(Convert.ToInt32(x2 + 50 * Math.Sin(angle - 0)), Convert.ToInt32(y2 + 50 * Math.Cos(angle - 0)));
+            Point point2 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(0.4 + angle)), Convert.ToInt32(y2 + 25 * Math.Cos(0.4 + angle)));
+            Point point3 = _pointSecond;
+            Point point4 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(angle - 0.4)), Convert.ToInt32(y2 + 25 * Math.Cos(angle - 0.4)));
+            Point point5 = new Point(Convert.ToInt32(x2 + 50 * Math.Sin(angle - 0)), Convert.ToInt32(y2 + 50 * Math.Cos(angle - 0)));
 
             Point[] points = { point1, point2, point3, point4, point5 };
 
             _graphics.DrawLines(_pen, points);
 
-            _graphics.DrawLine(_pen, pointFirst, pointSecond);
+            _graphics.DrawLine(_pen, _pointFirst, pointSecond);
         }
 
         public void addArrowСomposition(Pen _pen, int x1, int y1, int x2, int y2)//Композицыя
         {
             SolidBrush solidBrush = new SolidBrush(_pen.Color);
-            double ugol = Math.Atan2(x1 - x2, y1 - y2);
+            double angle = Math.Atan2(x1 - x2, y1 - y2);
 
-            Point pointFirst = new Point(x1, y1);
-            Point pointSecond = new Point(Convert.ToInt32(x2 + 50 * Math.Sin(ugol - 0)), Convert.ToInt32(y2 + 50 * Math.Cos(ugol - 0)));
-            Point point1 = new Point(Convert.ToInt32(x2 + 50 * Math.Sin(ugol - 0)), Convert.ToInt32(y2 + 50 * Math.Cos(ugol - 0)));
-            Point point2 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(0.4 + ugol)), Convert.ToInt32(y2 + 25 * Math.Cos(0.4 + ugol)));
-            Point point3 = new Point(x2, y2);
-            Point point4 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(ugol - 0.4)), Convert.ToInt32(y2 + 25 * Math.Cos(ugol - 0.4)));
+            Point pointSecond = new Point(Convert.ToInt32(x2 + 50 * Math.Sin(angle - 0)), Convert.ToInt32(y2 + 50 * Math.Cos(angle - 0)));
+            Point point1 = new Point(Convert.ToInt32(x2 + 50 * Math.Sin(angle - 0)), Convert.ToInt32(y2 + 50 * Math.Cos(angle - 0)));
+            Point point2 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(0.4 + angle)), Convert.ToInt32(y2 + 25 * Math.Cos(0.4 + angle)));
+            Point point3 = _pointSecond;
+            Point point4 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(angle - 0.4)), Convert.ToInt32(y2 + 25 * Math.Cos(angle - 0.4)));
             Point[] points = { point1, point2, point3, point4 };
 
-            _graphics.DrawLine(_pen, pointFirst, pointSecond);
+            _graphics.DrawLine(_pen, _pointFirst, pointSecond);
 
             _graphics.DrawLines(_pen, points);
 
