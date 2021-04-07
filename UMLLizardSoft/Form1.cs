@@ -80,13 +80,12 @@ namespace UMLLizardSoft
             Point point1 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(0.4 + angle)), Convert.ToInt32(y2 + 25 * Math.Cos(0.4 + angle)));
             Point point2 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(angle - 0.4)), Convert.ToInt32(y2 + 25 * Math.Cos(angle - 0.4)));
             Point point3 = _pointSecond;
-            Point point4 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(0.4 + angle)), Convert.ToInt32(y2 + 25 * Math.Cos(0.4 + angle)));
 
-            Point[] points = { point1, point2, point3, point4 };
+            Point[] points = { point1, point2, point3 };
 
             _graphics.DrawLine(_penEnd, _pointFirst, pointSecond);
 
-            _graphics.DrawLines(_pen, points);
+            _graphics.DrawPolygon(_pen, points);
         }
 
         public void addArrowAsotiation(Pen _pen, int x1, int y1, int x2, int y2)                    //_1 -> old, _2 -> new    pen ~ context
@@ -112,13 +111,12 @@ namespace UMLLizardSoft
             Point point1 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(0.4 + angle)), Convert.ToInt32(y2 + 25 * Math.Cos(0.4 + angle)));
             Point point2 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(angle - 0.4)), Convert.ToInt32(y2 + 25 * Math.Cos(angle - 0.4)));
             Point point3 = _pointSecond;
-            Point point4 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(0.4 + angle)), Convert.ToInt32(y2 + 25 * Math.Cos(0.4 + angle)));
 
-            Point[] points = { point1, point2, point3, point4 };
+            Point[] points = { point1, point2, point3};
 
             _graphics.DrawLine(_pen, _pointFirst, pointSecond);
 
-            _graphics.DrawLines(_pen, points);
+            _graphics.DrawPolygon(_pen, points);
         }
 
         public void addArrowAggregation(Pen _pen, int x1, int y1, int x2, int y2)//Агрегация
@@ -130,11 +128,10 @@ namespace UMLLizardSoft
             Point point2 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(0.4 + angle)), Convert.ToInt32(y2 + 25 * Math.Cos(0.4 + angle)));
             Point point3 = _pointSecond;
             Point point4 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(angle - 0.4)), Convert.ToInt32(y2 + 25 * Math.Cos(angle - 0.4)));
-            Point point5 = new Point(Convert.ToInt32(x2 + 50 * Math.Sin(angle - 0)), Convert.ToInt32(y2 + 50 * Math.Cos(angle - 0)));
 
-            Point[] points = { point1, point2, point3, point4, point5 };
+            Point[] points = { point1, point2, point3, point4 };
 
-            _graphics.DrawLines(_pen, points);
+            _graphics.DrawPolygon(_pen, points);
 
             _graphics.DrawLine(_pen, _pointFirst, pointSecond);
         }
@@ -153,7 +150,7 @@ namespace UMLLizardSoft
 
             _graphics.DrawLine(_pen, _pointFirst, pointSecond);
 
-            _graphics.DrawLines(_pen, points);
+            _graphics.DrawPolygon(_pen, points);
 
             _graphics.FillClosedCurve(solidBrush, points);
         }
