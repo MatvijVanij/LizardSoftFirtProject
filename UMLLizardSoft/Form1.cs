@@ -200,7 +200,7 @@ namespace UMLLizardSoft
             arrowWeight = 1 + minWeightValue + value;
             _penEnd = new Pen(_pen.Color, arrowWeight);                        //Line width of "Implimentation" ArrowBody !ONLY!
             _pen = new Pen(_pen.Color, arrowWeight);                           //line width of otherwise
-            bar.SetRange(1, 10);                                               //was 4 --> 1-4
+            bar.SetRange(1, 5);                                               //was 4 --> 1-5
 
         }
 
