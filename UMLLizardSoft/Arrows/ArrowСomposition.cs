@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace UMLLizardSoft.Arrows
 {
@@ -23,7 +18,6 @@ namespace UMLLizardSoft.Arrows
                 Point[] points = { point1, point2, point4, point3 };
 
                 graphics.DrawPolygon(_pen, points);
-
                 graphics.FillPolygon(solidBrush, points);
             }
             else if (StartPoint.X < EndPoint.X)
@@ -36,7 +30,6 @@ namespace UMLLizardSoft.Arrows
                 Point[] points = { point1, point2, point4, point3 };
 
                 graphics.DrawPolygon(_pen, points);
-
                 graphics.FillPolygon(solidBrush, points);
 
             }
@@ -50,9 +43,7 @@ namespace UMLLizardSoft.Arrows
                 Point[] points = { point1, point2, point4, point3 };
 
                 graphics.DrawPolygon(_pen, points);
-
                 graphics.FillPolygon(solidBrush, points);
-
             }
             else
             {
@@ -64,7 +55,6 @@ namespace UMLLizardSoft.Arrows
                 Point[] points = { point1, point2, point4, point3 };
 
                 graphics.DrawPolygon(_pen, points);
-
                 graphics.FillPolygon(solidBrush, points);
             }
 

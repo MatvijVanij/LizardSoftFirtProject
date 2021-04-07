@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace UMLLizardSoft.Arrows
 {
@@ -55,7 +50,6 @@ namespace UMLLizardSoft.Arrows
             }
 
             graphics.DrawLines(_pen, GetPoints().ToArray());
-
         }
     }
 }
