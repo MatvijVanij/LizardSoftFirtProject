@@ -1,18 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace UMLLizardSoft.Arrows
 {
     public abstract class AbstractArrow
     {
-        protected Pen _pen = new Pen(Color.Black, 5);
-        protected Pen _penEnd = new Pen(Color.Black, 5);
-
-
+        public Pen _pen = new Pen(Color.Black, 5);
+        
+        public Pen _penEnd = new Pen(Color.Black, 5);
 
         public Point StartPoint { get; set; }
         public Point EndPoint { get; set; }
@@ -28,12 +25,8 @@ namespace UMLLizardSoft.Arrows
             points.Add(new Point(middle, EndPoint.Y));
             points.Add(EndPoint);
 
-           
-
             return points;
         }
-
-
         public abstract void Draw(Graphics graphics);
     }
 }

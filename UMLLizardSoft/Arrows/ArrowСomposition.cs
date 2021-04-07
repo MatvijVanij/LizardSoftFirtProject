@@ -11,20 +11,62 @@ namespace UMLLizardSoft.Arrows
     {
         public override void Draw(Graphics graphics)
         {
-            //SolidBrush solidBrush = new SolidBrush(_pen.Color);
+            SolidBrush solidBrush = new SolidBrush(_pen.Color);
 
-            double angle = Math.Atan2(StartPoint.X - EndPoint.X, StartPoint.Y - EndPoint.Y);
+            if (StartPoint.X > EndPoint.X)
+            {
+                Point point1 = new Point(EndPoint.X, EndPoint.Y);
+                Point point2 = new Point(EndPoint.X + 30, EndPoint.Y - 20);
+                Point point3 = new Point(EndPoint.X + 30, EndPoint.Y + 20);
+                Point point4 = new Point(EndPoint.X + 60, EndPoint.Y);
 
-            //Point pointSecond = new Point(Convert.ToInt32(x2 + 50 * Math.Sin(angle - 0)), Convert.ToInt32(y2 + 50 * Math.Cos(angle - 0)));
-            //Point point1 = new Point(Convert.ToInt32(x2 + 50 * Math.Sin(angle - 0)), Convert.ToInt32(y2 + 50 * Math.Cos(angle - 0)));
-            //Point point2 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(0.4 + angle)), Convert.ToInt32(y2 + 25 * Math.Cos(0.4 + angle)));
-            //Point point3 = _pointSecond;
-            //Point point4 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(angle - 0.4)), Convert.ToInt32(y2 + 25 * Math.Cos(angle - 0.4)));
-            //Point[] points = { point1, point2, point3, point4 };
+                Point[] points = { point1, point2, point4, point3 };
 
-            //_graphics.DrawPolygon(_pen, points);
+                graphics.DrawPolygon(_pen, points);
 
-            //_graphics.FillClosedCurve(solidBrush, points);
+                graphics.FillPolygon(solidBrush, points);
+            }
+            else if (StartPoint.X < EndPoint.X)
+            {
+                Point point1 = new Point(EndPoint.X, EndPoint.Y);
+                Point point2 = new Point(EndPoint.X - 30, EndPoint.Y - 20);
+                Point point3 = new Point(EndPoint.X - 30, EndPoint.Y + 20);
+                Point point4 = new Point(EndPoint.X - 60, EndPoint.Y);
+
+                Point[] points = { point1, point2, point4, point3 };
+
+                graphics.DrawPolygon(_pen, points);
+
+                graphics.FillPolygon(solidBrush, points);
+
+            }
+            else if (StartPoint.X == EndPoint.X && StartPoint.Y > EndPoint.Y)
+            {
+                Point point1 = new Point(EndPoint.X, EndPoint.Y);
+                Point point2 = new Point(EndPoint.X + 20, EndPoint.Y + 30);
+                Point point3 = new Point(EndPoint.X - 20, EndPoint.Y + 30);
+                Point point4 = new Point(EndPoint.X, EndPoint.Y + 60);
+
+                Point[] points = { point1, point2, point4, point3 };
+
+                graphics.DrawPolygon(_pen, points);
+
+                graphics.FillPolygon(solidBrush, points);
+
+            }
+            else
+            {
+                Point point1 = new Point(EndPoint.X, EndPoint.Y);
+                Point point2 = new Point(EndPoint.X + 20, EndPoint.Y - 30);
+                Point point3 = new Point(EndPoint.X - 20, EndPoint.Y - 30);
+                Point point4 = new Point(EndPoint.X, EndPoint.Y - 60);
+
+                Point[] points = { point1, point2, point4, point3 };
+
+                graphics.DrawPolygon(_pen, points);
+
+                graphics.FillPolygon(solidBrush, points);
+            }
 
             graphics.DrawLines(_pen, GetPoints().ToArray());
         }

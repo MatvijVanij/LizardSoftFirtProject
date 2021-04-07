@@ -16,18 +16,7 @@ namespace UMLLizardSoft
         AbstractArrow _crntArrow;
 
         int arrowWeight;
-        Pen _pen = new Pen(Color.Black , 3);
-        //Pen _penEnd;
-
-
-        //Point _pointFirst;
-        //Point _pointSecond;
-
-        //int x1, y1, x2, y2;
-
-        //private delegate void DrawArrow(Pen _pen, int x1, int y1, int x2, int y2);
-        //DrawArrow drawArrow;
-
+    
         public Form1()
         {
             InitializeComponent();
@@ -35,12 +24,6 @@ namespace UMLLizardSoft
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //_mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            //_penEnd = new Pen(Color.Red, arrowWeight);                        //Line width of "Implimentation" ArrowBody !ONLY!
-            //_pen = new Pen(Color.Red, arrowWeight);                           //line width of otherwise
-            //_graphics = Graphics.FromImage(_mainBitmap);
-            //_graphics.Clear(Color.White);
-            //pictureBox1.Image = _mainBitmap;
             //drawArrow = addArrowAsotiation;                     //initialValue
             //arrowWeight = 1;
 
@@ -57,11 +40,7 @@ namespace UMLLizardSoft
         {
             _crntArrow.StartPoint = e.Location;
             _isButtonPressed = true;
-            ////inputAquired!
-            //_isButtonPressed = true;
-            //x1 = e.X;
-            //y1 = e.Y;
-            //_pointFirst = new Point(x1, y1);
+  
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
@@ -84,20 +63,6 @@ namespace UMLLizardSoft
                 pictureBox1.Image = _tmpBitmap;
                 GC.Collect();
             }
-            //if (_isButtonPressed)
-            //{
-            //    x2 = e.X;
-            //    y2 = e.Y;
-            //    _pointSecond = new Point(x2, y2);
-
-            //    _tmpBitmap = (Bitmap)_mainBitmap.Clone();
-            //    _graphics = Graphics.FromImage(_tmpBitmap);
-
-            //    drawArrow.Invoke(_pen, x1, y1, x2, y2);                             //correctDrawings
-
-            //    pictureBox1.Image = _tmpBitmap;
-            //    GC.Collect();
-            //}
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -141,7 +106,7 @@ namespace UMLLizardSoft
             int value = bar.Value;
             arrowWeight = 1 + minWeightValue + value;
             //_penEnd = new Pen(_pen.Color, arrowWeight);                        //Line width of "Implimentation" ArrowBody !ONLY!
-            _pen = new Pen(_pen.Color, arrowWeight);                           //line width of otherwise
+            _crntArrow._pen = new Pen(_crntArrow._pen.Color, arrowWeight);                           //line width of otherwise
             bar.SetRange(1, 5);                                               //was 4 --> 1-5
 
         }
@@ -150,7 +115,8 @@ namespace UMLLizardSoft
         {
             colorDialog1.ShowDialog();
             buttonColorPalette.BackColor = colorDialog1.Color;
-            _pen.Color = colorDialog1.Color;
+            _crntArrow._pen.Color = colorDialog1.Color;
+            _crntArrow._penEnd.Color = colorDialog1.Color;
         }
 
         //public void AddRectangle1(Pen _pen, int firstPoint, int secondPoint)

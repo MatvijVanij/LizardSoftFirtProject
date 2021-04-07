@@ -17,20 +17,49 @@ namespace UMLLizardSoft.Arrows
 
         public override void Draw(Graphics graphics)
         {
-            //Pen _penEnd = new Pen(Color.Black, 3);
+            if (StartPoint.X > EndPoint.X)
+            {
+                Point point1 = new Point(EndPoint.X, EndPoint.Y);
+                Point point2 = new Point(EndPoint.X + 30, EndPoint.Y - 30);
+                Point point3 = new Point(EndPoint.X + 30, EndPoint.Y + 30);
 
-            //_penEnd.DashStyle = DashStyle.Dash;
+                Point[] points = { point1, point2, point3 };
 
-            Point point1 = new Point(EndPoint.X, EndPoint.Y);
-            Point point2 = new Point(EndPoint.X - 30, EndPoint.Y - 30);
-            Point point3 = new Point(EndPoint.X - 30, EndPoint.Y + 30);
+                graphics.DrawPolygon(_pen, points);
+            }
+            else if (StartPoint.X < EndPoint.X)
+            {
+                Point point1 = new Point(EndPoint.X, EndPoint.Y);
+                Point point2 = new Point(EndPoint.X - 30, EndPoint.Y - 30);
+                Point point3 = new Point(EndPoint.X - 30, EndPoint.Y + 30);
 
-            Point[] points = { point1, point2, point3 };
+                Point[] points = { point1, point2, point3 };
 
-            graphics.DrawPolygon(_pen, points);
+                graphics.DrawPolygon(_pen, points);
+
+            }
+            else if (StartPoint.X == EndPoint.X && StartPoint.Y > EndPoint.Y)
+            {
+                Point point1 = new Point(EndPoint.X, EndPoint.Y);
+                Point point2 = new Point(EndPoint.X + 20, EndPoint.Y + 30);
+                Point point3 = new Point(EndPoint.X - 20, EndPoint.Y + 30);
+
+                Point[] points = { point1, point2, point3 };
+
+                graphics.DrawPolygon(_pen, points);
+            }
+            else
+            {
+                Point point1 = new Point(EndPoint.X, EndPoint.Y);
+                Point point2 = new Point(EndPoint.X + 20, EndPoint.Y - 30);
+                Point point3 = new Point(EndPoint.X - 20, EndPoint.Y - 30);
+
+                Point[] points = { point1, point2, point3 };
+
+                graphics.DrawPolygon(_pen, points);
+            }
 
             graphics.DrawLines(_penEnd, GetPoints().ToArray());
-
         }
     }
 }
