@@ -9,11 +9,9 @@ namespace UMLLizardSoft.Arrows
 {
     public class ArrowAggregation : AbstractArrow
     {
-
-
         public override void Draw(Graphics graphics)
         {
-            
+            double angle = Math.Atan2(StartPoint.X - EndPoint.X, StartPoint.Y - EndPoint.Y);
             //Point EndPoint = new Point(Convert.ToInt32(x2 + 50 * Math.Sin(angle - 0)), Convert.ToInt32(y2 + 50 * Math.Cos(angle - 0)));
             //Point point1 = new Point(Convert.ToInt32(x2 + 50 * Math.Sin(angle - 0)), Convert.ToInt32(y2 + 50 * Math.Cos(angle - 0)));
             //Point point2 = new Point(Convert.ToInt32(x2 + 25 * Math.Sin(0.4 + angle)), Convert.ToInt32(y2 + 25 * Math.Cos(0.4 + angle)));
@@ -24,7 +22,8 @@ namespace UMLLizardSoft.Arrows
 
             //graphics.DrawPolygon(_pen, points);
 
-            graphics.DrawLine(_pen, StartPoint, EndPoint);
+
+            graphics.DrawLines(_pen, GetPoints().ToArray());
         }
     }
 }

@@ -12,7 +12,8 @@ namespace UMLLizardSoft.Arrows
         public override void Draw(Graphics graphics)
         {
             //SolidBrush solidBrush = new SolidBrush(_pen.Color);
-            //double angle = Math.Atan2(x1 - x2, y1 - y2);
+
+            double angle = Math.Atan2(StartPoint.X - EndPoint.X, StartPoint.Y - EndPoint.Y);
 
             //Point pointSecond = new Point(Convert.ToInt32(x2 + 50 * Math.Sin(angle - 0)), Convert.ToInt32(y2 + 50 * Math.Cos(angle - 0)));
             //Point point1 = new Point(Convert.ToInt32(x2 + 50 * Math.Sin(angle - 0)), Convert.ToInt32(y2 + 50 * Math.Cos(angle - 0)));
@@ -25,7 +26,7 @@ namespace UMLLizardSoft.Arrows
 
             //_graphics.FillClosedCurve(solidBrush, points);
 
-            graphics.DrawLine(_pen, StartPoint,EndPoint);
+            graphics.DrawLines(_pen, GetPoints().ToArray());
         }
     }
 }
