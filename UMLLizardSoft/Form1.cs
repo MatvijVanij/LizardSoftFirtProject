@@ -99,6 +99,14 @@ namespace UMLLizardSoft
             pen.Color = colorDialog1.Color;
         }
 
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            _graphics = Graphics.FromImage(_mainBitmap);
+            _graphics.Clear(Color.White);
+            pictureBox1.Image = _mainBitmap;
+        }
+
         //public void AddRectangle(Pen _pen, int firstPoint, int secondPoint)
         //{
         //    int W = x2 - x1;

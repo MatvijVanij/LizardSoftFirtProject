@@ -29,6 +29,7 @@ namespace UMLLizardSoft
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.TextBox textBox1;
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
@@ -43,6 +44,8 @@ namespace UMLLizardSoft
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.buttonColorPalette = new System.Windows.Forms.Button();
+            this.buttonClear = new System.Windows.Forms.Button();
+            textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -175,14 +178,40 @@ namespace UMLLizardSoft
             // 
             // buttonColorPalette
             // 
-            this.buttonColorPalette.Location = new System.Drawing.Point(12, 373);
-            this.buttonColorPalette.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonColorPalette.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonColorPalette.Location = new System.Drawing.Point(13, 397);
+            this.buttonColorPalette.Margin = new System.Windows.Forms.Padding(2);
             this.buttonColorPalette.Name = "buttonColorPalette";
-            this.buttonColorPalette.Size = new System.Drawing.Size(94, 46);
+            this.buttonColorPalette.Size = new System.Drawing.Size(46, 36);
             this.buttonColorPalette.TabIndex = 11;
-            this.buttonColorPalette.Text = "Color palette";
-            this.buttonColorPalette.UseVisualStyleBackColor = true;
+            this.buttonColorPalette.UseVisualStyleBackColor = false;
             this.buttonColorPalette.Click += new System.EventHandler(this.buttonColorPalette_Click);
+            // 
+            // textBox1
+            // 
+            textBox1.BackColor = System.Drawing.SystemColors.Info;
+            textBox1.CausesValidation = false;
+            textBox1.Enabled = false;
+            textBox1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            textBox1.HideSelection = false;
+            textBox1.Location = new System.Drawing.Point(13, 372);
+            textBox1.Name = "textBox1";
+            textBox1.ShortcutsEnabled = false;
+            textBox1.Size = new System.Drawing.Size(45, 20);
+            textBox1.TabIndex = 12;
+            textBox1.Text = "Color";
+            textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            textBox1.WordWrap = false;
+            // 
+            // buttonClear
+            // 
+            this.buttonClear.Location = new System.Drawing.Point(64, 397);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(126, 36);
+            this.buttonClear.TabIndex = 13;
+            this.buttonClear.Text = "Clear";
+            this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
             // Form1
             // 
@@ -190,6 +219,8 @@ namespace UMLLizardSoft
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1047, 503);
+            this.Controls.Add(this.buttonClear);
+            this.Controls.Add(textBox1);
             this.Controls.Add(this.buttonColorPalette);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox5);
@@ -234,6 +265,7 @@ namespace UMLLizardSoft
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Button buttonColorPalette;
+        private System.Windows.Forms.Button buttonClear;
     }
 }
 

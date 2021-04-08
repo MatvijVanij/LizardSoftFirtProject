@@ -70,6 +70,7 @@ namespace UMLLizardSoft.Arrows
             EndPoint = tmp;
             pen.DashStyle = DashStyle.Dash;
             graphics.DrawLines(pen, GetPoints().ToArray());
+            pen.DashStyle = DashStyle.Solid;
         }
     }
 }
