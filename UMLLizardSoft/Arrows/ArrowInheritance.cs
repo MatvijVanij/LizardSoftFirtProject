@@ -4,6 +4,7 @@ namespace UMLLizardSoft.Arrows
 {
     public class ArrowInheritance : AbstractArrow
     {
+        Point tmp = new Point();
         public override void Draw(Graphics graphics)
         {
             if (StartPoint.X > EndPoint.X)
@@ -14,6 +15,8 @@ namespace UMLLizardSoft.Arrows
 
                 Point[] points = { point1, point2, point3 };
 
+                tmp = new Point(EndPoint.X + 30, EndPoint.Y);
+
                 graphics.DrawPolygon(_pen, points);
             }
             else if (StartPoint.X < EndPoint.X)
@@ -23,6 +26,8 @@ namespace UMLLizardSoft.Arrows
                 Point point3 = new Point(EndPoint.X - 30, EndPoint.Y + 30);
 
                 Point[] points = { point1, point2, point3 };
+
+                tmp = new Point(EndPoint.X - 30, EndPoint.Y);
 
                 graphics.DrawPolygon(_pen, points);
 
@@ -35,6 +40,8 @@ namespace UMLLizardSoft.Arrows
 
                 Point[] points = { point1, point2, point3 };
 
+                tmp = new Point(EndPoint.X, EndPoint.Y + 30);
+
                 graphics.DrawPolygon(_pen, points);
             }
             else
@@ -45,8 +52,12 @@ namespace UMLLizardSoft.Arrows
 
                 Point[] points = { point1, point2, point3 };
 
+                tmp = new Point(EndPoint.X, EndPoint.Y - 30);
+
                 graphics.DrawPolygon(_pen, points);
             }
+
+            EndPoint = tmp;
 
             graphics.DrawLines(_pen, GetPoints().ToArray());
         }
