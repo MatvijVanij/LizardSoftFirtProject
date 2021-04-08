@@ -4,7 +4,8 @@ namespace UMLLizardSoft.Arrows
 {
     public class ArrowAggregation : AbstractArrow
     {
-        public override void Draw(Graphics graphics)
+        Point tmp = new Point();
+        public override void Draw(Graphics graphics,Pen pen)
         {
             if (StartPoint.X > EndPoint.X)
             {
@@ -15,7 +16,9 @@ namespace UMLLizardSoft.Arrows
 
                 Point[] points = { point1, point2, point4, point3 };
 
-                graphics.DrawPolygon(_pen, points);
+                graphics.DrawPolygon(pen, points);
+
+                tmp = point4;
             }
             else if (StartPoint.X < EndPoint.X)
             {
@@ -26,8 +29,9 @@ namespace UMLLizardSoft.Arrows
 
                 Point[] points = { point1, point2, point4, point3 };
 
-                graphics.DrawPolygon(_pen, points);
+                graphics.DrawPolygon(pen, points);
 
+                tmp = point4;
             }
             else if (StartPoint.X == EndPoint.X && StartPoint.Y > EndPoint.Y)
             {
@@ -38,7 +42,9 @@ namespace UMLLizardSoft.Arrows
 
                 Point[] points = { point1, point2, point4, point3 };
 
-                graphics.DrawPolygon(_pen, points);
+                graphics.DrawPolygon(pen, points);
+
+                tmp = point4;
             }
             else
             {
@@ -49,10 +55,14 @@ namespace UMLLizardSoft.Arrows
 
                 Point[] points = { point1, point2, point4, point3 };
 
-                graphics.DrawPolygon(_pen, points);
+                graphics.DrawPolygon(pen, points);
+
+                tmp = point4;
             }
 
-            graphics.DrawLines(_pen, GetPoints().ToArray());
+            EndPoint = tmp;
+
+            graphics.DrawLines(pen, GetPoints().ToArray());
         }
     }
 }

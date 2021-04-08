@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using UMLLizardSoft.Arrows;
+using UMLLizardSoft.Rectangles;
 
 namespace UMLLizardSoft
 {
@@ -11,8 +12,10 @@ namespace UMLLizardSoft
         Bitmap _tmpBitmap;
         Graphics _graphics;
         AbstractArrow _crntArrow;
+        AbstractRectangle _crntRectangle;
         bool _isButtonPressed = false;
         int arrowWeight;
+        Pen pen = new Pen(Color.Black,3);
 
         public Form1()
         {
@@ -21,17 +24,19 @@ namespace UMLLizardSoft
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //arrowWeight = 1;
+            arrowWeight = 1;
             _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             _graphics = Graphics.FromImage(_mainBitmap);
             _graphics.Clear(Color.White);
             pictureBox1.Image = _mainBitmap;
-            _crntArrow = new ArrowAssociation();
+            //_crntArrow = new ArrowAssociation();
+            _crntRectangle = new Rectangle1();
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            _crntArrow.StartPoint = e.Location;
+           // _crntArrow.StartPoint = e.Location;
+            _crntRectangle.StartPoint = e.Location;
             _isButtonPressed = true;
         }
 
@@ -47,36 +52,51 @@ namespace UMLLizardSoft
             {
                 _tmpBitmap = (Bitmap)_mainBitmap.Clone();
                 _graphics = Graphics.FromImage(_tmpBitmap);
-                _crntArrow.EndPoint = e.Location;
-                _crntArrow.Draw(_graphics);
+
+                //_crntArrow.EndPoint = e.Location;
+                //_crntArrow.Draw(_graphics,pen);
+
+                _crntRectangle.EndPoint = e.Location;
+                _crntRectangle.Draw(_graphics,pen);
+
                 pictureBox1.Image = _tmpBitmap;
                 GC.Collect();
             }
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        private void radioButtonAssociation_CheckedChanged(object sender, EventArgs e)
         {
             _crntArrow = new ArrowAssociation();
         }
 
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        private void radioButtonInheritance_CheckedChanged(object sender, EventArgs e)
         {
             _crntArrow = new ArrowInheritance();
         }
 
-        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        private void radioButtonAggregation_CheckedChanged(object sender, EventArgs e)
         {
             _crntArrow = new ArrowAggregation();
         }
 
-        private void radioButton4_CheckedChanged(object sender, EventArgs e)
+        private void radioButtonСomposition_CheckedChanged(object sender, EventArgs e)
         {
             _crntArrow = new ArrowСomposition();
         }
 
-        private void radioButton5_CheckedChanged(object sender, EventArgs e)
+        private void radioButtonImplementation_CheckedChanged(object sender, EventArgs e)
         {
             _crntArrow = new ArrowImplementation();
+        }
+
+        private void radioButtonRectangle1_CheckedChanged(object sender, EventArgs e)
+        {
+            _crntRectangle = new Rectangle1();
+        }
+
+        private void radioButtonRectangle2_CheckedChanged(object sender, EventArgs e)
+        {
+            _crntRectangle = new Rectangle2();
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
@@ -86,26 +106,26 @@ namespace UMLLizardSoft
             int maxWeitghValue = bar.Maximum;
             int value = bar.Value;
             arrowWeight = 1 + minWeightValue + value;
-            //_penEnd = new Pen(_pen.Color, arrowWeight);
-            _crntArrow._pen = new Pen(_crntArrow._pen.Color, arrowWeight);
-            bar.SetRange(1, 5);
+            pen = new Pen(pen.Color, arrowWeight);
+            bar.SetRange(1, 10);
         }
 
         private void buttonColorPalette_Click(object sender, EventArgs e)
         {
             colorDialog1.ShowDialog();
             buttonColorPalette.BackColor = colorDialog1.Color;
-            _crntArrow._pen.Color = colorDialog1.Color;
-            _crntArrow._penEnd.Color = colorDialog1.Color;
+            pen.Color = colorDialog1.Color;
         }
 
-        //public void AddRectangle(Pen _pen, int firstPoint, int secondPoint)
-        //{
-        //    int W = x2 - x1;
-        //    int H = y2 - y1;
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            _graphics = Graphics.FromImage(_mainBitmap);
+            _graphics.Clear(Color.White);
+            pictureBox1.Image = _mainBitmap;
+        }
 
-        //    _graphics.DrawRectangle(_pen, x1, y1, W, H);
-        //}
+        
 
         //public void AddRectangle1(Pen _pen, int firstPoint, int secondPoint)
         //{

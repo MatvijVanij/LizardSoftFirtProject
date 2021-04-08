@@ -4,7 +4,8 @@ namespace UMLLizardSoft.Arrows
 {
     public class ArrowInheritance : AbstractArrow
     {
-        public override void Draw(Graphics graphics)
+        Point tmp = new Point();
+        public override void Draw(Graphics graphics, Pen pen)
         {
             if (StartPoint.X > EndPoint.X)
             {
@@ -14,7 +15,9 @@ namespace UMLLizardSoft.Arrows
 
                 Point[] points = { point1, point2, point3 };
 
-                graphics.DrawPolygon(_pen, points);
+                tmp = new Point(EndPoint.X + 30, EndPoint.Y);
+
+                graphics.DrawPolygon(pen, points);
             }
             else if (StartPoint.X < EndPoint.X)
             {
@@ -24,7 +27,9 @@ namespace UMLLizardSoft.Arrows
 
                 Point[] points = { point1, point2, point3 };
 
-                graphics.DrawPolygon(_pen, points);
+                tmp = new Point(EndPoint.X - 30, EndPoint.Y);
+
+                graphics.DrawPolygon(pen, points);
 
             }
             else if (StartPoint.X == EndPoint.X && StartPoint.Y > EndPoint.Y)
@@ -35,7 +40,9 @@ namespace UMLLizardSoft.Arrows
 
                 Point[] points = { point1, point2, point3 };
 
-                graphics.DrawPolygon(_pen, points);
+                tmp = new Point(EndPoint.X, EndPoint.Y + 30);
+
+                graphics.DrawPolygon(pen, points);
             }
             else
             {
@@ -45,10 +52,14 @@ namespace UMLLizardSoft.Arrows
 
                 Point[] points = { point1, point2, point3 };
 
-                graphics.DrawPolygon(_pen, points);
+                tmp = new Point(EndPoint.X, EndPoint.Y - 30);
+
+                graphics.DrawPolygon(pen, points);
             }
 
-            graphics.DrawLines(_pen, GetPoints().ToArray());
+            EndPoint = tmp;
+
+            graphics.DrawLines(pen, GetPoints().ToArray());
         }
     }
 }

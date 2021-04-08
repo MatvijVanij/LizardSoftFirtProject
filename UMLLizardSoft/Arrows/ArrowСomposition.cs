@@ -4,9 +4,9 @@ namespace UMLLizardSoft.Arrows
 {
     public class ArrowСomposition : AbstractArrow
     {
-        public override void Draw(Graphics graphics)
+        public override void Draw(Graphics graphics, Pen pen)
         {
-            SolidBrush solidBrush = new SolidBrush(_pen.Color);
+            SolidBrush solidBrush = new SolidBrush(pen.Color);
 
             if (StartPoint.X > EndPoint.X)
             {
@@ -17,7 +17,7 @@ namespace UMLLizardSoft.Arrows
 
                 Point[] points = { point1, point2, point4, point3 };
 
-                graphics.DrawPolygon(_pen, points);
+                graphics.DrawPolygon(pen, points);
                 graphics.FillPolygon(solidBrush, points);
             }
             else if (StartPoint.X < EndPoint.X)
@@ -29,7 +29,7 @@ namespace UMLLizardSoft.Arrows
 
                 Point[] points = { point1, point2, point4, point3 };
 
-                graphics.DrawPolygon(_pen, points);
+                graphics.DrawPolygon(pen, points);
                 graphics.FillPolygon(solidBrush, points);
 
             }
@@ -42,7 +42,7 @@ namespace UMLLizardSoft.Arrows
 
                 Point[] points = { point1, point2, point4, point3 };
 
-                graphics.DrawPolygon(_pen, points);
+                graphics.DrawPolygon(pen, points);
                 graphics.FillPolygon(solidBrush, points);
             }
             else
@@ -54,11 +54,11 @@ namespace UMLLizardSoft.Arrows
 
                 Point[] points = { point1, point2, point4, point3 };
 
-                graphics.DrawPolygon(_pen, points);
+                graphics.DrawPolygon(pen, points);
                 graphics.FillPolygon(solidBrush, points);
             }
 
-            graphics.DrawLines(_pen, GetPoints().ToArray());
+            graphics.DrawLines(pen, GetPoints().ToArray());
         }
     }
 }
