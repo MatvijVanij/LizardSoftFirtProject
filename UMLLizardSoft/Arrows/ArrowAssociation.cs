@@ -4,7 +4,7 @@ namespace UMLLizardSoft.Arrows
 {
     public class ArrowAssociation : AbstractArrow
     {
-        public override void Draw(Graphics graphics)
+        public override void Draw(Graphics graphics,Pen pen)
         {
             if (StartPoint.X > EndPoint.X)
             {
@@ -14,7 +14,7 @@ namespace UMLLizardSoft.Arrows
 
                 Point[] points = { point2, point1, point3 };
 
-                graphics.DrawLines(_pen, points);
+                graphics.DrawLines(pen, points);
             }
             else if (StartPoint.X < EndPoint.X)
             {
@@ -24,7 +24,7 @@ namespace UMLLizardSoft.Arrows
 
                 Point[] points = { point1, point2, point3 };
 
-                graphics.DrawLines(_pen, points);
+                graphics.DrawLines(pen, points);
 
             }
             else if (StartPoint.X == EndPoint.X && StartPoint.Y > EndPoint.Y)
@@ -35,7 +35,7 @@ namespace UMLLizardSoft.Arrows
 
                 Point[] points = { point1, point2, point3 };
 
-                graphics.DrawLines(_pen, points);
+                graphics.DrawLines(pen, points);
 
             }
             else
@@ -46,10 +46,10 @@ namespace UMLLizardSoft.Arrows
 
                 Point[] points = { point1, point2, point3 };
 
-                graphics.DrawLines(_pen, points);
+                graphics.DrawLines(pen, points);
             }
 
-            graphics.DrawLines(_pen, GetPoints().ToArray());
+            graphics.DrawLines(pen, GetPoints().ToArray());
         }
     }
 }

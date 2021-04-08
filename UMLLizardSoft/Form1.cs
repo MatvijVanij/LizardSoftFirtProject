@@ -13,6 +13,8 @@ namespace UMLLizardSoft
         AbstractArrow _crntArrow;
         bool _isButtonPressed = false;
         int arrowWeight;
+        Pen pen = new Pen(Color.Black,3);
+
 
         public Form1()
         {
@@ -21,7 +23,7 @@ namespace UMLLizardSoft
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //arrowWeight = 1;
+            arrowWeight = 1;
             _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             _graphics = Graphics.FromImage(_mainBitmap);
             _graphics.Clear(Color.White);
@@ -48,7 +50,7 @@ namespace UMLLizardSoft
                 _tmpBitmap = (Bitmap)_mainBitmap.Clone();
                 _graphics = Graphics.FromImage(_tmpBitmap);
                 _crntArrow.EndPoint = e.Location;
-                _crntArrow.Draw(_graphics);
+                _crntArrow.Draw(_graphics,pen);
                 pictureBox1.Image = _tmpBitmap;
                 GC.Collect();
             }
@@ -86,17 +88,15 @@ namespace UMLLizardSoft
             int maxWeitghValue = bar.Maximum;
             int value = bar.Value;
             arrowWeight = 1 + minWeightValue + value;
-            //_penEnd = new Pen(_pen.Color, arrowWeight);
-            _crntArrow._pen = new Pen(_crntArrow._pen.Color, arrowWeight);
-            bar.SetRange(1, 5);
+            pen = new Pen(pen.Color, arrowWeight);
+            bar.SetRange(1, 10);
         }
 
         private void buttonColorPalette_Click(object sender, EventArgs e)
         {
             colorDialog1.ShowDialog();
             buttonColorPalette.BackColor = colorDialog1.Color;
-            _crntArrow._pen.Color = colorDialog1.Color;
-            _crntArrow._penEnd.Color = colorDialog1.Color;
+            pen.Color = colorDialog1.Color;
         }
 
         //public void AddRectangle(Pen _pen, int firstPoint, int secondPoint)

@@ -5,8 +5,8 @@ namespace UMLLizardSoft.Arrows
 {
     public abstract class AbstractArrow
     {
-        public Pen _pen = new Pen(Color.Black, 5);
-        public Pen _penEnd = new Pen(Color.Black, 5);
+        protected Pen pen = new Pen(Color.Black, 5);
+
         public Point StartPoint { get; set; }
         public Point EndPoint { get; set; }
 
@@ -22,6 +22,6 @@ namespace UMLLizardSoft.Arrows
             return points;
         }
 
-        public abstract void Draw(Graphics graphics);
+        public abstract void Draw(Graphics graphics, Pen pen);
     }
 }
