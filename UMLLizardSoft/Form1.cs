@@ -35,7 +35,8 @@ namespace UMLLizardSoft
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            _crntArrow.StartPoint = e.Location;
+           // _crntArrow.StartPoint = e.Location;
+            _crntRectangle.StartPoint = e.Location;
             _isButtonPressed = true;
         }
 
@@ -51,8 +52,13 @@ namespace UMLLizardSoft
             {
                 _tmpBitmap = (Bitmap)_mainBitmap.Clone();
                 _graphics = Graphics.FromImage(_tmpBitmap);
-                _crntArrow.EndPoint = e.Location;
-                _crntArrow.Draw(_graphics,pen);
+
+                //_crntArrow.EndPoint = e.Location;
+                //_crntArrow.Draw(_graphics,pen);
+
+                _crntRectangle.EndPoint = e.Location;
+                _crntRectangle.Draw(_graphics,pen);
+
                 pictureBox1.Image = _tmpBitmap;
                 GC.Collect();
             }
@@ -83,6 +89,16 @@ namespace UMLLizardSoft
             _crntArrow = new ArrowImplementation();
         }
 
+        private void radioButtonRectangle1_CheckedChanged(object sender, EventArgs e)
+        {
+            _crntRectangle = new Rectangle1();
+        }
+
+        private void radioButtonRectangle2_CheckedChanged(object sender, EventArgs e)
+        {
+            _crntRectangle = new Rectangle2();
+        }
+
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
             TrackBar bar = (TrackBar)sender;
@@ -109,13 +125,7 @@ namespace UMLLizardSoft
             pictureBox1.Image = _mainBitmap;
         }
 
-        //public void AddRectangle(Pen _pen, int firstPoint, int secondPoint)
-        //{
-        //    int W = x2 - x1;
-        //    int H = y2 - y1;
-
-        //    _graphics.DrawRectangle(_pen, x1, y1, W, H);
-        //}
+        
 
         //public void AddRectangle1(Pen _pen, int firstPoint, int secondPoint)
         //{
