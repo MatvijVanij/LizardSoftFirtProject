@@ -59,6 +59,7 @@ namespace UMLLizardSoft.Arrows
 
                 tmp = point4;
             }
+
             EndPoint = tmp;
 
             graphics.DrawLines(pen, GetPoints().ToArray());
