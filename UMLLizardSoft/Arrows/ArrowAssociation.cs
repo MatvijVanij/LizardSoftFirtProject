@@ -5,6 +5,7 @@ namespace UMLLizardSoft.Arrows
     public class ArrowAssociation : AbstractArrow
     {
         int delta = 30;
+
         public override void Draw(Graphics graphics, Pen pen)
         {
             DrawingDelta();
@@ -13,10 +14,7 @@ namespace UMLLizardSoft.Arrows
             Point point2 = new Point(EndPoint.X + delta, EndPoint.Y - delta);
             Point point3 = new Point(EndPoint.X + delta, EndPoint.Y + delta);
 
-            if (StartPoint.X > EndPoint.X)
-            {
-            }
-            else if (StartPoint.X < EndPoint.X)
+            if (StartPoint.X < EndPoint.X)
             {
                 point2 = new Point(EndPoint.X - delta, EndPoint.Y - delta);
                 point3 = new Point(EndPoint.X - delta, EndPoint.Y + delta);
@@ -26,13 +24,13 @@ namespace UMLLizardSoft.Arrows
                 point2 = new Point(EndPoint.X + delta, EndPoint.Y + delta);
                 point3 = new Point(EndPoint.X - delta, EndPoint.Y + delta);
             }
-            else
+            else if (StartPoint.X == EndPoint.X && StartPoint.Y < EndPoint.Y)
             {
                 point2 = new Point(EndPoint.X + delta, EndPoint.Y - delta);
                 point3 = new Point(EndPoint.X - delta, EndPoint.Y - delta);
             }
-            graphics.DrawLines(pen, GetPoints().ToArray());
 
+            graphics.DrawLines(pen, GetPoints().ToArray());
             Point[] points = { point2, point1, point3 };
             graphics.DrawLines(pen, points);
         }
