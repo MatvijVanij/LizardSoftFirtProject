@@ -4,54 +4,37 @@ namespace UMLLizardSoft.Arrows
 {
     public class ArrowAssociation : AbstractArrow
     {
-        public override void Draw(Graphics graphics,Pen pen)
+        int delta = 30;
+        public override void Draw(Graphics graphics, Pen pen)
         {
-            DrawingError();
+            DrawingDelta();
+
+            Point point1 = new Point(EndPoint.X, EndPoint.Y);
+            Point point2 = new Point(EndPoint.X + delta, EndPoint.Y - delta);
+            Point point3 = new Point(EndPoint.X + delta, EndPoint.Y + delta);
 
             if (StartPoint.X > EndPoint.X)
             {
-                Point point1 = new Point(EndPoint.X, EndPoint.Y);
-                Point point2 = new Point(EndPoint.X + 30, EndPoint.Y - 30);
-                Point point3 = new Point(EndPoint.X + 30, EndPoint.Y + 30);
-
-                Point[] points = { point2, point1, point3 };
-
-                graphics.DrawLines(pen, points);
             }
             else if (StartPoint.X < EndPoint.X)
             {
-                Point point2 = new Point(EndPoint.X, EndPoint.Y);
-                Point point1 = new Point(EndPoint.X - 30, EndPoint.Y - 30);
-                Point point3 = new Point(EndPoint.X - 30, EndPoint.Y + 30);
-
-                Point[] points = { point1, point2, point3 };
-
-                graphics.DrawLines(pen, points);
-
+                point2 = new Point(EndPoint.X - delta, EndPoint.Y - delta);
+                point3 = new Point(EndPoint.X - delta, EndPoint.Y + delta);
             }
             else if (StartPoint.X == EndPoint.X && StartPoint.Y > EndPoint.Y)
             {
-                Point point2 = new Point(EndPoint.X, EndPoint.Y);
-                Point point1 = new Point(EndPoint.X - 30, EndPoint.Y + 30);
-                Point point3 = new Point(EndPoint.X + 30, EndPoint.Y + 30);
-
-                Point[] points = { point1, point2, point3 };
-
-                graphics.DrawLines(pen, points);
-
+                point2 = new Point(EndPoint.X + delta, EndPoint.Y + delta);
+                point3 = new Point(EndPoint.X - delta, EndPoint.Y + delta);
             }
             else
             {
-                Point point2 = new Point(EndPoint.X, EndPoint.Y);
-                Point point1 = new Point(EndPoint.X - 30, EndPoint.Y - 30);
-                Point point3 = new Point(EndPoint.X + 30, EndPoint.Y - 30);
-
-                Point[] points = { point1, point2, point3 };
-
-                graphics.DrawLines(pen, points);
+                point2 = new Point(EndPoint.X + delta, EndPoint.Y - delta);
+                point3 = new Point(EndPoint.X - delta, EndPoint.Y - delta);
             }
-
             graphics.DrawLines(pen, GetPoints().ToArray());
+
+            Point[] points = { point2, point1, point3 };
+            graphics.DrawLines(pen, points);
         }
     }
 }

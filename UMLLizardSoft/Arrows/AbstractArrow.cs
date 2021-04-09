@@ -23,7 +23,7 @@ namespace UMLLizardSoft.Arrows
 
         public abstract void Draw(Graphics graphics, Pen pen);
 
-        public void DrawingError()
+        public void DrawingDelta()
         {
             if (Math.Abs(StartPoint.X - EndPoint.X) < 30)
             {
