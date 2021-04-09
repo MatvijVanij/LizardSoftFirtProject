@@ -15,7 +15,8 @@ namespace UMLLizardSoft
         AbstractRectangle _crntRectangle;
         bool _isButtonPressed = false;
         int arrowWeight;
-        Pen pen = new Pen(Color.Black,3);
+        Pen pen = new Pen(Color.Black, 3);
+        bool flag = false;
 
         public Form1()
         {
@@ -29,14 +30,28 @@ namespace UMLLizardSoft
             _graphics = Graphics.FromImage(_mainBitmap);
             _graphics.Clear(Color.White);
             pictureBox1.Image = _mainBitmap;
-            //_crntArrow = new ArrowAssociation();
-            _crntRectangle = new Rectangle1();
+
+            if (flag == true)
+            {
+                _crntArrow = new ArrowAssociation();
+            }
+            else
+            {
+                _crntRectangle = new Rectangle1();
+            }
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-           // _crntArrow.StartPoint = e.Location;
-            _crntRectangle.StartPoint = e.Location;
+            if (flag == true)
+            {
+                _crntArrow.StartPoint = e.Location;
+            }
+            else
+            {
+                _crntRectangle.StartPoint = e.Location;
+            }
+
             _isButtonPressed = true;
         }
 
@@ -53,11 +68,16 @@ namespace UMLLizardSoft
                 _tmpBitmap = (Bitmap)_mainBitmap.Clone();
                 _graphics = Graphics.FromImage(_tmpBitmap);
 
-                //_crntArrow.EndPoint = e.Location;
-                //_crntArrow.Draw(_graphics,pen);
-
-                _crntRectangle.EndPoint = e.Location;
-                _crntRectangle.Draw(_graphics,pen);
+                if (flag == true)
+                {
+                    _crntArrow.EndPoint = e.Location;
+                    _crntArrow.Draw(_graphics, pen);
+                }
+                else
+                {
+                    _crntRectangle.EndPoint = e.Location;
+                    _crntRectangle.Draw(_graphics, pen);
+                }
 
                 pictureBox1.Image = _tmpBitmap;
                 GC.Collect();
@@ -66,36 +86,43 @@ namespace UMLLizardSoft
 
         private void radioButtonAssociation_CheckedChanged(object sender, EventArgs e)
         {
+            flag = true;
             _crntArrow = new ArrowAssociation();
         }
 
         private void radioButtonInheritance_CheckedChanged(object sender, EventArgs e)
         {
+            flag = true;
             _crntArrow = new ArrowInheritance();
         }
 
         private void radioButtonAggregation_CheckedChanged(object sender, EventArgs e)
         {
+            flag = true;
             _crntArrow = new ArrowAggregation();
         }
 
         private void radioButtonСomposition_CheckedChanged(object sender, EventArgs e)
         {
+            flag = true;
             _crntArrow = new ArrowСomposition();
         }
 
         private void radioButtonImplementation_CheckedChanged(object sender, EventArgs e)
         {
+            flag = true;
             _crntArrow = new ArrowImplementation();
         }
 
         private void radioButtonRectangle1_CheckedChanged(object sender, EventArgs e)
         {
+            flag = false;
             _crntRectangle = new Rectangle1();
         }
 
         private void radioButtonRectangle2_CheckedChanged(object sender, EventArgs e)
         {
+            flag = false;
             _crntRectangle = new Rectangle2();
         }
 
@@ -124,8 +151,6 @@ namespace UMLLizardSoft
             _graphics.Clear(Color.White);
             pictureBox1.Image = _mainBitmap;
         }
-
-        
 
         //public void AddRectangle1(Pen _pen, int firstPoint, int secondPoint)
         //{

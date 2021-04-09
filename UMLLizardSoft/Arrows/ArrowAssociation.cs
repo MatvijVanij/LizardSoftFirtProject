@@ -6,6 +6,8 @@ namespace UMLLizardSoft.Arrows
     {
         public override void Draw(Graphics graphics,Pen pen)
         {
+            DrawingError();
+
             if (StartPoint.X > EndPoint.X)
             {
                 Point point1 = new Point(EndPoint.X, EndPoint.Y);

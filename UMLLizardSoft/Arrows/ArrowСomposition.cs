@@ -8,6 +8,8 @@ namespace UMLLizardSoft.Arrows
         {
             SolidBrush solidBrush = new SolidBrush(pen.Color);
 
+            DrawingError();
+
             if (StartPoint.X > EndPoint.X)
             {
                 Point point1 = new Point(EndPoint.X, EndPoint.Y);

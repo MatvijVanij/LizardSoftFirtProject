@@ -9,6 +9,8 @@ namespace UMLLizardSoft.Arrows
 
         public override void Draw(Graphics graphics,Pen pen)
         {
+            DrawingError();
+
             if (StartPoint.X > EndPoint.X)
             {
                 pen.DashStyle = DashStyle.Solid;
