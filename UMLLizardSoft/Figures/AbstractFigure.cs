@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace UMLLizardSoft.Arrows
+namespace UMLLizardSoft.Figures
 {
-    public abstract class AbstractArrow
+    public abstract class AbstractFigure
     {
         public Point StartPoint { get; set; }
         public Point EndPoint { get; set; }

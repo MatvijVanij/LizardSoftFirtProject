@@ -1,8 +1,8 @@
 ﻿using System.Drawing;
 
-namespace UMLLizardSoft.Arrows
+namespace UMLLizardSoft.Figures
 {
-    public class ArrowAggregation : AbstractArrow
+    public class ArrowAggregation : AbstractFigure
     {
         public override void Draw(Graphics graphics, Pen pen)
         {

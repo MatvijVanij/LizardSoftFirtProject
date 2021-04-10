@@ -1,8 +1,8 @@
 ﻿using System.Drawing;
 
-namespace UMLLizardSoft.Arrows
+namespace UMLLizardSoft.Figures
 {
-    public class ArrowСomposition : AbstractArrow
+    public class ArrowСomposition : AbstractFigure
     {
         int delta = 10;
 
