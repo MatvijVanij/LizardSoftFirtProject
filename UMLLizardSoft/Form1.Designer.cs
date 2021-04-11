@@ -45,6 +45,7 @@ namespace UMLLizardSoft
             this.buttonColorPalette = new System.Windows.Forms.Button();
             this.buttonClear = new System.Windows.Forms.Button();
             this.radioButtonRectangle = new System.Windows.Forms.RadioButton();
+            this.buttonMove = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -207,12 +208,23 @@ namespace UMLLizardSoft
             this.radioButtonRectangle.UseVisualStyleBackColor = true;
             this.radioButtonRectangle.CheckedChanged += new System.EventHandler(this.radioButtonRectangle_CheckedChanged);
             // 
+            // buttonMove
+            // 
+            this.buttonMove.Location = new System.Drawing.Point(13, 353);
+            this.buttonMove.Name = "buttonMove";
+            this.buttonMove.Size = new System.Drawing.Size(177, 35);
+            this.buttonMove.TabIndex = 15;
+            this.buttonMove.Text = "Move";
+            this.buttonMove.UseVisualStyleBackColor = true;
+            this.buttonMove.Click += new System.EventHandler(this.buttonMove_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1047, 503);
+            this.Controls.Add(this.buttonMove);
             this.Controls.Add(this.radioButtonRectangle);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonColorPalette);
@@ -261,6 +273,7 @@ namespace UMLLizardSoft
         private System.Windows.Forms.Button buttonColorPalette;
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.RadioButton radioButtonRectangle;
+        private System.Windows.Forms.Button buttonMove;
     }
 }
 

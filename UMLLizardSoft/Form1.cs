@@ -13,10 +13,12 @@ namespace UMLLizardSoft
         Graphics _graphics;
         AbstractFigure _currentFigure;
         bool _isButtonPressed = false;
+        bool isMove = false;
         int arrowWeight;
         Pen pen = new Pen(Color.Black, 3);
         List<AbstractFigure> abstractFigures;
         FigureType _figureType;
+        Point newpoint;
 
         public Form1()
         {
@@ -37,30 +39,63 @@ namespace UMLLizardSoft
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            switch (_figureType)
+
+            if (isMove)
             {
-                case FigureType.Rectangle1:
-                    _currentFigure = new Rectangle1();
-                    break;
-                case FigureType.ArrowAssociation:
-                    _currentFigure = new ArrowAssociation();
-                    break;
-                case FigureType.ArrowInheritance:
-                    _currentFigure = new ArrowInheritance();
-                    break;
-                case FigureType.ArrowAggregation:
-                    _currentFigure = new ArrowAggregation();
-                    break;
-                case FigureType.ArrowComposition:
-                    _currentFigure = new ArrowСomposition();
-                    break;
-                case FigureType.ArrowImplementation:
-                    _currentFigure = new ArrowImplementation();
-                    break;
-                default:
-                    break;
+                foreach (AbstractFigure a in abstractFigures)
+                {
+                    if (a.IsGrabbing(e.Location))
+                    {
+                        _currentFigure = a;
+                        break;
+                    }
+                }
+
+                if (_currentFigure != null)
+                {
+                    abstractFigures.Remove(_currentFigure);
+
+                    _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    _graphics = Graphics.FromImage(_mainBitmap);
+                    _graphics.Clear(Color.White);
+
+                    foreach (AbstractFigure a in abstractFigures)
+                    {
+                        a.Draw(_graphics,pen);
+                    }
+
+                    pictureBox1.Image = _mainBitmap;
+
+                    newpoint = e.Location;
+                }
             }
-            _currentFigure.StartPoint = e.Location;
+            else
+            {
+                switch (_figureType)
+                {
+                    case FigureType.Rectangle1:
+                        _currentFigure = new Rectangle1();
+                        break;
+                    case FigureType.ArrowAssociation:
+                        _currentFigure = new ArrowAssociation();
+                        break;
+                    case FigureType.ArrowInheritance:
+                        _currentFigure = new ArrowInheritance();
+                        break;
+                    case FigureType.ArrowAggregation:
+                        _currentFigure = new ArrowAggregation();
+                        break;
+                    case FigureType.ArrowComposition:
+                        _currentFigure = new ArrowСomposition();
+                        break;
+                    case FigureType.ArrowImplementation:
+                        _currentFigure = new ArrowImplementation();
+                        break;
+                    default:
+                        break;
+                }
+                _currentFigure.StartPoint = e.Location;
+            }
             _isButtonPressed = true;
         }
 
@@ -75,10 +110,20 @@ namespace UMLLizardSoft
         {
             if (_isButtonPressed)
             {
+                if (isMove && _currentFigure != null)
+                {
+                    _currentFigure.Move(e.X-newpoint.X, e.Y-newpoint.Y);
+                    newpoint = e.Location;
+                }
+                else
+                {
+                    _currentFigure.EndPoint = e.Location;
+                }
+
                 _tmpBitmap = (Bitmap)_mainBitmap.Clone();
                 _graphics = Graphics.FromImage(_tmpBitmap);
-                _currentFigure.EndPoint = e.Location;
-                _currentFigure.Draw(_graphics, pen);
+                _currentFigure.Draw(_graphics,pen);
+
                 pictureBox1.Image = _tmpBitmap;
                 GC.Collect();
             }
@@ -138,6 +183,12 @@ namespace UMLLizardSoft
             _graphics = Graphics.FromImage(_mainBitmap);
             _graphics.Clear(Color.White);
             pictureBox1.Image = _mainBitmap;
+        }
+
+        private void buttonMove_Click(object sender, EventArgs e)
+        {
+            _currentFigure = null;
+            isMove = true;
         }
     }
 }
