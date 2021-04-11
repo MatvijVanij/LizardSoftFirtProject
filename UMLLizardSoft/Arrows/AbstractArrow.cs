@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 
 namespace UMLLizardSoft.Arrows
@@ -21,5 +22,17 @@ namespace UMLLizardSoft.Arrows
         }
 
         public abstract void Draw(Graphics graphics, Pen pen);
+
+        public void DrawingDelta()
+        {
+            if (Math.Abs(StartPoint.X - EndPoint.X) < 30)
+            {
+                EndPoint = new Point(StartPoint.X, EndPoint.Y);
+            }
+            if (Math.Abs(StartPoint.Y - EndPoint.Y) < 30)
+            {
+                EndPoint = new Point(EndPoint.X, StartPoint.Y);
+            }
+        }
     }
 }

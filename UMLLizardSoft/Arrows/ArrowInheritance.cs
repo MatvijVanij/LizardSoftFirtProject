@@ -4,62 +4,37 @@ namespace UMLLizardSoft.Arrows
 {
     public class ArrowInheritance : AbstractArrow
     {
-        Point tmp = new Point();
+        int delta = 30;
+
         public override void Draw(Graphics graphics, Pen pen)
         {
-            if (StartPoint.X > EndPoint.X)
+            DrawingDelta();
+            SolidBrush solidBrush = new SolidBrush(Color.White);
+
+            Point point1 = new Point(EndPoint.X, EndPoint.Y);
+            Point point2 = new Point(EndPoint.X + delta, EndPoint.Y - delta);
+            Point point3 = new Point(EndPoint.X + delta, EndPoint.Y + delta);
+
+            if (StartPoint.X < EndPoint.X)
             {
-                Point point1 = new Point(EndPoint.X, EndPoint.Y);
-                Point point2 = new Point(EndPoint.X + 30, EndPoint.Y - 30);
-                Point point3 = new Point(EndPoint.X + 30, EndPoint.Y + 30);
-
-                Point[] points = { point1, point2, point3 };
-
-                tmp = new Point(EndPoint.X + 30, EndPoint.Y);
-
-                graphics.DrawPolygon(pen, points);
-            }
-            else if (StartPoint.X < EndPoint.X)
-            {
-                Point point1 = new Point(EndPoint.X, EndPoint.Y);
-                Point point2 = new Point(EndPoint.X - 30, EndPoint.Y - 30);
-                Point point3 = new Point(EndPoint.X - 30, EndPoint.Y + 30);
-
-                Point[] points = { point1, point2, point3 };
-
-                tmp = new Point(EndPoint.X - 30, EndPoint.Y);
-
-                graphics.DrawPolygon(pen, points);
-
+                point2 = new Point(EndPoint.X - delta, EndPoint.Y - delta);
+                point3 = new Point(EndPoint.X - delta, EndPoint.Y + delta);
             }
             else if (StartPoint.X == EndPoint.X && StartPoint.Y > EndPoint.Y)
             {
-                Point point1 = new Point(EndPoint.X, EndPoint.Y);
-                Point point2 = new Point(EndPoint.X + 20, EndPoint.Y + 30);
-                Point point3 = new Point(EndPoint.X - 20, EndPoint.Y + 30);
-
-                Point[] points = { point1, point2, point3 };
-
-                tmp = new Point(EndPoint.X, EndPoint.Y + 30);
-
-                graphics.DrawPolygon(pen, points);
+                point2 = new Point(EndPoint.X + delta, EndPoint.Y + delta);
+                point3 = new Point(EndPoint.X - delta, EndPoint.Y + delta);
             }
-            else
+            else if (StartPoint.X == EndPoint.X && StartPoint.Y < EndPoint.Y)
             {
-                Point point1 = new Point(EndPoint.X, EndPoint.Y);
-                Point point2 = new Point(EndPoint.X + 20, EndPoint.Y - 30);
-                Point point3 = new Point(EndPoint.X - 20, EndPoint.Y - 30);
-
-                Point[] points = { point1, point2, point3 };
-
-                tmp = new Point(EndPoint.X, EndPoint.Y - 30);
-
-                graphics.DrawPolygon(pen, points);
+                point2 = new Point(EndPoint.X + delta, EndPoint.Y - delta);
+                point3 = new Point(EndPoint.X - delta, EndPoint.Y - delta);
             }
-
-            EndPoint = tmp;
 
             graphics.DrawLines(pen, GetPoints().ToArray());
+            Point[] points = { point1, point2, point3 };
+            graphics.FillPolygon(solidBrush, points);
+            graphics.DrawPolygon(pen, points);
         }
     }
 }
