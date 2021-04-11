@@ -103,14 +103,17 @@ namespace UMLLizardSoft
             _isButtonPressed = false;
             isMove = false;
             _mainBitmap = _tmpBitmap;
-            abstractFigures.Add(_currentFigure);
+            if (_currentFigure != null) 
+            {
+                abstractFigures.Add(_currentFigure);
+            }
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (_isButtonPressed)
+            if (_isButtonPressed && _currentFigure != null)
             {
-                if (isMove && _currentFigure != null)
+                if (isMove)
                 {
                     _currentFigure.Move(e.X - newpoint.X, e.Y - newpoint.Y);
                     newpoint = e.Location;
