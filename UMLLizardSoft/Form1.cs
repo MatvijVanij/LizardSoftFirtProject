@@ -39,7 +39,6 @@ namespace UMLLizardSoft
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-
             if (isMove)
             {
                 foreach (AbstractFigure a in abstractFigures)
@@ -54,18 +53,16 @@ namespace UMLLizardSoft
                 if (_currentFigure != null)
                 {
                     abstractFigures.Remove(_currentFigure);
-
                     _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     _graphics = Graphics.FromImage(_mainBitmap);
                     _graphics.Clear(Color.White);
 
                     foreach (AbstractFigure a in abstractFigures)
                     {
-                        a.Draw(_graphics,pen);
+                        a.Draw(_graphics, pen);
                     }
 
                     pictureBox1.Image = _mainBitmap;
-
                     newpoint = e.Location;
                 }
             }
@@ -94,14 +91,17 @@ namespace UMLLizardSoft
                     default:
                         break;
                 }
+
                 _currentFigure.StartPoint = e.Location;
             }
+
             _isButtonPressed = true;
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             _isButtonPressed = false;
+            isMove = false;
             _mainBitmap = _tmpBitmap;
             abstractFigures.Add(_currentFigure);
         }
@@ -112,7 +112,7 @@ namespace UMLLizardSoft
             {
                 if (isMove && _currentFigure != null)
                 {
-                    _currentFigure.Move(e.X-newpoint.X, e.Y-newpoint.Y);
+                    _currentFigure.Move(e.X - newpoint.X, e.Y - newpoint.Y);
                     newpoint = e.Location;
                 }
                 else
@@ -122,10 +122,14 @@ namespace UMLLizardSoft
 
                 _tmpBitmap = (Bitmap)_mainBitmap.Clone();
                 _graphics = Graphics.FromImage(_tmpBitmap);
-                _currentFigure.Draw(_graphics,pen);
+                _currentFigure.Draw(_graphics, pen);
 
                 pictureBox1.Image = _tmpBitmap;
                 GC.Collect();
+            }
+            else
+            {
+                _isButtonPressed = false;
             }
         }
 
