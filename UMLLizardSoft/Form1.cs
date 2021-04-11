@@ -103,6 +103,7 @@ namespace UMLLizardSoft
             _isButtonPressed = false;
             isMove = false;
             _mainBitmap = _tmpBitmap;
+
             if (_currentFigure != null) 
             {
                 abstractFigures.Add(_currentFigure);
