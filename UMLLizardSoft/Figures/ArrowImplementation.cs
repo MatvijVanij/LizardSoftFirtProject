@@ -1,9 +1,9 @@
 ﻿using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace UMLLizardSoft.Arrows
+namespace UMLLizardSoft.Figures
 {
-    public class ArrowImplementation : AbstractArrow
+    public class ArrowImplementation : AbstractFigure
     {
         int delta = 30;
 

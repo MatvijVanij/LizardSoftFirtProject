@@ -1,8 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using UMLLizardSoft.Arrows;
-using UMLLizardSoft.Rectangles;
+using UMLLizardSoft.Figures;
 
 namespace UMLLizardSoft
 {
@@ -11,12 +11,14 @@ namespace UMLLizardSoft
         Bitmap _mainBitmap;
         Bitmap _tmpBitmap;
         Graphics _graphics;
-        AbstractArrow _crntArrow;
-        AbstractRectangle _crntRectangle;
+        AbstractFigure _currentFigure;
         bool _isButtonPressed = false;
+        bool isMove = false;
         int arrowWeight;
         Pen pen = new Pen(Color.Black, 3);
-        bool flag = false;
+        List<AbstractFigure> abstractFigures;
+        FigureType _figureType;
+        Point newpoint;
 
         public Form1()
         {
@@ -25,31 +27,72 @@ namespace UMLLizardSoft
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            abstractFigures = new List<AbstractFigure>();
             arrowWeight = 1;
             _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             _graphics = Graphics.FromImage(_mainBitmap);
             _graphics.Clear(Color.White);
             pictureBox1.Image = _mainBitmap;
+            _currentFigure = new Rectangle1();
 
-            if (flag == true)
-            {
-                _crntArrow = new ArrowAssociation();
-            }
-            else
-            {
-                _crntRectangle = new Rectangle1();
-            }
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            if (flag == true)
+            if (isMove)
             {
-                _crntArrow.StartPoint = e.Location;
+                foreach (AbstractFigure a in abstractFigures)
+                {
+                    if (a.IsGrabbing(e.Location))
+                    {
+                        _currentFigure = a;
+                        break;
+                    }
+                }
+
+                if (_currentFigure != null)
+                {
+                    abstractFigures.Remove(_currentFigure);
+                    _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    _graphics = Graphics.FromImage(_mainBitmap);
+                    _graphics.Clear(Color.White);
+
+                    foreach (AbstractFigure a in abstractFigures)
+                    {
+                        a.Draw(_graphics, pen);
+                    }
+
+                    pictureBox1.Image = _mainBitmap;
+                    newpoint = e.Location;
+                }
             }
             else
             {
-                _crntRectangle.StartPoint = e.Location;
+                switch (_figureType)
+                {
+                    case FigureType.Rectangle1:
+                        _currentFigure = new Rectangle1();
+                        break;
+                    case FigureType.ArrowAssociation:
+                        _currentFigure = new ArrowAssociation();
+                        break;
+                    case FigureType.ArrowInheritance:
+                        _currentFigure = new ArrowInheritance();
+                        break;
+                    case FigureType.ArrowAggregation:
+                        _currentFigure = new ArrowAggregation();
+                        break;
+                    case FigureType.ArrowComposition:
+                        _currentFigure = new ArrowСomposition();
+                        break;
+                    case FigureType.ArrowImplementation:
+                        _currentFigure = new ArrowImplementation();
+                        break;
+                    default:
+                        break;
+                }
+
+                _currentFigure.StartPoint = e.Location;
             }
 
             _isButtonPressed = true;
@@ -58,72 +101,70 @@ namespace UMLLizardSoft
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             _isButtonPressed = false;
+            isMove = false;
             _mainBitmap = _tmpBitmap;
+
+            if (_currentFigure != null) 
+            {
+                abstractFigures.Add(_currentFigure);
+            }
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (_isButtonPressed)
+            if (_isButtonPressed && _currentFigure != null)
             {
-                _tmpBitmap = (Bitmap)_mainBitmap.Clone();
-                _graphics = Graphics.FromImage(_tmpBitmap);
-
-                if (flag == true)
+                if (isMove)
                 {
-                    _crntArrow.EndPoint = e.Location;
-                    _crntArrow.Draw(_graphics, pen);
+                    _currentFigure.Move(e.X - newpoint.X, e.Y - newpoint.Y);
+                    newpoint = e.Location;
                 }
                 else
                 {
-                    _crntRectangle.EndPoint = e.Location;
-                    _crntRectangle.Draw(_graphics, pen);
+                    _currentFigure.EndPoint = e.Location;
                 }
+
+                _tmpBitmap = (Bitmap)_mainBitmap.Clone();
+                _graphics = Graphics.FromImage(_tmpBitmap);
+                _currentFigure.Draw(_graphics, pen);
 
                 pictureBox1.Image = _tmpBitmap;
                 GC.Collect();
+            }
+            else
+            {
+                _isButtonPressed = false;
             }
         }
 
         private void radioButtonAssociation_CheckedChanged(object sender, EventArgs e)
         {
-            flag = true;
-            _crntArrow = new ArrowAssociation();
+            _figureType = FigureType.ArrowAssociation;
         }
 
         private void radioButtonInheritance_CheckedChanged(object sender, EventArgs e)
         {
-            flag = true;
-            _crntArrow = new ArrowInheritance();
+            _figureType = FigureType.ArrowInheritance;
         }
 
         private void radioButtonAggregation_CheckedChanged(object sender, EventArgs e)
         {
-            flag = true;
-            _crntArrow = new ArrowAggregation();
+            _figureType = FigureType.ArrowAggregation;
         }
 
         private void radioButtonСomposition_CheckedChanged(object sender, EventArgs e)
         {
-            flag = true;
-            _crntArrow = new ArrowСomposition();
+            _figureType = FigureType.ArrowComposition;
         }
 
         private void radioButtonImplementation_CheckedChanged(object sender, EventArgs e)
         {
-            flag = true;
-            _crntArrow = new ArrowImplementation();
+            _figureType = FigureType.ArrowImplementation;
         }
 
-        private void radioButtonRectangle1_CheckedChanged(object sender, EventArgs e)
+        private void radioButtonRectangle_CheckedChanged(object sender, EventArgs e)
         {
-            flag = false;
-            _crntRectangle = new Rectangle1();
-        }
-
-        private void radioButtonRectangle2_CheckedChanged(object sender, EventArgs e)
-        {
-            flag = false;
-            _crntRectangle = new Rectangle2();
+            _figureType = FigureType.Rectangle1;
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
@@ -152,34 +193,10 @@ namespace UMLLizardSoft
             pictureBox1.Image = _mainBitmap;
         }
 
-        //public void AddRectangle1(Pen _pen, int firstPoint, int secondPoint)
-        //{
-        //    int W = x2 - x1;
-        //    int H = y2 - y1;
-
-        //    _graphics.DrawRectangle(_pen, x1, y1, W, H);
-        //    _graphics.DrawRectangle(_pen, x1, y1, W, (int)(H * 0.2));
-        //    _graphics.DrawRectangle(_pen, x1, y1, W, (int)(H * 0.5));
-        //}
-
-        //public void AddRectangle2(Pen _pen, int firstPoint, int secondPoint)
-        //{
-        //    int W = x2 - x1;
-        //    int H = y2 - y1;
-
-        //    _graphics.DrawRectangle(_pen, x1, y1, W, H);
-        //    _graphics.DrawRectangle(_pen, x1, y1, W, (int)(H * 0.2));
-        //}
-
-        //public void AddRectangle3(Pen _pen, int firstPoint, int secondPoint)
-        //{
-        //    int W = x2 - x1;
-        //    int H = y2 - y1;
-
-        //    _graphics.DrawRectangle(_pen, x1, y1, W, H);
-        //    _graphics.DrawRectangle(_pen, x1, y1, W, (int)(H * 0.2));
-        //    _graphics.DrawRectangle(_pen, x1, y1, W, (int)(H * 0.5));
-        //    _graphics.DrawRectangle(_pen, x1, y1, W, (int)(H * 0.8));
-        //}
+        private void buttonMove_Click(object sender, EventArgs e)
+        {
+            _currentFigure = null;
+            isMove = true;
+        }
     }
 }

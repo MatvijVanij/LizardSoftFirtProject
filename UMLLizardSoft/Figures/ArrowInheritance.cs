@@ -1,14 +1,15 @@
 ﻿using System.Drawing;
 
-namespace UMLLizardSoft.Arrows
+namespace UMLLizardSoft.Figures
 {
-    public class ArrowAssociation : AbstractArrow
+    public class ArrowInheritance : AbstractFigure
     {
         int delta = 30;
 
         public override void Draw(Graphics graphics, Pen pen)
         {
             DrawingDelta();
+            SolidBrush solidBrush = new SolidBrush(Color.White);
 
             Point point1 = new Point(EndPoint.X, EndPoint.Y);
             Point point2 = new Point(EndPoint.X + delta, EndPoint.Y - delta);
@@ -31,8 +32,9 @@ namespace UMLLizardSoft.Arrows
             }
 
             graphics.DrawLines(pen, GetPoints().ToArray());
-            Point[] points = { point2, point1, point3 };
-            graphics.DrawLines(pen, points);
+            Point[] points = { point1, point2, point3 };
+            graphics.FillPolygon(solidBrush, points);
+            graphics.DrawPolygon(pen, points);
         }
     }
 }
