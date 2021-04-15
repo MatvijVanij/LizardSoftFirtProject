@@ -34,10 +34,10 @@ namespace UMLLizardSoft.Figures
                 point4 = new Point(EndPoint.X, EndPoint.Y - 6 * delta);
             }
 
-            graphics.DrawLines(FigurePen, GetPoints().ToArray());
+            graphics.DrawLines(pen, GetPoints().ToArray());
             Point[] points = { point1, point2, point4, point3 };
             graphics.FillPolygon(solidBrush, points);
-            graphics.DrawPolygon(FigurePen, points);
+            graphics.DrawPolygon(pen, points);
         }
     }
 }
