@@ -7,6 +7,6 @@ namespace UMLLizardSoft
     {
         bool IsGrabbing(Point point);
 
-        void Move(int deltaX, int deltaY);
+        void Move(int deltaX, int deltaY,Point point );
     }
 }

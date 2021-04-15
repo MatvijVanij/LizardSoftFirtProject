@@ -12,7 +12,7 @@ namespace UMLLizardSoft.Figures
 
         public abstract void Draw(Graphics graphics, Pen pen);
 
-        public abstract void Move(int deltaX, int deltaY);
+        public abstract void Move(int deltaX, int deltaY,Point point);
 
         public abstract bool IsGrabbing(Point point);
         

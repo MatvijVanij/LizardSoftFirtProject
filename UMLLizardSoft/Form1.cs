@@ -100,7 +100,7 @@ namespace UMLLizardSoft
             {
                 if (isMove)
                 {
-                    _currentFigure.Move(e.X - newpoint.X, e.Y - newpoint.Y);
+                    _currentFigure.Move(e.X - newpoint.X, e.Y - newpoint.Y,e.Location);
                     newpoint = e.Location;
                 }
                 else
