@@ -8,16 +8,17 @@ namespace UMLLizardSoft.Figures
     {
         public override void Draw(Graphics graphics, Pen pen)
         {
+            FigurePen = new Pen(pen.Color, pen.Width);
             string str = "Claas Name";
             Font myFont = new Font("Arial", 16);
-            SolidBrush myBrush = new SolidBrush(Color.Black);
+            SolidBrush myBrush = new SolidBrush(pen.Color);
 
             int height = EndPoint.Y - StartPoint.Y;
             int width = EndPoint.X - StartPoint.X;
 
             graphics.DrawString(str, myFont, myBrush, StartPoint.X,StartPoint.Y);
-            graphics.DrawRectangle(pen, StartPoint.X, StartPoint.Y, width, height);
-            graphics.DrawLine(pen, StartPoint.X, StartPoint.Y + 30, EndPoint.X, StartPoint.Y + 30);
+            graphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y, width, height);
+            graphics.DrawLine(FigurePen, StartPoint.X, StartPoint.Y + 30, EndPoint.X, StartPoint.Y + 30);
         }
     }
 }

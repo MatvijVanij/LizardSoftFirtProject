@@ -32,12 +32,13 @@ namespace UMLLizardSoft.Figures
                 point3 = new Point(EndPoint.X - delta, EndPoint.Y - delta);
             }
 
+            FigurePen = new Pen(pen.Color, pen.Width);
             pen.DashStyle = DashStyle.Dash;
-            graphics.DrawLines(pen, GetPoints().ToArray());
+            graphics.DrawLines(FigurePen, GetPoints().ToArray());
             pen.DashStyle = DashStyle.Solid;
             Point[] points = { point1, point2, point3 };
             graphics.FillPolygon(solidBrush, points);
-            graphics.DrawPolygon(pen, points);
+            graphics.DrawPolygon(FigurePen, points);
         }
     }
 }

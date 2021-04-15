@@ -31,9 +31,10 @@ namespace UMLLizardSoft.Figures
                 point3 = new Point(EndPoint.X - delta, EndPoint.Y - delta);
             }
 
-            graphics.DrawLines(pen, GetPoints().ToArray());
+            FigurePen = new Pen(pen.Color, pen.Width);
+            graphics.DrawLines(FigurePen, GetPoints().ToArray());
             Point[] points = { point2, point1, point3 };
-            graphics.DrawLines(pen, points);
+            graphics.DrawLines(FigurePen, points);
         }
     }
 }

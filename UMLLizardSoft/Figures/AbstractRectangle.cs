@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace UMLLizardSoft.Figures
 {
-    public abstract class AbstractRectangle : AbstractFigure
+    public abstract class AbstractRectangle : AbstractFigure,IMovable
     {
         public override void Draw(Graphics graphics, Pen pen)
         {

@@ -4,7 +4,7 @@ using System.Drawing;
 
 namespace UMLLizardSoft.Figures
 {
-    public abstract class AbstractFigure : IMovable
+    public abstract class AbstractFigure 
     {
         public Point StartPoint { get; set; }
         public Point EndPoint { get; set; }
@@ -12,7 +12,6 @@ namespace UMLLizardSoft.Figures
 
         public abstract void Draw(Graphics graphics, Pen pen);
 
-       
 
         public bool IsGrabbing(Point point)
         {
