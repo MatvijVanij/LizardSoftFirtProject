@@ -112,7 +112,7 @@ namespace UMLLizardSoft
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(12, 448);
+            this.trackBar1.Location = new System.Drawing.Point(3, 446);
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(178, 45);
             this.trackBar1.TabIndex = 6;
@@ -165,7 +165,7 @@ namespace UMLLizardSoft
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(221, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(205, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(814, 481);
             this.pictureBox1.TabIndex = 0;
