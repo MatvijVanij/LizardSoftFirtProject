@@ -16,8 +16,7 @@ namespace UMLLizardSoft
         bool _isButtonPressed = false;
         bool isMove = false;
         int arrowWeight;
-       // Pen FigurePen = new Pen(Color.Red);
-        Pen pen = new Pen(Color.Black, 3);
+        Pen pen; 
         List<AbstractFigure> abstractFigures;
         FigureType _figureType;
 
@@ -40,7 +39,7 @@ namespace UMLLizardSoft
             pictureBox1.Image = _mainBitmap;
             _currentFactory = new Rectangle1Factory();
             _currentFigure =_currentFactory.Create();
-           
+             pen = new Pen(colorDialog1.Color, trackBar1.Value);
 
         }
 
@@ -159,7 +158,7 @@ namespace UMLLizardSoft
             int maxWeitghValue = bar.Maximum;
             int value = bar.Value;
             arrowWeight = 1 + minWeightValue + value;
-            pen = new Pen(pen.Color, arrowWeight);
+            pen.Width = trackBar1.Value;
             bar.SetRange(1, 10);
         }
 

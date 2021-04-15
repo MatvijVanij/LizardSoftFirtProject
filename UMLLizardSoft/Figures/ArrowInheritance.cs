@@ -31,6 +31,7 @@ namespace UMLLizardSoft.Figures
                 point3 = new Point(EndPoint.X - delta, EndPoint.Y - delta);
             }
 
+            FigurePen = new Pen(pen.Color, pen.Width);
             graphics.DrawLines(FigurePen, GetPoints().ToArray());
             Point[] points = { point1, point2, point3 };
             graphics.FillPolygon(solidBrush, points);

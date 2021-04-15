@@ -32,6 +32,7 @@ namespace UMLLizardSoft.Figures
                 point3 = new Point(EndPoint.X - delta, EndPoint.Y - delta);
             }
 
+            FigurePen = new Pen(pen.Color, pen.Width);
             pen.DashStyle = DashStyle.Dash;
             graphics.DrawLines(FigurePen, GetPoints().ToArray());
             pen.DashStyle = DashStyle.Solid;
