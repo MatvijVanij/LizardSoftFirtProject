@@ -43,7 +43,7 @@ namespace UMLLizardSoft.Figures
             //EndPoint = new Point(EndPoint.X + deltaX, EndPoint.Y + deltaY);
         }
 
-        public  bool IsGrabbing(Point point)
+        public override bool IsGrabbing(Point point)
         {
             int xMax;
             int xMin;
