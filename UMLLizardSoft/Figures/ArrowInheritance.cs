@@ -2,7 +2,7 @@
 
 namespace UMLLizardSoft.Figures
 {
-    public class ArrowInheritance : AbstractFigure
+    public class ArrowInheritance : AbstractArrow
     {
         int delta = 30;
 
@@ -31,10 +31,10 @@ namespace UMLLizardSoft.Figures
                 point3 = new Point(EndPoint.X - delta, EndPoint.Y - delta);
             }
 
-            graphics.DrawLines(pen, GetPoints().ToArray());
+            graphics.DrawLines(FigurePen, GetPoints().ToArray());
             Point[] points = { point1, point2, point3 };
             graphics.FillPolygon(solidBrush, points);
-            graphics.DrawPolygon(pen, points);
+            graphics.DrawPolygon(FigurePen, points);
         }
     }
 }

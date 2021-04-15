@@ -46,6 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Factories\ArrowAggregationFactory.cs" />
+    <Compile Include="Factories\ArrowAssociationFactory.cs" />
+    <Compile Include="Factories\ArrowImplementationFactory.cs" />
+    <Compile Include="Factories\ArrowInheritanceFactory.cs" />
+    <Compile Include="Factories\ArrowСompositionFactory.cs" />
+    <Compile Include="Factories\IFactory.cs" />
+    <Compile Include="Factories\Rectangle1Factory.cs" />
+    <Compile Include="Figures\AbstractArrow.cs" />
+    <Compile Include="Figures\AbstractRectangle.cs" />
     <Compile Include="FigureType.cs" />
     <Compile Include="Figures\AbstractFigure.cs" />
     <Compile Include="Figures\ArrowAggregation.cs" />
