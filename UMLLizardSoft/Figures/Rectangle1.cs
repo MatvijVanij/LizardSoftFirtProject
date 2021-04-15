@@ -19,6 +19,7 @@ namespace UMLLizardSoft.Figures
             graphics.DrawString(str, myFont, myBrush, StartPoint.X,StartPoint.Y);
             graphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y, width, height);
             graphics.DrawLine(FigurePen, StartPoint.X, StartPoint.Y + 30, EndPoint.X, StartPoint.Y + 30);
+            graphics.DrawLine(FigurePen, StartPoint.X, StartPoint.Y + 60, EndPoint.X, StartPoint.Y + 60);
         }
     }
 }
