@@ -3,7 +3,7 @@ using System.Drawing.Drawing2D;
 
 namespace UMLLizardSoft.Figures
 {
-    public class ArrowImplementation : AbstractFigure
+    public class ArrowImplementation : AbstractArrow
     {
         int delta = 30;
 
@@ -33,11 +33,11 @@ namespace UMLLizardSoft.Figures
             }
 
             pen.DashStyle = DashStyle.Dash;
-            graphics.DrawLines(pen, GetPoints().ToArray());
+            graphics.DrawLines(FigurePen, GetPoints().ToArray());
             pen.DashStyle = DashStyle.Solid;
             Point[] points = { point1, point2, point3 };
             graphics.FillPolygon(solidBrush, points);
-            graphics.DrawPolygon(pen, points);
+            graphics.DrawPolygon(FigurePen, points);
         }
     }
 }

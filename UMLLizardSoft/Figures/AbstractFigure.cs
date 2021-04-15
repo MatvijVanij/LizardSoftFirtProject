@@ -8,6 +8,7 @@ namespace UMLLizardSoft.Figures
     {
         public Point StartPoint { get; set; }
         public Point EndPoint { get; set; }
+        public Pen FigurePen { get; set; }
 
         protected List<Point> GetPoints()
         {

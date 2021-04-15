@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using UMLLizardSoft.Factories;
 using UMLLizardSoft.Figures;
 
 namespace UMLLizardSoft
@@ -15,9 +16,13 @@ namespace UMLLizardSoft
         bool _isButtonPressed = false;
         bool isMove = false;
         int arrowWeight;
+       // Pen FigurePen = new Pen(Color.Red);
         Pen pen = new Pen(Color.Black, 3);
         List<AbstractFigure> abstractFigures;
         FigureType _figureType;
+
+        IFactory _currentFactory;
+        
         Point newpoint;
 
         public Form1()
@@ -33,7 +38,9 @@ namespace UMLLizardSoft
             _graphics = Graphics.FromImage(_mainBitmap);
             _graphics.Clear(Color.White);
             pictureBox1.Image = _mainBitmap;
-            _currentFigure = new Rectangle1();
+            _currentFactory = new Rectangle1Factory();
+            _currentFigure =_currentFactory.Create();
+           
 
         }
 
@@ -68,29 +75,7 @@ namespace UMLLizardSoft
             }
             else
             {
-                switch (_figureType)
-                {
-                    case FigureType.Rectangle1:
-                        _currentFigure = new Rectangle1();
-                        break;
-                    case FigureType.ArrowAssociation:
-                        _currentFigure = new ArrowAssociation();
-                        break;
-                    case FigureType.ArrowInheritance:
-                        _currentFigure = new ArrowInheritance();
-                        break;
-                    case FigureType.ArrowAggregation:
-                        _currentFigure = new ArrowAggregation();
-                        break;
-                    case FigureType.ArrowComposition:
-                        _currentFigure = new ArrowСomposition();
-                        break;
-                    case FigureType.ArrowImplementation:
-                        _currentFigure = new ArrowImplementation();
-                        break;
-                    default:
-                        break;
-                }
+                _currentFigure = _currentFactory.Create();
 
                 _currentFigure.StartPoint = e.Location;
             }
@@ -139,32 +124,32 @@ namespace UMLLizardSoft
 
         private void radioButtonAssociation_CheckedChanged(object sender, EventArgs e)
         {
-            _figureType = FigureType.ArrowAssociation;
+            _currentFactory = new ArrowAssociationFactory();
         }
 
         private void radioButtonInheritance_CheckedChanged(object sender, EventArgs e)
         {
-            _figureType = FigureType.ArrowInheritance;
+            _currentFactory = new ArrowInheritanceFactory();
         }
 
         private void radioButtonAggregation_CheckedChanged(object sender, EventArgs e)
         {
-            _figureType = FigureType.ArrowAggregation;
+            _currentFactory = new ArrowAggregationFactory();
         }
 
         private void radioButtonСomposition_CheckedChanged(object sender, EventArgs e)
         {
-            _figureType = FigureType.ArrowComposition;
+            _currentFactory = new ArrowСompositionFactory();
         }
 
         private void radioButtonImplementation_CheckedChanged(object sender, EventArgs e)
         {
-            _figureType = FigureType.ArrowImplementation;
+            _currentFactory = new ArrowImplementationFactory();
         }
 
-        private void radioButtonRectangle_CheckedChanged(object sender, EventArgs e)
+        private void radioButtonRectangle1_CheckedChanged(object sender, EventArgs e)
         {
-            _figureType = FigureType.Rectangle1;
+            _currentFactory = new Rectangle1Factory();
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)

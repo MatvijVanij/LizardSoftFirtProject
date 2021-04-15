@@ -2,7 +2,7 @@
 
 namespace UMLLizardSoft.Figures
 {
-    public class ArrowAssociation : AbstractFigure
+    public class ArrowAssociation : AbstractArrow
 
     {
         int delta = 30;
@@ -31,9 +31,9 @@ namespace UMLLizardSoft.Figures
                 point3 = new Point(EndPoint.X - delta, EndPoint.Y - delta);
             }
 
-            graphics.DrawLines(pen, GetPoints().ToArray());
+            graphics.DrawLines(FigurePen, GetPoints().ToArray());
             Point[] points = { point2, point1, point3 };
-            graphics.DrawLines(pen, points);
+            graphics.DrawLines(FigurePen, points);
         }
     }
 }

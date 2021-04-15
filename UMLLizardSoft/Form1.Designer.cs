@@ -44,7 +44,7 @@ namespace UMLLizardSoft
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.buttonColorPalette = new System.Windows.Forms.Button();
             this.buttonClear = new System.Windows.Forms.Button();
-            this.radioButtonRectangle = new System.Windows.Forms.RadioButton();
+            this.radioButtonRectangle1 = new System.Windows.Forms.RadioButton();
             this.buttonMove = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -195,18 +195,18 @@ namespace UMLLizardSoft
             this.buttonClear.UseVisualStyleBackColor = true;
             this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
-            // radioButtonRectangle
+            // radioButtonRectangle1
             // 
-            this.radioButtonRectangle.AutoSize = true;
-            this.radioButtonRectangle.Checked = true;
-            this.radioButtonRectangle.Location = new System.Drawing.Point(64, 127);
-            this.radioButtonRectangle.Name = "radioButtonRectangle";
-            this.radioButtonRectangle.Size = new System.Drawing.Size(74, 17);
-            this.radioButtonRectangle.TabIndex = 14;
-            this.radioButtonRectangle.TabStop = true;
-            this.radioButtonRectangle.Text = "Rectangle";
-            this.radioButtonRectangle.UseVisualStyleBackColor = true;
-            this.radioButtonRectangle.CheckedChanged += new System.EventHandler(this.radioButtonRectangle_CheckedChanged);
+            this.radioButtonRectangle1.AutoSize = true;
+            this.radioButtonRectangle1.Checked = true;
+            this.radioButtonRectangle1.Location = new System.Drawing.Point(64, 127);
+            this.radioButtonRectangle1.Name = "radioButtonRectangle1";
+            this.radioButtonRectangle1.Size = new System.Drawing.Size(80, 17);
+            this.radioButtonRectangle1.TabIndex = 14;
+            this.radioButtonRectangle1.TabStop = true;
+            this.radioButtonRectangle1.Text = "Rectangle1";
+            this.radioButtonRectangle1.UseVisualStyleBackColor = true;
+            this.radioButtonRectangle1.CheckedChanged += new System.EventHandler(this.radioButtonRectangle1_CheckedChanged);
             // 
             // buttonMove
             // 
@@ -225,7 +225,7 @@ namespace UMLLizardSoft
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1047, 503);
             this.Controls.Add(this.buttonMove);
-            this.Controls.Add(this.radioButtonRectangle);
+            this.Controls.Add(this.radioButtonRectangle1);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonColorPalette);
             this.Controls.Add(this.pictureBox6);
@@ -272,7 +272,7 @@ namespace UMLLizardSoft
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Button buttonColorPalette;
         private System.Windows.Forms.Button buttonClear;
-        private System.Windows.Forms.RadioButton radioButtonRectangle;
+        private System.Windows.Forms.RadioButton radioButtonRectangle1;
         private System.Windows.Forms.Button buttonMove;
     }
 }
