@@ -12,6 +12,13 @@ namespace UMLLizardSoft.Figures
         public override void Draw(Graphics graphics, Pen pen)
         {
         }
+
+        public override void Move(int deltaX, int deltaY)
+        {
+            StartPoint = new Point(StartPoint.X + deltaX, StartPoint.Y + deltaY);
+            EndPoint = new Point(EndPoint.X + deltaX, EndPoint.Y + deltaY);
+        }
+
         public bool IsGrabbing(Point point)
         {
             int xMax;
@@ -52,10 +59,6 @@ namespace UMLLizardSoft.Figures
             }
         }
 
-        public void Move(int deltaX, int deltaY)
-        {
-            StartPoint = new Point(StartPoint.X + deltaX, StartPoint.Y + deltaY);
-            EndPoint = new Point(EndPoint.X + deltaX, EndPoint.Y + deltaY);
-        }
+       
     }
 }
