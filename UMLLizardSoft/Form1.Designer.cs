@@ -156,6 +156,7 @@ namespace UMLLizardSoft
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = global::UMLLizardSoft.Properties.Resources.Screenshot_1__2_;
             this.pictureBox2.Location = new System.Drawing.Point(8, 14);
             this.pictureBox2.Name = "pictureBox2";
@@ -165,9 +166,10 @@ namespace UMLLizardSoft
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(221, 12);
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Location = new System.Drawing.Point(222, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(814, 481);
+            this.pictureBox1.Size = new System.Drawing.Size(813, 481);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
@@ -222,7 +224,7 @@ namespace UMLLizardSoft
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BackColor = System.Drawing.Color.Chocolate;
             this.ClientSize = new System.Drawing.Size(1047, 503);
             this.Controls.Add(this.buttonMove);
             this.Controls.Add(this.radioButtonRectangle1);
