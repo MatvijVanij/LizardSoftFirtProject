@@ -16,7 +16,7 @@ namespace UMLLizardSoft
         bool _isButtonPressed = false;
         bool isMove = false;
         int arrowWeight;
-        Pen pen; 
+        Pen pen;
         List<AbstractFigure> abstractFigures;
         FigureType _figureType;
         IFactory _currentFactory;
@@ -86,7 +86,7 @@ namespace UMLLizardSoft
             isMove = false;
             _mainBitmap = _tmpBitmap;
 
-            if (_currentFigure != null) 
+            if (_currentFigure != null)
             {
                 abstractFigures.Add(_currentFigure);
             }
@@ -98,7 +98,7 @@ namespace UMLLizardSoft
             {
                 if (isMove)
                 {
-                    _currentFigure.Move(e.X - newpoint.X, e.Y - newpoint.Y,e.Location);
+                    _currentFigure.Move(e.X - newpoint.X, e.Y - newpoint.Y, e.Location);
                     newpoint = e.Location;
                 }
                 else
@@ -168,7 +168,8 @@ namespace UMLLizardSoft
 
         private void buttonClear_Click(object sender, EventArgs e)
         {
-            _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            abstractFigures.Clear();
+
             _graphics = Graphics.FromImage(_mainBitmap);
             _graphics.Clear(Color.White);
             pictureBox1.Image = _mainBitmap;
@@ -178,6 +179,31 @@ namespace UMLLizardSoft
         {
             _currentFigure = null;
             isMove = true;
+        }
+
+        private void StepBack_Click(object sender, EventArgs e)
+        {
+            if (abstractFigures.Count != 0)
+            {
+                abstractFigures.RemoveAt(abstractFigures.Count - 1);
+                _graphics.Clear(Color.White);
+
+                foreach (AbstractFigure a in abstractFigures)
+                {
+                    a.Draw(_graphics, pen);
+                }
+
+                pictureBox1.Image = _mainBitmap;
+            }
+            else 
+            {
+                buttonStepBack.Enabled = false;
+            }
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
