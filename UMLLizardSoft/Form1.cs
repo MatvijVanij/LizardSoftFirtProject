@@ -71,7 +71,6 @@ namespace UMLLizardSoft
             else
             {
                 _currentFigure = _currentFactory.Create(pen);
-
                 _currentFigure.StartPoint = e.Location;
             }
 
@@ -166,7 +165,6 @@ namespace UMLLizardSoft
         private void buttonClear_Click(object sender, EventArgs e)
         {
             abstractFigures.Clear();
-
             _graphics = Graphics.FromImage(_mainBitmap);
             _graphics.Clear(Color.White);
             pictureBox1.Image = _mainBitmap;
