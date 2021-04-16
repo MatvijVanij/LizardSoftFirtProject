@@ -32,6 +32,7 @@ namespace UMLLizardSoft.Figures
             }
 
             FigurePen = new Pen(pen.Color, pen.Width);
+
             graphics.DrawLines(FigurePen, GetPoints().ToArray());
             Point[] points = { point1, point2, point3 };
             graphics.FillPolygon(solidBrush, points);
