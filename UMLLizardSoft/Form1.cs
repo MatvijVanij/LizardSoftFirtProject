@@ -41,6 +41,7 @@ namespace UMLLizardSoft
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
+            buttonStepBack.Enabled = true;
             if (isMove)
             {
                 foreach (AbstractFigure a in abstractFigures)
@@ -178,14 +179,16 @@ namespace UMLLizardSoft
 
         private void StepBack_Click(object sender, EventArgs e)
         {
-            if (abstractFigures.Count != 0)
+            if (abstractFigures.Count >= 1)
             {
+               
+
                 abstractFigures.RemoveAt(abstractFigures.Count - 1);
                 _graphics.Clear(Color.White);
 
                 foreach (AbstractFigure a in abstractFigures)
                 {
-                    a.Draw(_graphics, pen);
+                    a.Draw(_graphics, a.FigurePen);
                 }
 
                 pictureBox1.Image = _mainBitmap;
