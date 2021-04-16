@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using UMLLizardSoft.Figures;
 namespace UMLLizardSoft.Factories
 {
     public class Rectangle1Factory : IFactory
     {
-        public AbstractFigure Create()
+        public AbstractFigure Create(Pen pen)
         {
-            return new Rectangle1();
+            return new Rectangle1() 
+            { 
+                FigurePen = pen 
+            };
         }
     }
 }
