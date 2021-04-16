@@ -6,9 +6,12 @@ namespace UMLLizardSoft.Figures
 {
     public class AbstractArrow : AbstractFigure
     {
+        bool isStartPointSelected = false;
+
         public override void Draw(Graphics graphics, Pen pen)
         {
         }
+
         protected List<Point> GetPoints()
         {
             List<Point> points = new List<Point>();
@@ -33,28 +36,33 @@ namespace UMLLizardSoft.Figures
             //}
         }
 
-        public override void Move(int deltaX, int deltaY,Point point)
+        public override void Move(int deltaX, int deltaY, Point point)
         {
-            if (point.X <= StartPoint.X + 30 && point.X >= StartPoint.X - 30
-             && point.Y <= StartPoint.Y + 30 && point.Y >= StartPoint.Y - 30)
+            if (IsGrabbing(point))
             {
-                StartPoint = new Point(StartPoint.X + deltaX, StartPoint.Y + deltaY);
-            }
-
-            if (point.X <= EndPoint.X + 30 && point.X >= EndPoint.X - 30
-             && point.Y <= EndPoint.Y + 30 && point.Y >= EndPoint.Y - 30)
-            {
-                EndPoint = new Point(EndPoint.X + deltaX, EndPoint.Y + deltaY);
+                if (isStartPointSelected)
+                {
+                    StartPoint = new Point(StartPoint.X + deltaX, StartPoint.Y + deltaY);
+                }
+                else
+                {
+                    EndPoint = new Point(EndPoint.X + deltaX, EndPoint.Y + deltaY);
+                }
             }
         }
 
         public override bool IsGrabbing(Point point)
         {
             if (point.X <= StartPoint.X + 30 && point.X >= StartPoint.X - 30
-             && point.Y <= StartPoint.Y + 30 && point.Y >= StartPoint.Y - 30
-             || point.X <= EndPoint.X + 30 && point.X >= EndPoint.X - 30
+             && point.Y <= StartPoint.Y + 30 && point.Y >= StartPoint.Y - 30)
+            {
+                isStartPointSelected = true;
+                return true;
+            }
+            else if (point.X <= EndPoint.X + 30 && point.X >= EndPoint.X - 30
              && point.Y <= EndPoint.Y + 30 && point.Y >= EndPoint.Y - 30)
             {
+                isStartPointSelected = false;
                 return true;
             }
             else
