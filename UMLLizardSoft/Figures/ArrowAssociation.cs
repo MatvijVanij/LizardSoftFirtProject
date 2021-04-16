@@ -32,6 +32,7 @@ namespace UMLLizardSoft.Figures
             }
 
             FigurePen = new Pen(pen.Color, pen.Width);
+
             graphics.DrawLines(FigurePen, GetPoints().ToArray());
             Point[] points = { point2, point1, point3 };
             graphics.DrawLines(FigurePen, points);
