@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UMLLizardSoft.Figures
 {
@@ -26,11 +23,11 @@ namespace UMLLizardSoft.Figures
 
         public void DrawingDelta()
         {
-            //if (Math.Abs(StartPoint.X - EndPoint.X) < 30)
+            //if (Math.Abs(StartPoint.X - EndPoint.X) < 5)
             //{
             //    EndPoint = new Point(StartPoint.X, EndPoint.Y);
             //}
-            //if (Math.Abs(StartPoint.Y - EndPoint.Y) < 30)
+            //if (Math.Abs(StartPoint.Y - EndPoint.Y) < 5)
             //{
             //    EndPoint = new Point(EndPoint.X, StartPoint.Y);
             //}
@@ -43,18 +40,12 @@ namespace UMLLizardSoft.Figures
             {
                 StartPoint = new Point(StartPoint.X + deltaX, StartPoint.Y + deltaY);
             }
+
             if (point.X <= EndPoint.X + 30 && point.X >= EndPoint.X - 30
              && point.Y <= EndPoint.Y + 30 && point.Y >= EndPoint.Y - 30)
             {
                 EndPoint = new Point(EndPoint.X + deltaX, EndPoint.Y + deltaY);
             }
-            else
-            {
-
-            }
-
-            // StartPoint = new Point(StartPoint.X + deltaX, StartPoint.Y + deltaY);
-            // EndPoint = new Point(EndPoint.X + deltaX, EndPoint.Y + deltaY);
         }
 
         public override bool IsGrabbing(Point point)

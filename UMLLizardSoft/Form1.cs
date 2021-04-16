@@ -19,9 +19,7 @@ namespace UMLLizardSoft
         Pen pen; 
         List<AbstractFigure> abstractFigures;
         FigureType _figureType;
-
         IFactory _currentFactory;
-        
         Point newpoint;
 
         public Form1()
@@ -38,8 +36,8 @@ namespace UMLLizardSoft
             _graphics.Clear(Color.White);
             pictureBox1.Image = _mainBitmap;
             _currentFactory = new Rectangle1Factory();
-            _currentFigure =_currentFactory.Create();
              pen = new Pen(colorDialog1.Color, trackBar1.Value);
+            _currentFigure =_currentFactory.Create(pen);
 
         }
 
@@ -65,7 +63,7 @@ namespace UMLLizardSoft
 
                     foreach (AbstractFigure a in abstractFigures)
                     {
-                        a.Draw(_graphics, pen);
+                        a.Draw(_graphics, a.FigurePen);
                     }
 
                     pictureBox1.Image = _mainBitmap;
@@ -74,7 +72,7 @@ namespace UMLLizardSoft
             }
             else
             {
-                _currentFigure = _currentFactory.Create();
+                _currentFigure = _currentFactory.Create(pen);
 
                 _currentFigure.StartPoint = e.Location;
             }
@@ -110,8 +108,7 @@ namespace UMLLizardSoft
 
                 _tmpBitmap = (Bitmap)_mainBitmap.Clone();
                 _graphics = Graphics.FromImage(_tmpBitmap);
-                _currentFigure.Draw(_graphics, pen);
-
+                _currentFigure.Draw(_graphics, _currentFigure.FigurePen);
                 pictureBox1.Image = _tmpBitmap;
                 GC.Collect();
             }

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Drawing;
-
+﻿using System.Drawing;
 
 namespace UMLLizardSoft.Figures
 {
@@ -9,7 +7,7 @@ namespace UMLLizardSoft.Figures
         public override void Draw(Graphics graphics, Pen pen)
         {
             FigurePen = new Pen(pen.Color, pen.Width);
-            string str = "Claas Name";
+            string str = "Class Name";
             Font myFont = new Font("Arial", 16);
             SolidBrush myBrush = new SolidBrush(pen.Color);
 

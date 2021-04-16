@@ -34,7 +34,7 @@ namespace UMLLizardSoft.Figures
 
             FigurePen = new Pen(pen.Color, pen.Width);
             pen.DashStyle = DashStyle.Dash;
-            graphics.DrawLines(FigurePen, GetPoints().ToArray());
+            graphics.DrawLines(pen, GetPoints().ToArray());
             pen.DashStyle = DashStyle.Solid;
             Point[] points = { point1, point2, point3 };
             graphics.FillPolygon(solidBrush, points);

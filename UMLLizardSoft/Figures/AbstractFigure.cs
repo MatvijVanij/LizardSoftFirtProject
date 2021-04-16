@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace UMLLizardSoft.Figures
 {
@@ -15,6 +13,5 @@ namespace UMLLizardSoft.Figures
         public abstract void Move(int deltaX, int deltaY,Point point);
 
         public abstract bool IsGrabbing(Point point);
-        
     }
 }

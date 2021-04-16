@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using UMLLizardSoft.Figures;
 namespace UMLLizardSoft.Factories
 {
     public class ArrowСompositionFactory : IFactory
     {
-        public AbstractFigure Create()
+        public AbstractFigure Create(Pen pen)
         {
-            return new ArrowСomposition();
+            return new ArrowСomposition() 
+            { 
+                FigurePen = pen
+            };
         }
     }
 }

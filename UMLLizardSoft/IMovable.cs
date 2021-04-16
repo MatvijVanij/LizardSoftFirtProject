@@ -1,6 +1,5 @@
 ﻿using System.Drawing;
 
-
 namespace UMLLizardSoft
 {
     public interface IMovable
