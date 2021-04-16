@@ -8,7 +8,7 @@ namespace UMLLizardSoft.Figures
         {
             FigurePen = new Pen(pen.Color, pen.Width);
             string str = "Class Name";
-            Font myFont = new Font("Arial", 16);
+            Font myFont = new Font("Arial", 12);
             SolidBrush myBrush = new SolidBrush(pen.Color);
 
             int height = EndPoint.Y - StartPoint.Y;

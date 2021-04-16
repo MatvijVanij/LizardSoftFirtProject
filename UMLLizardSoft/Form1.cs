@@ -18,7 +18,6 @@ namespace UMLLizardSoft
         int arrowWeight;
         Pen pen; 
         List<AbstractFigure> abstractFigures;
-        FigureType _figureType;
         IFactory _currentFactory;
         Point newpoint;
 
@@ -38,7 +37,6 @@ namespace UMLLizardSoft
             _currentFactory = new Rectangle1Factory();
              pen = new Pen(colorDialog1.Color, trackBar1.Value);
             _currentFigure =_currentFactory.Create(pen);
-
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
@@ -152,11 +150,10 @@ namespace UMLLizardSoft
         {
             TrackBar bar = (TrackBar)sender;
             int minWeightValue = bar.Minimum;
-            int maxWeitghValue = bar.Maximum;
             int value = bar.Value;
             arrowWeight = 1 + minWeightValue + value;
             pen.Width = trackBar1.Value;
-            bar.SetRange(1, 10);
+            bar.SetRange(2, 5);
         }
 
         private void buttonColorPalette_Click(object sender, EventArgs e)

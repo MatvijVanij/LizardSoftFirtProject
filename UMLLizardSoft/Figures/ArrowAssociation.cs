@@ -5,7 +5,7 @@ namespace UMLLizardSoft.Figures
     public class ArrowAssociation : AbstractArrow
 
     {
-        int delta = 30;
+        int delta = 10;
 
         public override void Draw(Graphics graphics, Pen pen)
         {

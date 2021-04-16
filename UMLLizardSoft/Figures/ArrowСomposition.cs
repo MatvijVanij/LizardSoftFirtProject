@@ -4,7 +4,7 @@ namespace UMLLizardSoft.Figures
 {
     public class ArrowСomposition : AbstractArrow
     {
-        int delta = 10;
+        int delta = 4;
 
         public override void Draw(Graphics graphics, Pen pen)
         {
