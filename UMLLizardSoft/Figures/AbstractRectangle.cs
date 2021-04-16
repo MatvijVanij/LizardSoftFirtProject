@@ -16,7 +16,7 @@ namespace UMLLizardSoft.Figures
 
         public override bool IsGrabbing(Point point)
         {
-            if (point.X >= StartPoint.X && point.X <= StartPoint.X + EndPoint.X
+            if (point.X >= StartPoint.X && point.X <= EndPoint.X
              && point.Y >= StartPoint.Y && point.Y <= EndPoint.Y)
             {
                 return true;
