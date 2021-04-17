@@ -14,10 +14,14 @@ namespace UMLLizardSoft.Figures
             int height = EndPoint.Y - StartPoint.Y;
             int width = EndPoint.X - StartPoint.X;
 
-            graphics.DrawString(str, myFont, myBrush, StartPoint.X,StartPoint.Y);
             graphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y, width, height);
-            graphics.DrawLine(FigurePen, StartPoint.X, StartPoint.Y + 30, EndPoint.X, StartPoint.Y + 30);
-            graphics.DrawLine(FigurePen, StartPoint.X, StartPoint.Y + 60, EndPoint.X, StartPoint.Y + 60);
+
+            if (StartPoint.X < EndPoint.X)
+            {
+                graphics.DrawString(str, myFont, myBrush, StartPoint.X, StartPoint.Y);
+                graphics.DrawLine(FigurePen, StartPoint.X, StartPoint.Y + 30, EndPoint.X, StartPoint.Y + 30);
+                graphics.DrawLine(FigurePen, StartPoint.X, StartPoint.Y + 60, EndPoint.X, StartPoint.Y + 60);
+            }
         }
     }
 }
