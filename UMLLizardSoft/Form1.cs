@@ -14,12 +14,12 @@ namespace UMLLizardSoft
         Graphics _graphics;
         AbstractFigure _currentFigure;
         bool _isButtonPressed = false;
-        bool isMove = false;
-        int arrowWeight;
-        Pen pen;
-        List<AbstractFigure> abstractFigures;
+        bool _isMove = false;
+        int _arrowWeight;
+        Pen _pen;
+        List<AbstractFigure> _abstractFigures;
         IFactory _currentFactory;
-        Point newpoint;
+        Point _newpoint;
 
         public Form1()
         {
@@ -28,23 +28,24 @@ namespace UMLLizardSoft
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            abstractFigures = new List<AbstractFigure>();
-            arrowWeight = 1;
+            _abstractFigures = new List<AbstractFigure>();
+            _arrowWeight = 1;
             _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             _graphics = Graphics.FromImage(_mainBitmap);
             _graphics.Clear(Color.White);
             pictureBox1.Image = _mainBitmap;
             _currentFactory = new Rectangle1Factory();
-             pen = new Pen(colorDialog1.Color, trackBar1.Value);
-            _currentFigure =_currentFactory.Create(pen);
+            _pen = new Pen(colorDialog1.Color, trackBar1.Value);
+            _currentFigure = _currentFactory.Create(_pen);
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             buttonStepBack.Enabled = true;
-            if (isMove)
+
+            if (_isMove)
             {
-                foreach (AbstractFigure a in abstractFigures)
+                foreach (AbstractFigure a in _abstractFigures)
                 {
                     if (a.IsGrabbing(e.Location))
                     {
@@ -55,23 +56,23 @@ namespace UMLLizardSoft
 
                 if (_currentFigure != null)
                 {
-                    abstractFigures.Remove(_currentFigure);
+                    _abstractFigures.Remove(_currentFigure);
                     _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
                     _graphics = Graphics.FromImage(_mainBitmap);
                     _graphics.Clear(Color.White);
 
-                    foreach (AbstractFigure a in abstractFigures)
+                    foreach (AbstractFigure a in _abstractFigures)
                     {
                         a.Draw(_graphics, a.FigurePen);
                     }
 
                     pictureBox1.Image = _mainBitmap;
-                    newpoint = e.Location;
+                    _newpoint = e.Location;
                 }
             }
             else
             {
-                _currentFigure = _currentFactory.Create(pen);
+                _currentFigure = _currentFactory.Create(_pen);
                 _currentFigure.StartPoint = e.Location;
             }
 
@@ -81,12 +82,11 @@ namespace UMLLizardSoft
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             _isButtonPressed = false;
-            //isMove = false;
             _mainBitmap = _tmpBitmap;
 
             if (_currentFigure != null)
             {
-                abstractFigures.Add(_currentFigure);
+                _abstractFigures.Add(_currentFigure);
             }
         }
 
@@ -94,10 +94,10 @@ namespace UMLLizardSoft
         {
             if (_isButtonPressed && _currentFigure != null)
             {
-                if (isMove)
+                if (_isMove)
                 {
-                    _currentFigure.Move(e.X - newpoint.X, e.Y - newpoint.Y, e.Location);
-                    newpoint = e.Location;
+                    _currentFigure.Move(e.X - _newpoint.X, e.Y - _newpoint.Y, e.Location);
+                    _newpoint = e.Location;
                 }
                 else
                 {
@@ -118,37 +118,37 @@ namespace UMLLizardSoft
 
         private void radioButtonAssociation_CheckedChanged(object sender, EventArgs e)
         {
-            isMove = false;
+            _isMove = false;
             _currentFactory = new ArrowAssociationFactory();
         }
 
         private void radioButtonInheritance_CheckedChanged(object sender, EventArgs e)
         {
-            isMove = false;
+            _isMove = false;
             _currentFactory = new ArrowInheritanceFactory();
         }
 
         private void radioButtonAggregation_CheckedChanged(object sender, EventArgs e)
         {
-            isMove = false;
+            _isMove = false;
             _currentFactory = new ArrowAggregationFactory();
         }
 
         private void radioButtonСomposition_CheckedChanged(object sender, EventArgs e)
         {
-            isMove = false;
+            _isMove = false;
             _currentFactory = new ArrowСompositionFactory();
         }
 
         private void radioButtonImplementation_CheckedChanged(object sender, EventArgs e)
         {
-            isMove = false;
+            _isMove = false;
             _currentFactory = new ArrowImplementationFactory();
         }
 
         private void radioButtonRectangle1_CheckedChanged(object sender, EventArgs e)
         {
-            isMove = false;
+            _isMove = false;
             _currentFactory = new Rectangle1Factory();
         }
 
@@ -157,8 +157,8 @@ namespace UMLLizardSoft
             TrackBar bar = (TrackBar)sender;
             int minWeightValue = bar.Minimum;
             int value = bar.Value;
-            arrowWeight = 1 + minWeightValue + value;
-            pen.Width = trackBar1.Value;
+            _arrowWeight = 1 + minWeightValue + value;
+            _pen.Width = trackBar1.Value;
             bar.SetRange(2, 5);
         }
 
@@ -166,12 +166,12 @@ namespace UMLLizardSoft
         {
             colorDialog1.ShowDialog();
             buttonColorPalette.BackColor = colorDialog1.Color;
-            pen.Color = colorDialog1.Color;
+            _pen.Color = colorDialog1.Color;
         }
 
         private void buttonClear_Click(object sender, EventArgs e)
         {
-            abstractFigures.Clear();
+            _abstractFigures.Clear();
             _graphics = Graphics.FromImage(_mainBitmap);
             _graphics.Clear(Color.White);
             pictureBox1.Image = _mainBitmap;
@@ -179,27 +179,32 @@ namespace UMLLizardSoft
 
         private void buttonMove_Click(object sender, EventArgs e)
         {
-            _currentFigure = null;
-            isMove = true;
+            if (_abstractFigures.Count > 0)
+            {
+                _currentFigure = null;
+                _isMove = true;
+            }
+            else
+            {
+                buttonMove.Enabled = false;
+            }
         }
 
         private void StepBack_Click(object sender, EventArgs e)
         {
-            if (abstractFigures.Count >= 1)
+            if (_abstractFigures.Count > 0)
             {
-               
-
-                abstractFigures.RemoveAt(abstractFigures.Count - 1);
+                _abstractFigures.RemoveAt(_abstractFigures.Count - 1);
                 _graphics.Clear(Color.White);
 
-                foreach (AbstractFigure a in abstractFigures)
+                foreach (AbstractFigure a in _abstractFigures)
                 {
                     a.Draw(_graphics, a.FigurePen);
                 }
 
                 pictureBox1.Image = _mainBitmap;
             }
-            else 
+            else
             {
                 buttonStepBack.Enabled = false;
             }
@@ -207,7 +212,7 @@ namespace UMLLizardSoft
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
