@@ -47,7 +47,7 @@ namespace UMLLizardSoft
             {
                 foreach (AbstractFigure a in _abstractFigures)
                 {
-                    if (a.IsGrabbing(e.Location))
+                    if (a.IsSelected(e.Location))
                     {
                         _currentFigure = a;
                         break;
@@ -179,15 +179,8 @@ namespace UMLLizardSoft
 
         private void buttonMove_Click(object sender, EventArgs e)
         {
-            if (_abstractFigures.Count > 0)
-            {
-                _currentFigure = null;
-                _isMove = true;
-            }
-            else
-            {
-                buttonMove.Enabled = false;
-            }
+            _currentFigure = null;
+            _isMove = true;
         }
 
         private void StepBack_Click(object sender, EventArgs e)

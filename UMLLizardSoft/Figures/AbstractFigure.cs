@@ -12,6 +12,6 @@ namespace UMLLizardSoft.Figures
 
         public abstract void Move(int deltaX, int deltaY,Point point);
 
-        public abstract bool IsGrabbing(Point point);
+        public abstract bool IsSelected(Point point);
     }
 }

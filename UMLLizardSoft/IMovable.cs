@@ -4,7 +4,7 @@ namespace UMLLizardSoft
 {
     public interface IMovable
     {
-        bool IsGrabbing(Point point);
+        bool IsSelected(Point point);
 
         void Move(int deltaX, int deltaY,Point point );
     }

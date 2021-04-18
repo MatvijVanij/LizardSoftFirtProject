@@ -38,7 +38,7 @@ namespace UMLLizardSoft.Figures
 
         public override void Move(int deltaX, int deltaY, Point point)
         {
-            if (IsGrabbing(point))
+            if (IsSelected(point))
             {
                 if (isStartPointSelected)
                 {
@@ -51,7 +51,7 @@ namespace UMLLizardSoft.Figures
             }
         }
 
-        public override bool IsGrabbing(Point point)
+        public override bool IsSelected(Point point)
         {
             if (point.X <= StartPoint.X + 30 && point.X >= StartPoint.X - 30
              && point.Y <= StartPoint.Y + 30 && point.Y >= StartPoint.Y - 30)

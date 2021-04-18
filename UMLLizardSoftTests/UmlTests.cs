@@ -11,7 +11,7 @@ namespace UMLLizardSoftTests
         [TestCaseSource(typeof(IsGrabbingSource))]
         public void IsGrabbing_WhenGetPoint_ShouldReturnBool(AbstractFigure absR, Point point, bool expected)
         {
-            bool actual = absR.IsGrabbing(point);
+            bool actual = absR.IsSelected(point);
             Assert.AreEqual(expected, actual);
         }
       
