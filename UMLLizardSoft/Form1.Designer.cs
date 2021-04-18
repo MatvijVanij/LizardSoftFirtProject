@@ -29,6 +29,7 @@ namespace UMLLizardSoft
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.radioButtonAssociation = new System.Windows.Forms.RadioButton();
             this.radioButtonInheritance = new System.Windows.Forms.RadioButton();
             this.radioButtonAggregation = new System.Windows.Forms.RadioButton();
@@ -48,6 +49,7 @@ namespace UMLLizardSoft
             this.buttonMove = new System.Windows.Forms.Button();
             this.buttonStepBack = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -55,6 +57,7 @@ namespace UMLLizardSoft
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.SuspendLayout();
             // 
             // radioButtonAssociation
@@ -185,7 +188,7 @@ namespace UMLLizardSoft
             // 
             this.buttonColorPalette.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.buttonColorPalette.Location = new System.Drawing.Point(13, 393);
-            this.buttonColorPalette.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonColorPalette.Margin = new System.Windows.Forms.Padding(2);
             this.buttonColorPalette.Name = "buttonColorPalette";
             this.buttonColorPalette.Size = new System.Drawing.Size(40, 40);
             this.buttonColorPalette.TabIndex = 11;
@@ -206,7 +209,7 @@ namespace UMLLizardSoft
             // 
             this.radioButtonRectangle1.AutoSize = true;
             this.radioButtonRectangle1.Checked = true;
-            this.radioButtonRectangle1.Location = new System.Drawing.Point(64, 127);
+            this.radioButtonRectangle1.Location = new System.Drawing.Point(64, 164);
             this.radioButtonRectangle1.Name = "radioButtonRectangle1";
             this.radioButtonRectangle1.Size = new System.Drawing.Size(80, 17);
             this.radioButtonRectangle1.TabIndex = 14;
@@ -245,12 +248,22 @@ namespace UMLLizardSoft
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(8, 144);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(46, 47);
+            this.pictureBox7.TabIndex = 18;
+            this.pictureBox7.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Chocolate;
             this.ClientSize = new System.Drawing.Size(1044, 502);
+            this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonStepBack);
             this.Controls.Add(this.buttonMove);
@@ -279,6 +292,7 @@ namespace UMLLizardSoft
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -305,6 +319,7 @@ namespace UMLLizardSoft
         private System.Windows.Forms.Button buttonMove;
         private System.Windows.Forms.Button buttonStepBack;
         private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.PictureBox pictureBox7;
     }
 }
 
