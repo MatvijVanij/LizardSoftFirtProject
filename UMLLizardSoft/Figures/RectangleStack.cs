@@ -19,7 +19,7 @@ namespace UMLLizardSoft.Figures
             int height = EndPoint.Y - StartPoint.Y;
             int width = EndPoint.X - StartPoint.X;
 
-            if (StartPoint.X < EndPoint.X)
+            if (StartPoint.X < EndPoint.X && EndPoint.Y > StartPoint.Y + 60 && str.Length + 80 < width)
             {
                 graphics.DrawString(str, myFont, myBrush, StartPoint.X, StartPoint.Y);
 

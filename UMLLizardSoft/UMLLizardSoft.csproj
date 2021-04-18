@@ -57,6 +57,7 @@
     <Compile Include="Figures\AbstractArrow.cs" />
     <Compile Include="Figures\AbstractRectangle.cs" />
     <Compile Include="Figures\RectangleStack.cs" />
+    <Compile Include="Figures\SinglePainter\Painter.cs" />
     <Compile Include="FigureType.cs" />
     <Compile Include="Figures\AbstractFigure.cs" />
     <Compile Include="Figures\ArrowAggregation.cs" />

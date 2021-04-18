@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using UMLLizardSoft.Factories;
 using UMLLizardSoft.Figures;
+using UMLLizardSoft.Figures.SinglePainter;
 
 namespace UMLLizardSoft
 {
@@ -21,13 +22,26 @@ namespace UMLLizardSoft
         IFactory _currentFactory;
         Point _newpoint;
 
+        private Painter _painter;
+
         public Form1()
         {
             InitializeComponent();
         }
 
+        //private void Form1_Load(object sender, EventArgs e)
+        //{
+        //    //colorButton.BackColor = colorDialog.Color;
+        //    _painter = Painter.GetPainter();
+        //    painter.SetPictureBox(pictureBox);
+        //    //_figures = new List<IFigure>();
+        //    //_classDialogForm = new ClassDialogForm();
+        //}
+
         private void Form1_Load(object sender, EventArgs e)
         {
+            _painter = Painter.GetPainter();
+
             _abstractFigures = new List<AbstractFigure>();
             _arrowWeight = 1;
             _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
@@ -108,7 +122,7 @@ namespace UMLLizardSoft
                 _graphics = Graphics.FromImage(_tmpBitmap);
                 _currentFigure.Draw(_graphics, _currentFigure.FigurePen);
                 pictureBox1.Image = _tmpBitmap;
-                //GC.Collect();
+                GC.Collect();
             }
             else
             {

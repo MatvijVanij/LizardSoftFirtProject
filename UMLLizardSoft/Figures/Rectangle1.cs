@@ -16,7 +16,7 @@ namespace UMLLizardSoft.Figures
 
             graphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y, width, height);
 
-            if (StartPoint.X < EndPoint.X)
+            if (StartPoint.X < EndPoint.X && EndPoint.Y > StartPoint.Y + 60 && str.Length + 80 < width)
             {
                 graphics.DrawString(str, myFont, myBrush, StartPoint.X, StartPoint.Y);
                 graphics.DrawLine(FigurePen, StartPoint.X, StartPoint.Y + 30, EndPoint.X, StartPoint.Y + 30);
