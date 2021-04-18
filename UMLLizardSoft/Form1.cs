@@ -81,7 +81,7 @@ namespace UMLLizardSoft
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             _isButtonPressed = false;
-            isMove = false;
+            //isMove = false;
             _mainBitmap = _tmpBitmap;
 
             if (_currentFigure != null)
@@ -108,7 +108,7 @@ namespace UMLLizardSoft
                 _graphics = Graphics.FromImage(_tmpBitmap);
                 _currentFigure.Draw(_graphics, _currentFigure.FigurePen);
                 pictureBox1.Image = _tmpBitmap;
-                GC.Collect();
+                //GC.Collect();
             }
             else
             {
@@ -118,31 +118,37 @@ namespace UMLLizardSoft
 
         private void radioButtonAssociation_CheckedChanged(object sender, EventArgs e)
         {
+            isMove = false;
             _currentFactory = new ArrowAssociationFactory();
         }
 
         private void radioButtonInheritance_CheckedChanged(object sender, EventArgs e)
         {
+            isMove = false;
             _currentFactory = new ArrowInheritanceFactory();
         }
 
         private void radioButtonAggregation_CheckedChanged(object sender, EventArgs e)
         {
+            isMove = false;
             _currentFactory = new ArrowAggregationFactory();
         }
 
         private void radioButtonСomposition_CheckedChanged(object sender, EventArgs e)
         {
+            isMove = false;
             _currentFactory = new ArrowСompositionFactory();
         }
 
         private void radioButtonImplementation_CheckedChanged(object sender, EventArgs e)
         {
+            isMove = false;
             _currentFactory = new ArrowImplementationFactory();
         }
 
         private void radioButtonRectangle1_CheckedChanged(object sender, EventArgs e)
         {
+            isMove = false;
             _currentFactory = new Rectangle1Factory();
         }
 
@@ -202,6 +208,11 @@ namespace UMLLizardSoft
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
