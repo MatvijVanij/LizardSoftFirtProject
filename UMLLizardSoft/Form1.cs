@@ -145,6 +145,10 @@ namespace UMLLizardSoft
         {
             _currentFactory = new Rectangle1Factory();
         }
+        private void radioButtonRectangleStack_CheckedChanged(object sender, EventArgs e)
+        {
+            _currentFactory = new RectangleStackFactory();
+        }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
@@ -203,5 +207,7 @@ namespace UMLLizardSoft
         {
             
         }
+
+        
     }
 }

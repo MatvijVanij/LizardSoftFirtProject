@@ -50,6 +50,7 @@ namespace UMLLizardSoft
             this.buttonStepBack = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.radioButtonRectangleStack = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -209,7 +210,7 @@ namespace UMLLizardSoft
             // 
             this.radioButtonRectangle1.AutoSize = true;
             this.radioButtonRectangle1.Checked = true;
-            this.radioButtonRectangle1.Location = new System.Drawing.Point(64, 164);
+            this.radioButtonRectangle1.Location = new System.Drawing.Point(64, 144);
             this.radioButtonRectangle1.Name = "radioButtonRectangle1";
             this.radioButtonRectangle1.Size = new System.Drawing.Size(80, 17);
             this.radioButtonRectangle1.TabIndex = 14;
@@ -257,12 +258,25 @@ namespace UMLLizardSoft
             this.pictureBox7.TabIndex = 18;
             this.pictureBox7.TabStop = false;
             // 
+            // radioButtonRectangleStack
+            // 
+            this.radioButtonRectangleStack.AutoSize = true;
+            this.radioButtonRectangleStack.Location = new System.Drawing.Point(64, 174);
+            this.radioButtonRectangleStack.Name = "radioButtonRectangleStack";
+            this.radioButtonRectangleStack.Size = new System.Drawing.Size(102, 17);
+            this.radioButtonRectangleStack.TabIndex = 19;
+            this.radioButtonRectangleStack.TabStop = true;
+            this.radioButtonRectangleStack.Text = "RectangleStack";
+            this.radioButtonRectangleStack.UseVisualStyleBackColor = true;
+            this.radioButtonRectangleStack.CheckedChanged += new System.EventHandler(this.radioButtonRectangleStack_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Chocolate;
             this.ClientSize = new System.Drawing.Size(1044, 502);
+            this.Controls.Add(this.radioButtonRectangleStack);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonStepBack);
@@ -320,6 +334,7 @@ namespace UMLLizardSoft
         private System.Windows.Forms.Button buttonStepBack;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.RadioButton radioButtonRectangleStack;
     }
 }
 
