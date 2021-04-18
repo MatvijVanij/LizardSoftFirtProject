@@ -14,7 +14,7 @@ namespace UMLLizardSoft.Figures
             EndPoint = new Point(EndPoint.X + deltaX, EndPoint.Y + deltaY);
         }
 
-        public override bool IsGrabbing(Point point)
+        public override bool IsSelected(Point point)
         {
             if (point.X >= StartPoint.X && point.X <= EndPoint.X
              && point.Y >= StartPoint.Y && point.Y <= EndPoint.Y)
