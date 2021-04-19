@@ -11,7 +11,7 @@ namespace UMLLizardSoft
     public partial class Form1 : Form
     {
         Bitmap _mainBitmap;
-        Bitmap _tmpBitmap;
+        //Bitmap _tmpBitmap;
         Graphics _graphics;
         AbstractFigure _currentFigure;
         bool _isButtonPressed = false;
@@ -29,27 +29,18 @@ namespace UMLLizardSoft
             InitializeComponent();
         }
 
-        //private void Form1_Load(object sender, EventArgs e)
-        //{
-        //    //colorButton.BackColor = colorDialog.Color;
-        //    _painter = Painter.GetPainter();
-        //    painter.SetPictureBox(pictureBox);
-        //    //_figures = new List<IFigure>();
-        //    //_classDialogForm = new ClassDialogForm();
-        //}
-
         private void Form1_Load(object sender, EventArgs e)
         {
             _painter = Painter.GetPainter();
-
+            _painter.SetPictureBox(pictureBox1);
             _abstractFigures = new List<AbstractFigure>();
             _arrowWeight = 1;
-            _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            _graphics = Graphics.FromImage(_mainBitmap);
-            _graphics.Clear(Color.White);
-            pictureBox1.Image = _mainBitmap;
+            //_mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            //_graphics = Graphics.FromImage(_mainBitmap);
+            //_graphics.Clear(Color.White);
+            //pictureBox1.Image = _mainBitmap;
             _currentFactory = new Rectangle1Factory();
-            _pen = new Pen(colorDialog1.Color, trackBar1.Value);
+            //_pen = new Pen(colorDialog1.Color, trackBar1.Value);
             _currentFigure = _currentFactory.Create(_pen);
         }
 
@@ -71,9 +62,13 @@ namespace UMLLizardSoft
                 if (_currentFigure != null)
                 {
                     _abstractFigures.Remove(_currentFigure);
-                    _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-                    _graphics = Graphics.FromImage(_mainBitmap);
-                    _graphics.Clear(Color.White);
+
+                    _painter = Painter.GetPainter();
+                    _painter.SetPictureBox(pictureBox1);
+                    //_mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+                    //_graphics = Graphics.FromImage(_mainBitmap);
+                    //_graphics.Clear(Color.White);
+                    _painter = Painter.GetPainter();
 
                     foreach (AbstractFigure a in _abstractFigures)
                     {
@@ -96,12 +91,18 @@ namespace UMLLizardSoft
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
             _isButtonPressed = false;
-            _mainBitmap = _tmpBitmap;
+            SetMainBitmap();
+           // _mainBitmap = _tmpBitmap;
 
             if (_currentFigure != null)
             {
                 _abstractFigures.Add(_currentFigure);
             }
+        }
+
+        private void SetMainBitmap()
+        {
+            throw new NotImplementedException();
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
@@ -118,16 +119,24 @@ namespace UMLLizardSoft
                     _currentFigure.EndPoint = e.Location;
                 }
 
-                _tmpBitmap = (Bitmap)_mainBitmap.Clone();
-                _graphics = Graphics.FromImage(_tmpBitmap);
-                _currentFigure.Draw(_graphics, _currentFigure.FigurePen);
-                pictureBox1.Image = _tmpBitmap;
+                _painter = Painter.GetPainter();
+
+                UpdatePictureBox();
+                //_tmpBitmap = (Bitmap)_mainBitmap.Clone();
+                //_graphics = Graphics.FromImage(_tmpBitmap);
+                //_currentFigure.Draw(_graphics, _currentFigure.FigurePen);
+                //pictureBox1.Image = _tmpBitmap;
                 GC.Collect();
             }
             else
             {
                 _isButtonPressed = false;
             }
+        }
+
+        private void UpdatePictureBox()
+        {
+            throw new NotImplementedException();
         }
 
         private void radioButtonAssociation_CheckedChanged(object sender, EventArgs e)
@@ -213,7 +222,8 @@ namespace UMLLizardSoft
                     a.Draw(_graphics, a.FigurePen);
                 }
 
-                pictureBox1.Image = _mainBitmap;
+                UpdatePictureBox();
+                //pictureBox1.Image = _mainBitmap;
             }
             else
             {

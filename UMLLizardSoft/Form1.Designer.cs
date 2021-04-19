@@ -178,7 +178,7 @@ namespace UMLLizardSoft
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Location = new System.Drawing.Point(222, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(813, 481);
+            this.pictureBox1.Size = new System.Drawing.Size(2500, 2000);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -276,7 +276,7 @@ namespace UMLLizardSoft
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Chocolate;
-            this.ClientSize = new System.Drawing.Size(1044, 502);
+            this.ClientSize = new System.Drawing.Size(1216, 517);
             this.Controls.Add(this.radioButtonRectangleStack);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.buttonDelete);
