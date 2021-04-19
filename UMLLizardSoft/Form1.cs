@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
+using System.Text.Json;
 using System.Windows.Forms;
 using UMLLizardSoft.Factories;
 using UMLLizardSoft.Figures;
@@ -37,6 +39,7 @@ namespace UMLLizardSoft
             _currentFactory = new Rectangle1Factory();
             _pen = new Pen(colorDialog1.Color, trackBar1.Value);
             _currentFigure = _currentFactory.Create(_pen);
+            //saveFileDialog1.Filter = "Bitmap files (*.bmp)|*.bmp|Image files (*.jpg)|*.jpg";
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
@@ -217,6 +220,18 @@ namespace UMLLizardSoft
 
         }
 
-        
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            //saveFileDialog1.ShowDialog();
+
+            //string path = @"C:\Users\nhevg\Desktop\111.jpg";
+            //string filename = saveFileDialog1.FileName;
+            //string listAbstractFigures = JsonSerializer.Serialize < List < AbstractFigure >> (_abstractFigures);
+
+            //using (StreamWriter sw = new StreamWriter(path, false))
+            //{
+            //    sw.WriteLine(listAbstractFigures);
+            //}
+        }
     }
 }
