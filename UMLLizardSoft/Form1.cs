@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Text.Json;
+//using System.Text.Json;
+//using System.Text.Json.Serialization;
 using System.Windows.Forms;
 using UMLLizardSoft.Factories;
 using UMLLizardSoft.Figures;
+using Newtonsoft.Json;
 
 namespace UMLLizardSoft
 {
@@ -225,13 +227,16 @@ namespace UMLLizardSoft
             //saveFileDialog1.ShowDialog();
             //string path = @"C:\Users\nhevg\Desktop\111.txt";
             //string filename = saveFileDialog1.FileName;
-            //AbstractFigure abstractFigure = Rectangle1.Create();
 
-            string listAbstractFigures = JsonSerializer.Serialize(_abstractFigures);
+            string serialized = JsonConvert.SerializeObject(_abstractFigures, Formatting.Indented,
+                new JsonSerializerSettings
+                {
+                    TypeNameHandling = TypeNameHandling.All
+                });
 
             //using (StreamWriter sw = new StreamWriter(path, false))
             //{
-            //    sw.WriteLine(listAbstractFigures);
+            //    sw.WriteLine(serialized);
             //}
         }
     }
