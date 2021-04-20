@@ -7,10 +7,10 @@ namespace UMLLizardSoft.Factories
     {
         public AbstractFigure Create(Pen pen)
         {
-            return new ArrowAggregation()
-            {
-                FigurePen = pen
-            };
+            var arrowAggregation = ArrowAggregation.Create();
+            arrowAggregation.FigurePen = pen;
+
+            return arrowAggregation;
         }
     }
 }

@@ -4,6 +4,15 @@ namespace UMLLizardSoft.Figures
 {
     public class ArrowAggregation : AbstractArrow
     {
+        private ArrowAggregation()
+        {
+        }
+
+        public static ArrowAggregation Create()
+        {
+            return new ArrowAggregation();
+        }
+
         public override void Draw(Graphics graphics, Pen pen)
         {
             DrawingDelta();

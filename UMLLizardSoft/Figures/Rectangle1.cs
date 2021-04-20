@@ -4,6 +4,15 @@ namespace UMLLizardSoft.Figures
 {
     public class Rectangle1 : AbstractRectangle
     {
+        private Rectangle1()
+        {
+        }
+
+        public static Rectangle1 Create()
+        {
+            return new Rectangle1();
+        }
+
         public override void Draw(Graphics graphics, Pen pen)
         {
             FigurePen = new Pen(pen.Color, pen.Width);

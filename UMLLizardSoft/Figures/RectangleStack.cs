@@ -9,6 +9,15 @@ namespace UMLLizardSoft.Figures
 {
     public class RectangleStack : AbstractRectangle
     {
+        private RectangleStack()
+        {
+        }
+
+        public static RectangleStack Create()
+        {
+            return new RectangleStack();
+        }
+
         public override void Draw(Graphics graphics, Pen pen)
         {
             FigurePen = new Pen(pen.Color, pen.Width);

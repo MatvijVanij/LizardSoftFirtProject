@@ -223,10 +223,11 @@ namespace UMLLizardSoft
         private void buttonSave_Click(object sender, EventArgs e)
         {
             //saveFileDialog1.ShowDialog();
-
-            //string path = @"C:\Users\nhevg\Desktop\111.jpg";
+            //string path = @"C:\Users\nhevg\Desktop\111.txt";
             //string filename = saveFileDialog1.FileName;
-            //string listAbstractFigures = JsonSerializer.Serialize < List < AbstractFigure >> (_abstractFigures);
+            //AbstractFigure abstractFigure = Rectangle1.Create();
+
+            string listAbstractFigures = JsonSerializer.Serialize(_abstractFigures);
 
             //using (StreamWriter sw = new StreamWriter(path, false))
             //{

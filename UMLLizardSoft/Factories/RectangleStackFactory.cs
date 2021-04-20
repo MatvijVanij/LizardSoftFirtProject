@@ -8,10 +8,10 @@ namespace UMLLizardSoft.Factories
     {
         public AbstractFigure Create(Pen pen)
         {
-            return new RectangleStack()
-            {
-                FigurePen = pen
-            };
+            var rectangleStack = RectangleStack.Create();
+            rectangleStack.FigurePen = pen;
+
+            return rectangleStack;
         }
     }
 }

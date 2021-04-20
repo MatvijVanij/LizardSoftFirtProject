@@ -6,6 +6,15 @@ namespace UMLLizardSoft.Figures
     {
         int delta = 10;
 
+        private ArrowInheritance()
+        {
+        }
+
+        public static ArrowInheritance Create()
+        {
+            return new ArrowInheritance();
+        }
+
         public override void Draw(Graphics graphics, Pen pen)
         {
             DrawingDelta();

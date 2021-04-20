@@ -7,6 +7,15 @@ namespace UMLLizardSoft.Figures
     {
         int delta = 10;
 
+        private ArrowAssociation()
+        {
+        }
+
+        public static ArrowAssociation Create()
+        {
+            return new ArrowAssociation();
+        }
+
         public override void Draw(Graphics graphics, Pen pen)
         {
             DrawingDelta();
