@@ -13,7 +13,7 @@ namespace UMLLizardSoft.Figures
         protected List<string> _listForRect1Text;
         protected List<string> _listForRect2Text;
         protected List<string> _listForRect3Text;
-        protected int height = 200;
+        protected int height = 50;
         protected int width = 100;
 
         public Point StartPoint { get; set; }
@@ -22,9 +22,9 @@ namespace UMLLizardSoft.Figures
 
         public AbstractFigure()
         {
-            _listForRect1Text = new List<string>(); //{ "" };
-            _listForRect2Text = new List<string>(); //{ "", "" };
-            _listForRect3Text = new List<string>(); //{ "", "", "" };
+            _listForRect1Text = new List<string>(); 
+            _listForRect2Text = new List<string>(); 
+            _listForRect3Text = new List<string>(); 
         }
 
         public abstract void Draw(Graphics graphics, Pen pen);

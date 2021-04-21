@@ -110,7 +110,7 @@ namespace UMLLizardSoft
                 _graphics = Graphics.FromImage(_tmpBitmap);
                 _currentFigure.Draw(_graphics, _currentFigure.FigurePen);
                 pictureBox1.Image = _tmpBitmap;
-                //GC.Collect();
+                GC.Collect();
             }
             else
             {
@@ -221,8 +221,15 @@ namespace UMLLizardSoft
 
         private void buttonEnter_Click(object sender, EventArgs e)
         {
+            if (_currentFigure!=null)
+            {
             _currentFigure.SaveElementText(textBox1.Text);
             pictureBox1.Invalidate();
+            _tmpBitmap = (Bitmap)_mainBitmap.Clone();
+            _graphics = Graphics.FromImage(_tmpBitmap);
+            _currentFigure.Draw(_graphics, _currentFigure.FigurePen);
+            pictureBox1.Image = _tmpBitmap;
+            }
         }
 
         private void buttonSelect_Click(object sender, EventArgs e)

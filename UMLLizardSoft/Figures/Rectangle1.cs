@@ -7,29 +7,29 @@ namespace UMLLizardSoft.Figures
         public override void Draw(Graphics graphics, Pen pen)
         {
             FigurePen = new Pen(pen.Color, pen.Width);
-            string str = "Class Name";
-            Font myFont = new Font("Arial", 12);
+            Font myFont = new Font("Arial", 18);
             SolidBrush myBrush = new SolidBrush(pen.Color);
             StringFormat strFormat1 = new StringFormat();
+
             text1 = string.Empty;
             text2 = string.Empty;
             text3 = string.Empty;
-            strFormat1.Alignment = StringAlignment.Near;
-            strFormat1.LineAlignment = StringAlignment.Near;
-            strFormat1.Trimming = StringTrimming.Character;
 
-            graphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y, width, height);
+            //strFormat1.Alignment = StringAlignment.Near;
+            //strFormat1.LineAlignment = StringAlignment.Near;
+            //strFormat1.Trimming = StringTrimming.Character;
 
-            if (StartPoint.X < EndPoint.X && EndPoint.Y > StartPoint.Y + 60 && str.Length + 80 < width)
-            {
-                graphics.DrawString(str, myFont, myBrush, StartPoint.X, StartPoint.Y);
-                graphics.DrawLine(FigurePen, StartPoint.X, StartPoint.Y + 30, StartPoint.X + width, StartPoint.Y + 30);
-                graphics.DrawLine(FigurePen, StartPoint.X, StartPoint.Y + 60, StartPoint.X + width, StartPoint.Y + 60);
-            }
+            graphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y, width , height);
+            graphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y+height, width, height);
+            graphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y+2*height, width, 2*height);
+
+            //graphics.DrawLine(FigurePen, StartPoint.X, StartPoint.Y + 30, StartPoint.X + width, StartPoint.Y + 30);
+            //graphics.DrawLine(FigurePen, StartPoint.X, StartPoint.Y + 60, StartPoint.X + width, StartPoint.Y + 60);
+
 
             foreach (var text in _listForRect1Text)
             {
-                text1 += text + "\n";
+                text1 += text ;
             }
 
             foreach (var text in _listForRect2Text)
@@ -47,9 +47,6 @@ namespace UMLLizardSoft.Figures
             graphics.DrawString(text3, myFont, myBrush, StartPoint.X, StartPoint.Y + 90, strFormat1);
         }
 
-        public void DrawText()
-        {
-            
-        }
+
     }
 }

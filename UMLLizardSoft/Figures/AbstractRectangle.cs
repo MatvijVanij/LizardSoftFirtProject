@@ -5,6 +5,10 @@ namespace UMLLizardSoft.Figures
 {
     public class AbstractRectangle : AbstractFigure,IMovable
     {
+        
+
+        
+
         public override void Draw(Graphics graphics, Pen pen)
         {
         }
@@ -30,34 +34,38 @@ namespace UMLLizardSoft.Figures
 
         public override void SaveElementText(string strText)
         {
+            List<string> currentList = new List<string>();
             if (select == EnumSectionRectangle.FirstSection)
             {
                 _listForRect1Text.Add(strText);
+                currentList = _listForRect1Text;
             }
             else if (select == EnumSectionRectangle.SecondSection)
             {
                 _listForRect2Text.Add(strText);
+                currentList = _listForRect2Text;
             }
             else if (select == EnumSectionRectangle.ThirdSection)
             {
                 _listForRect3Text.Add(strText);
+                currentList = _listForRect3Text;
             }
         }
 
         public override bool CheckIfTheObjectIsClicked(Point point)
         {
             if (point.X >= StartPoint.X && point.X <= EndPoint.X
-             && point.Y >= StartPoint.Y + 30 && point.Y <= EndPoint.Y + 30)
+             && point.Y >= StartPoint.Y + height && point.Y <= EndPoint.Y + width)
             {
                 return true;
             }
             if (point.X >= StartPoint.X && point.X <= EndPoint.X
-             && point.Y >= StartPoint.Y + 60 && point.Y <= EndPoint.Y + 60)
+             && point.Y >= StartPoint.Y + 2*height && point.Y <= EndPoint.Y + 2*width)
             {
                 return true;
             }
             if (point.X >= StartPoint.X && point.X <= EndPoint.X
-             && point.Y >= StartPoint.Y + 90 && point.Y <= EndPoint.Y + 90)
+             && point.Y >= StartPoint.Y + 3 * height && point.Y <= EndPoint.Y + 3 * width)
             {
                 return true;
             }
