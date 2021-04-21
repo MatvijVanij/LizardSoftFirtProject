@@ -20,6 +20,7 @@ namespace UMLLizardSoft
         List<AbstractFigure> _abstractFigures;
         IFactory _currentFactory;
         Point _newpoint;
+        bool _isSelected = false;
 
         public Form1()
         {
@@ -77,6 +78,7 @@ namespace UMLLizardSoft
             }
 
             _isButtonPressed = true;
+            _isSelected = false;
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
@@ -217,6 +219,15 @@ namespace UMLLizardSoft
 
         }
 
-        
+        private void buttonEnter_Click(object sender, EventArgs e)
+        {
+            _currentFigure.SaveElementText(textBox1.Text);
+            pictureBox1.Invalidate();
+        }
+
+        private void buttonSelect_Click(object sender, EventArgs e)
+        {
+            _isSelected = true;
+        }
     }
 }

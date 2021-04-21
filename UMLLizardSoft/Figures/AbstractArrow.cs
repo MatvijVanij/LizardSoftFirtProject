@@ -70,5 +70,15 @@ namespace UMLLizardSoft.Figures
                 return false;
             }
         }
+
+        public override void SaveElementText(string text)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool CheckIfTheObjectIsClicked(Point point)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
