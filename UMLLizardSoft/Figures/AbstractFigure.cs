@@ -6,14 +6,16 @@ namespace UMLLizardSoft.Figures
 {
     public abstract class AbstractFigure : IMovable
     {
-        public EnumSectionRectangle select;
+        
         protected string text1;
         protected string text2;
         protected string text3;
         protected List<string> _listForRect1Text;
         protected List<string> _listForRect2Text;
         protected List<string> _listForRect3Text;
-        protected int height = 200;
+        protected List<Rectangle> _moduls;
+        protected AbstractRectangle _abstractRectangle;
+        protected int height = 40;
         protected int width = 100;
 
         public Point StartPoint { get; set; }
@@ -22,9 +24,9 @@ namespace UMLLizardSoft.Figures
 
         public AbstractFigure()
         {
-            _listForRect1Text = new List<string>(); //{ "" };
-            _listForRect2Text = new List<string>(); //{ "", "" };
-            _listForRect3Text = new List<string>(); //{ "", "", "" };
+            _listForRect1Text = new List<string>(); 
+            _listForRect2Text = new List<string>(); 
+            _listForRect3Text = new List<string>(); 
         }
 
         public abstract void Draw(Graphics graphics, Pen pen);
@@ -33,8 +35,11 @@ namespace UMLLizardSoft.Figures
 
         public abstract bool IsSelected(Point point);
 
-        public abstract void SaveElementText(string text);
+        public abstract void SaveElementTextClas(string text);
+        public abstract void SaveElementTextFild(string text);
+        public abstract void SaveElementTextMetod(string text);
 
         public abstract bool CheckIfTheObjectIsClicked(Point point);
+
     }
 }

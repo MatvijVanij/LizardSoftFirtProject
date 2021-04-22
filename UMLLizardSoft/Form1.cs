@@ -7,6 +7,7 @@ using UMLLizardSoft.Figures;
 
 namespace UMLLizardSoft
 {
+
     public partial class Form1 : Form
     {
         Bitmap _mainBitmap;
@@ -17,9 +18,11 @@ namespace UMLLizardSoft
         bool _isMove = false;
         int _arrowWeight;
         Pen _pen;
+
         List<AbstractFigure> _abstractFigures;
         IFactory _currentFactory;
         Point _newpoint;
+
 
         public Form1()
         {
@@ -29,6 +32,7 @@ namespace UMLLizardSoft
         private void Form1_Load(object sender, EventArgs e)
         {
             _abstractFigures = new List<AbstractFigure>();
+
             _arrowWeight = 1;
             _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             _graphics = Graphics.FromImage(_mainBitmap);
@@ -42,7 +46,6 @@ namespace UMLLizardSoft
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             buttonStepBack.Enabled = true;
-
             if (_isMove)
             {
                 foreach (AbstractFigure a in _abstractFigures)
@@ -77,6 +80,7 @@ namespace UMLLizardSoft
             }
 
             _isButtonPressed = true;
+            //_isSelected = false;
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
@@ -108,7 +112,7 @@ namespace UMLLizardSoft
                 _graphics = Graphics.FromImage(_tmpBitmap);
                 _currentFigure.Draw(_graphics, _currentFigure.FigurePen);
                 pictureBox1.Image = _tmpBitmap;
-                //GC.Collect();
+                GC.Collect();
             }
             else
             {
@@ -209,9 +213,24 @@ namespace UMLLizardSoft
             }
         }
 
-        private void buttonEnter_Click(object sender, EventArgs e)
+        private void buttonClas_Click(object sender, EventArgs e)
         {
-            _currentFigure.SaveElementText(textBox1.Text);
+            _currentFigure.SaveElementTextClas(textBox1.Text);
+            _currentFigure.Draw(_graphics, _currentFigure.FigurePen);
+            pictureBox1.Invalidate();
+        }
+
+        private void buttonFild_Click(object sender, EventArgs e)
+        {
+            _currentFigure.SaveElementTextFild(textBox1.Text);
+            _currentFigure.Draw(_graphics, _currentFigure.FigurePen);
+            pictureBox1.Invalidate();
+        }
+
+        private void buttonMetod_Click(object sender, EventArgs e)
+        {
+            _currentFigure.SaveElementTextMetod(textBox1.Text);
+            _currentFigure.Draw(_graphics, _currentFigure.FigurePen);
             pictureBox1.Invalidate();
         }
     }

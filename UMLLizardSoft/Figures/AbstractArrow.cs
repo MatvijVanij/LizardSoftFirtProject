@@ -71,12 +71,22 @@ namespace UMLLizardSoft.Figures
             }
         }
 
-        public override void SaveElementText(string text)
+        public override bool CheckIfTheObjectIsClicked(Point point)
         {
             throw new NotImplementedException();
         }
 
-        public override bool CheckIfTheObjectIsClicked(Point point)
+        public override void SaveElementTextClas(string text)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void SaveElementTextFild(string text)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void SaveElementTextMetod(string text)
         {
             throw new NotImplementedException();
         }
