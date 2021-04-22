@@ -12,8 +12,8 @@ namespace UMLLizardSoft.Figures
             SolidBrush myBrush = new SolidBrush(pen.Color);
             StringFormat strFormat1 = new StringFormat();
             text1 = string.Empty;
-            text2 = string.Empty;
-            text3 = string.Empty;
+            //text2 = string.Empty;
+            //text3 = string.Empty;
             strFormat1.Alignment = StringAlignment.Near;
             strFormat1.LineAlignment = StringAlignment.Near;
             strFormat1.Trimming = StringTrimming.Character;
@@ -24,7 +24,7 @@ namespace UMLLizardSoft.Figures
             {
                 graphics.DrawString(str, myFont, myBrush, StartPoint.X, StartPoint.Y);
                 graphics.DrawLine(FigurePen, StartPoint.X, StartPoint.Y + 30, StartPoint.X + width, StartPoint.Y + 30);
-                graphics.DrawLine(FigurePen, StartPoint.X, StartPoint.Y + 60, StartPoint.X + width, StartPoint.Y + 60);
+                //graphics.DrawLine(FigurePen, StartPoint.X, StartPoint.Y + 60, StartPoint.X + width, StartPoint.Y + 60);
             }
 
             foreach (var text in _listForRect1Text)
@@ -32,24 +32,20 @@ namespace UMLLizardSoft.Figures
                 text1 += text + "\n";
             }
 
-            foreach (var text in _listForRect2Text)
-            {
-                text2 += text + "\n";
-            }
+            //foreach (var text in _listForRect2Text)
+            //{
+            //    text2 += text + "\n";
+            //}
 
-            foreach (var text in _listForRect3Text)
-            {
-                text3 += text + "\n";
-            }
-            graphics.DrawString(text1, myFont, myBrush, StartPoint.X, StartPoint.Y, strFormat1);
-            graphics.DrawString(text2, myFont, myBrush, StartPoint.X, StartPoint.Y + 30, strFormat1);
-            graphics.DrawString(text3, myFont, myBrush, StartPoint.X, StartPoint.Y + 60, strFormat1);
-            graphics.DrawString(text3, myFont, myBrush, StartPoint.X, StartPoint.Y + 90, strFormat1);
-        }
+            //foreach (var text in _listForRect3Text)
+            //{
+            //    text3 += text + "\n";
+            //}
 
-        public void DrawText()
-        {
-            
+            //graphics.DrawString(text1, myFont, myBrush, StartPoint.X, StartPoint.Y, strFormat1);
+            graphics.DrawString(text1, myFont, myBrush, StartPoint.X, StartPoint.Y + 30, strFormat1);
+            //graphics.DrawString(text3, myFont, myBrush, StartPoint.X, StartPoint.Y + 60, strFormat1);
+            //graphics.DrawString(text3, myFont, myBrush, StartPoint.X, StartPoint.Y + 90, strFormat1);
         }
     }
 }

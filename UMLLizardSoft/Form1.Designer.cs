@@ -48,12 +48,10 @@ namespace UMLLizardSoft
             this.radioButtonRectangle1 = new System.Windows.Forms.RadioButton();
             this.buttonMove = new System.Windows.Forms.Button();
             this.buttonStepBack = new System.Windows.Forms.Button();
-            this.buttonDelete = new System.Windows.Forms.Button();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.radioButtonRectangleStack = new System.Windows.Forms.RadioButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.buttonEnter = new System.Windows.Forms.Button();
-            this.buttonSelect = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -196,7 +194,6 @@ namespace UMLLizardSoft
             this.pictureBox1.Size = new System.Drawing.Size(2168, 1147);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
@@ -205,7 +202,7 @@ namespace UMLLizardSoft
             // 
             this.buttonColorPalette.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.buttonColorPalette.Location = new System.Drawing.Point(35, 937);
-            this.buttonColorPalette.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.buttonColorPalette.Margin = new System.Windows.Forms.Padding(5);
             this.buttonColorPalette.Name = "buttonColorPalette";
             this.buttonColorPalette.Size = new System.Drawing.Size(107, 95);
             this.buttonColorPalette.TabIndex = 11;
@@ -259,17 +256,6 @@ namespace UMLLizardSoft
             this.buttonStepBack.UseVisualStyleBackColor = true;
             this.buttonStepBack.Click += new System.EventHandler(this.StepBack_Click);
             // 
-            // buttonDelete
-            // 
-            this.buttonDelete.Location = new System.Drawing.Point(35, 646);
-            this.buttonDelete.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(180, 83);
-            this.buttonDelete.TabIndex = 17;
-            this.buttonDelete.Text = "Delete selected";
-            this.buttonDelete.UseVisualStyleBackColor = true;
-            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
-            // 
             // pictureBox7
             // 
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
@@ -298,41 +284,29 @@ namespace UMLLizardSoft
             this.textBox1.Location = new System.Drawing.Point(35, 532);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(315, 104);
+            this.textBox1.Size = new System.Drawing.Size(462, 104);
             this.textBox1.TabIndex = 20;
             // 
             // buttonEnter
             // 
-            this.buttonEnter.Location = new System.Drawing.Point(356, 532);
+            this.buttonEnter.Location = new System.Drawing.Point(35, 642);
             this.buttonEnter.Name = "buttonEnter";
-            this.buttonEnter.Size = new System.Drawing.Size(151, 104);
+            this.buttonEnter.Size = new System.Drawing.Size(462, 92);
             this.buttonEnter.TabIndex = 21;
             this.buttonEnter.Text = "Enter";
             this.buttonEnter.UseVisualStyleBackColor = true;
             this.buttonEnter.Click += new System.EventHandler(this.buttonEnter_Click);
-            // 
-            // buttonSelect
-            // 
-            this.buttonSelect.Location = new System.Drawing.Point(251, 646);
-            this.buttonSelect.Name = "buttonSelect";
-            this.buttonSelect.Size = new System.Drawing.Size(256, 83);
-            this.buttonSelect.TabIndex = 22;
-            this.buttonSelect.Text = "Select";
-            this.buttonSelect.UseVisualStyleBackColor = true;
-            this.buttonSelect.Click += new System.EventHandler(this.buttonSelect_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Chocolate;
-            this.ClientSize = new System.Drawing.Size(2784, 1197);
-            this.Controls.Add(this.buttonSelect);
+            this.ClientSize = new System.Drawing.Size(3844, 2108);
             this.Controls.Add(this.buttonEnter);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.radioButtonRectangleStack);
             this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonStepBack);
             this.Controls.Add(this.buttonMove);
             this.Controls.Add(this.radioButtonRectangle1);
@@ -387,12 +361,10 @@ namespace UMLLizardSoft
         private System.Windows.Forms.RadioButton radioButtonRectangle1;
         private System.Windows.Forms.Button buttonMove;
         private System.Windows.Forms.Button buttonStepBack;
-        private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.RadioButton radioButtonRectangleStack;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button buttonEnter;
-        private System.Windows.Forms.Button buttonSelect;
     }
 }
 

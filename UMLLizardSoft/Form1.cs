@@ -20,7 +20,6 @@ namespace UMLLizardSoft
         List<AbstractFigure> _abstractFigures;
         IFactory _currentFactory;
         Point _newpoint;
-        bool _isSelected = false;
 
         public Form1()
         {
@@ -78,7 +77,6 @@ namespace UMLLizardSoft
             }
 
             _isButtonPressed = true;
-            _isSelected = false;
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
@@ -153,6 +151,7 @@ namespace UMLLizardSoft
             _isMove = false;
             _currentFactory = new Rectangle1Factory();
         }
+
         private void radioButtonRectangleStack_CheckedChanged(object sender, EventArgs e)
         {
             _currentFactory = new RectangleStackFactory();
@@ -187,6 +186,7 @@ namespace UMLLizardSoft
         {
             _currentFigure = null;
             _isMove = true;
+            pictureBox1.Invalidate();
         }
 
         private void StepBack_Click(object sender, EventArgs e)
@@ -209,25 +209,10 @@ namespace UMLLizardSoft
             }
         }
 
-        private void buttonDelete_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonEnter_Click(object sender, EventArgs e)
         {
             _currentFigure.SaveElementText(textBox1.Text);
             pictureBox1.Invalidate();
-        }
-
-        private void buttonSelect_Click(object sender, EventArgs e)
-        {
-            _isSelected = true;
         }
     }
 }

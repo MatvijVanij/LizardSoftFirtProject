@@ -34,14 +34,14 @@ namespace UMLLizardSoft.Figures
             {
                 _listForRect1Text.Add(strText);
             }
-            else if (select == EnumSectionRectangle.SecondSection)
-            {
-                _listForRect2Text.Add(strText);
-            }
-            else if (select == EnumSectionRectangle.ThirdSection)
-            {
-                _listForRect3Text.Add(strText);
-            }
+            //else if (select == EnumSectionRectangle.SecondSection)
+            //{
+            //    _listForRect2Text.Add(strText);
+            //}
+            //else if (select == EnumSectionRectangle.ThirdSection)
+            //{
+            //    _listForRect3Text.Add(strText);
+            //}
         }
 
         public override bool CheckIfTheObjectIsClicked(Point point)
@@ -51,16 +51,16 @@ namespace UMLLizardSoft.Figures
             {
                 return true;
             }
-            if (point.X >= StartPoint.X && point.X <= EndPoint.X
-             && point.Y >= StartPoint.Y + 60 && point.Y <= EndPoint.Y + 60)
-            {
-                return true;
-            }
-            if (point.X >= StartPoint.X && point.X <= EndPoint.X
-             && point.Y >= StartPoint.Y + 90 && point.Y <= EndPoint.Y + 90)
-            {
-                return true;
-            }
+            //if (point.X >= StartPoint.X && point.X <= EndPoint.X
+            // && point.Y >= StartPoint.Y + 60 && point.Y <= EndPoint.Y + 60)
+            //{
+            //    return true;
+            //}
+            //if (point.X >= StartPoint.X && point.X <= EndPoint.X
+            // && point.Y >= StartPoint.Y + 90 && point.Y <= EndPoint.Y + 90)
+            //{
+            //    return true;
+            //}
             else
             {
                 return false;
