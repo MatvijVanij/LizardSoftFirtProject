@@ -22,13 +22,15 @@ namespace UMLLizardSoft.Figures
             strFormat1.LineAlignment = StringAlignment.Near;
             strFormat1.Trimming = StringTrimming.Character;
 
-            Point point1 = new Point(StartPoint.X, StartPoint.Y);
-            Point point2 = new Point(StartPoint.X + _width, StartPoint.Y);
-            Point point3 = new Point(StartPoint.X + _width, StartPoint.Y + 4 * _height);
-            Point point4 = new Point(StartPoint.X, StartPoint.Y + 4 * _height);
-            Point[] points = { point1, point2, point3, point4 };
+            //Point point1 = new Point(StartPoint.X, StartPoint.Y);
+            //Point point2 = new Point(StartPoint.X + _width, StartPoint.Y);
+            //Point point3 = new Point(StartPoint.X + _width, StartPoint.Y + 4 * _height);
+            //Point point4 = new Point(StartPoint.X, StartPoint.Y + 4 * _height);
+            //Point[] points = { point1, point2, point3, point4 };
 
-            graphics.FillPolygon(solidBrush, points);
+            graphics.FillPolygon(solidBrush, GetPointsFillPoligon().ToArray());
+
+            //graphics.FillPolygon(solidBrush, pointsFillPoligon);
             graphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y, _width, _height);
             graphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y + _height, _width, _height);
             graphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y + 2 * _height, _width, 2 * _height);
@@ -51,6 +53,17 @@ namespace UMLLizardSoft.Figures
             graphics.DrawString(_textClass, myFont, myBrush, StartPoint.X, StartPoint.Y, strFormat1);
             graphics.DrawString(_textField, myFont, myBrush, StartPoint.X, StartPoint.Y + _height, strFormat1);
             graphics.DrawString(_textMethod, myFont, myBrush, StartPoint.X, StartPoint.Y + 2 * _height, strFormat1);
+        }
+        protected List<Point> GetPointsFillPoligon()
+        {
+            List<Point> points = new List<Point>();
+
+            points.Add(new Point(StartPoint.X, StartPoint.Y));
+            points.Add(new Point(StartPoint.X + _width, StartPoint.Y));
+            points.Add(new Point(StartPoint.X + _width, StartPoint.Y + 4 * _height));
+            points.Add(new Point(StartPoint.X, StartPoint.Y + 4 * _height));
+
+            return points;
         }
     }
 }
