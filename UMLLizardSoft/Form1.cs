@@ -7,6 +7,7 @@ using UMLLizardSoft.Figures;
 
 namespace UMLLizardSoft
 {
+
     public partial class Form1 : Form
     {
         Bitmap _mainBitmap;
@@ -17,9 +18,11 @@ namespace UMLLizardSoft
         bool _isMove = false;
         int _arrowWeight;
         Pen _pen;
+
         List<AbstractFigure> _abstractFigures;
         IFactory _currentFactory;
         Point _newpoint;
+
 
         public Form1()
         {
@@ -29,12 +32,13 @@ namespace UMLLizardSoft
         private void Form1_Load(object sender, EventArgs e)
         {
             _abstractFigures = new List<AbstractFigure>();
+
             _arrowWeight = 1;
             _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             _graphics = Graphics.FromImage(_mainBitmap);
             _graphics.Clear(Color.White);
             pictureBox1.Image = _mainBitmap;
-            _currentFactory = new Rectangle1Factory();
+            _currentFactory = new ClassDiagramFactory();
             _pen = new Pen(colorDialog1.Color, trackBar1.Value);
             _currentFigure = _currentFactory.Create(_pen);
         }
@@ -42,7 +46,6 @@ namespace UMLLizardSoft
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             buttonStepBack.Enabled = true;
-
             if (_isMove)
             {
                 foreach (AbstractFigure a in _abstractFigures)
@@ -77,6 +80,7 @@ namespace UMLLizardSoft
             }
 
             _isButtonPressed = true;
+            //_isSelected = false;
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
@@ -108,7 +112,7 @@ namespace UMLLizardSoft
                 _graphics = Graphics.FromImage(_tmpBitmap);
                 _currentFigure.Draw(_graphics, _currentFigure.FigurePen);
                 pictureBox1.Image = _tmpBitmap;
-                //GC.Collect();
+                GC.Collect();
             }
             else
             {
@@ -149,11 +153,12 @@ namespace UMLLizardSoft
         private void radioButtonRectangle1_CheckedChanged(object sender, EventArgs e)
         {
             _isMove = false;
-            _currentFactory = new Rectangle1Factory();
+            _currentFactory = new ClassDiagramFactory();
         }
+
         private void radioButtonRectangleStack_CheckedChanged(object sender, EventArgs e)
         {
-            _currentFactory = new RectangleStackFactory();
+            _currentFactory = new ClassDiagramStackFactory();
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
@@ -185,6 +190,7 @@ namespace UMLLizardSoft
         {
             _currentFigure = null;
             _isMove = true;
+            pictureBox1.Invalidate();
         }
 
         private void StepBack_Click(object sender, EventArgs e)
@@ -207,16 +213,25 @@ namespace UMLLizardSoft
             }
         }
 
-        private void buttonDelete_Click(object sender, EventArgs e)
+        private void buttonClas_Click(object sender, EventArgs e)
         {
-
+            _currentFigure.SaveElementTextClass(textBox1.Text);
+            _currentFigure.Draw(_graphics, _currentFigure.FigurePen);
+            pictureBox1.Invalidate();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void buttonFild_Click(object sender, EventArgs e)
         {
-
+            _currentFigure.SaveElementTextField(textBox1.Text);
+            _currentFigure.Draw(_graphics, _currentFigure.FigurePen);
+            pictureBox1.Invalidate();
         }
 
-        
+        private void buttonMetod_Click(object sender, EventArgs e)
+        {
+            _currentFigure.SaveElementTextMethod(textBox1.Text);
+            _currentFigure.Draw(_graphics, _currentFigure.FigurePen);
+            pictureBox1.Invalidate();
+        }
     }
 }

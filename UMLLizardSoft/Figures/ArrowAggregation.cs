@@ -2,7 +2,7 @@
 
 namespace UMLLizardSoft.Figures
 {
-    public class ArrowAggregation : AbstractArrow
+    public class ArrowAggregation : Arrow
     {
         public override void Draw(Graphics graphics, Pen pen)
         {
