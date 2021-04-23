@@ -27,17 +27,17 @@ namespace UMLLizardSoft.Figures
 
         public override void SaveElementTextClass(string strText)
         {
-            _listForTextClass.Add(strText);
+            ListForTextClass.Add(strText);
         }
 
         public override void SaveElementTextField(string strText)
         {
-            _listForTextField.Add(strText);
+            ListForTextField.Add(strText);
         }
 
         public override void SaveElementTextMethod(string strText)
         {
-            _listForTextMethod.Add(strText);
+            ListForTextMethod.Add(strText);
         }
     }
 }

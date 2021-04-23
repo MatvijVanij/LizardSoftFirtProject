@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using UMLLizardSoft.Factories;
 using UMLLizardSoft.Figures;
+using UMLLizardSoft.Helpers;
 
 namespace UMLLizardSoft
 {
@@ -20,19 +22,36 @@ namespace UMLLizardSoft
         List<AbstractFigure> _abstractFigures;
         IFactory _currentFactory;
         Point _newpoint;
+        string _json;
 
         public Form1()
         {
             InitializeComponent();
         }
 
+        public Form1(string filePath)
+        {
+            InitializeComponent();
+            _json = File.ReadAllText(filePath);
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
-            _abstractFigures = new List<AbstractFigure>();
             _arrowWeight = 1;
             _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             _graphics = Graphics.FromImage(_mainBitmap);
             _graphics.Clear(Color.White);
+
+            if (string.IsNullOrEmpty(_json))
+            {
+                _abstractFigures = new List<AbstractFigure>();
+            }
+            else
+            {
+                var serializationHelper = new SerializationHelper();
+                _abstractFigures = serializationHelper.Deserialize(_json, _graphics);
+            }
+
             pictureBox1.Image = _mainBitmap;
             _currentFactory = new ClassDiagramFactory();
             _pen = new Pen(colorDialog1.Color, trackBar1.Value);
@@ -237,6 +256,49 @@ namespace UMLLizardSoft
                 _currentFigure.Draw(_graphics, _currentFigure.FigurePen);
                 pictureBox1.Invalidate();
             }
+        }
+
+        private void buttonOpen_Click(object sender, EventArgs e)
+        {
+            var serializationHelper = new SerializationHelper();
+
+            saveFileDialog.Filter = "Lzrd files(*.lzrd)|*.lzrd";
+
+            if (openFileDialog.ShowDialog() == DialogResult.Cancel)
+                return;
+
+            string filename = openFileDialog.FileName;
+            string fileText = File.ReadAllText(filename);
+
+            if (string.IsNullOrEmpty(fileText))
+                return;
+
+            _json = fileText;
+
+            _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
+            _graphics = Graphics.FromImage(_mainBitmap);
+            _graphics.Clear(Color.White);
+
+            _abstractFigures = serializationHelper.Deserialize(_json, _graphics);
+
+            pictureBox1.Image = _mainBitmap;
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            var serializationHelper = new SerializationHelper();
+
+            var serializedValue = serializationHelper.Serialize(_abstractFigures);
+
+            saveFileDialog.Filter = "Lzrd files(*.lzrd)|*.lzrd";
+            saveFileDialog.FileName = "Untitled.lzrd";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.Cancel)
+                return;
+
+            string filename = saveFileDialog.FileName;
+
+            File.WriteAllText(filename, serializedValue);
         }
     }
 }

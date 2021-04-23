@@ -54,6 +54,10 @@ namespace UMLLizardSoft
             this.buttonClas = new System.Windows.Forms.Button();
             this.buttonFild = new System.Windows.Forms.Button();
             this.buttonMetod = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonOpen = new System.Windows.Forms.Button();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -67,10 +71,9 @@ namespace UMLLizardSoft
             // radioButtonAssociation
             // 
             this.radioButtonAssociation.AutoSize = true;
-            this.radioButtonAssociation.Location = new System.Drawing.Point(171, 29);
-            this.radioButtonAssociation.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.radioButtonAssociation.Location = new System.Drawing.Point(64, 12);
             this.radioButtonAssociation.Name = "radioButtonAssociation";
-            this.radioButtonAssociation.Size = new System.Drawing.Size(179, 36);
+            this.radioButtonAssociation.Size = new System.Drawing.Size(71, 17);
             this.radioButtonAssociation.TabIndex = 1;
             this.radioButtonAssociation.Text = "Asotiation";
             this.radioButtonAssociation.UseVisualStyleBackColor = true;
@@ -79,10 +82,9 @@ namespace UMLLizardSoft
             // radioButtonInheritance
             // 
             this.radioButtonInheritance.AutoSize = true;
-            this.radioButtonInheritance.Location = new System.Drawing.Point(171, 83);
-            this.radioButtonInheritance.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.radioButtonInheritance.Location = new System.Drawing.Point(64, 35);
             this.radioButtonInheritance.Name = "radioButtonInheritance";
-            this.radioButtonInheritance.Size = new System.Drawing.Size(193, 36);
+            this.radioButtonInheritance.Size = new System.Drawing.Size(78, 17);
             this.radioButtonInheritance.TabIndex = 2;
             this.radioButtonInheritance.Text = "Inheritance";
             this.radioButtonInheritance.UseVisualStyleBackColor = true;
@@ -91,10 +93,9 @@ namespace UMLLizardSoft
             // radioButtonAggregation
             // 
             this.radioButtonAggregation.AutoSize = true;
-            this.radioButtonAggregation.Location = new System.Drawing.Point(171, 138);
-            this.radioButtonAggregation.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.radioButtonAggregation.Location = new System.Drawing.Point(64, 58);
             this.radioButtonAggregation.Name = "radioButtonAggregation";
-            this.radioButtonAggregation.Size = new System.Drawing.Size(207, 36);
+            this.radioButtonAggregation.Size = new System.Drawing.Size(82, 17);
             this.radioButtonAggregation.TabIndex = 3;
             this.radioButtonAggregation.Text = "Aggregation";
             this.radioButtonAggregation.UseVisualStyleBackColor = true;
@@ -103,10 +104,9 @@ namespace UMLLizardSoft
             // radioButtonСomposition
             // 
             this.radioButtonСomposition.AutoSize = true;
-            this.radioButtonСomposition.Location = new System.Drawing.Point(171, 193);
-            this.radioButtonСomposition.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.radioButtonСomposition.Location = new System.Drawing.Point(64, 81);
             this.radioButtonСomposition.Name = "radioButtonСomposition";
-            this.radioButtonСomposition.Size = new System.Drawing.Size(211, 36);
+            this.radioButtonСomposition.Size = new System.Drawing.Size(82, 17);
             this.radioButtonСomposition.TabIndex = 4;
             this.radioButtonСomposition.Text = "Сomposition";
             this.radioButtonСomposition.UseVisualStyleBackColor = true;
@@ -115,10 +115,9 @@ namespace UMLLizardSoft
             // radioButtonImplementation
             // 
             this.radioButtonImplementation.AutoSize = true;
-            this.radioButtonImplementation.Location = new System.Drawing.Point(171, 246);
-            this.radioButtonImplementation.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.radioButtonImplementation.Location = new System.Drawing.Point(64, 103);
             this.radioButtonImplementation.Name = "radioButtonImplementation";
-            this.radioButtonImplementation.Size = new System.Drawing.Size(247, 36);
+            this.radioButtonImplementation.Size = new System.Drawing.Size(96, 17);
             this.radioButtonImplementation.TabIndex = 5;
             this.radioButtonImplementation.Text = "Implementation";
             this.radioButtonImplementation.UseVisualStyleBackColor = true;
@@ -126,12 +125,11 @@ namespace UMLLizardSoft
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(127, 946);
-            this.trackBar1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.trackBar1.Location = new System.Drawing.Point(48, 397);
             this.trackBar1.Maximum = 5;
             this.trackBar1.Minimum = 2;
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(407, 114);
+            this.trackBar1.Size = new System.Drawing.Size(153, 45);
             this.trackBar1.TabIndex = 6;
             this.trackBar1.Value = 2;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
@@ -139,40 +137,36 @@ namespace UMLLizardSoft
             // pictureBox6
             // 
             this.pictureBox6.Image = global::UMLLizardSoft.Properties.Resources.Screenshot_5;
-            this.pictureBox6.Location = new System.Drawing.Point(21, 143);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pictureBox6.Location = new System.Drawing.Point(8, 60);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(123, 38);
+            this.pictureBox6.Size = new System.Drawing.Size(46, 16);
             this.pictureBox6.TabIndex = 10;
             this.pictureBox6.TabStop = false;
             // 
             // pictureBox5
             // 
             this.pictureBox5.Image = global::UMLLizardSoft.Properties.Resources.Screenshot_6;
-            this.pictureBox5.Location = new System.Drawing.Point(21, 193);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pictureBox5.Location = new System.Drawing.Point(8, 81);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(123, 38);
+            this.pictureBox5.Size = new System.Drawing.Size(46, 16);
             this.pictureBox5.TabIndex = 9;
             this.pictureBox5.TabStop = false;
             // 
             // pictureBox4
             // 
             this.pictureBox4.Image = global::UMLLizardSoft.Properties.Resources.Screenshot_3;
-            this.pictureBox4.Location = new System.Drawing.Point(21, 248);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pictureBox4.Location = new System.Drawing.Point(8, 104);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(123, 38);
+            this.pictureBox4.Size = new System.Drawing.Size(46, 16);
             this.pictureBox4.TabIndex = 8;
             this.pictureBox4.TabStop = false;
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::UMLLizardSoft.Properties.Resources.Screenshot_2;
-            this.pictureBox3.Location = new System.Drawing.Point(21, 91);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pictureBox3.Location = new System.Drawing.Point(8, 38);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(123, 38);
+            this.pictureBox3.Size = new System.Drawing.Size(46, 16);
             this.pictureBox3.TabIndex = 7;
             this.pictureBox3.TabStop = false;
             // 
@@ -180,20 +174,18 @@ namespace UMLLizardSoft
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = global::UMLLizardSoft.Properties.Resources.Screenshot_1__2_;
-            this.pictureBox2.Location = new System.Drawing.Point(21, 33);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pictureBox2.Location = new System.Drawing.Point(8, 14);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(123, 38);
+            this.pictureBox2.Size = new System.Drawing.Size(46, 16);
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Location = new System.Drawing.Point(564, 11);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pictureBox1.Location = new System.Drawing.Point(212, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(3840, 2160);
+            this.pictureBox1.Size = new System.Drawing.Size(1440, 906);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
@@ -203,20 +195,19 @@ namespace UMLLizardSoft
             // buttonColorPalette
             // 
             this.buttonColorPalette.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonColorPalette.Location = new System.Drawing.Point(14, 930);
-            this.buttonColorPalette.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.buttonColorPalette.Location = new System.Drawing.Point(5, 390);
+            this.buttonColorPalette.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonColorPalette.Name = "buttonColorPalette";
-            this.buttonColorPalette.Size = new System.Drawing.Size(100, 100);
+            this.buttonColorPalette.Size = new System.Drawing.Size(38, 42);
             this.buttonColorPalette.TabIndex = 11;
             this.buttonColorPalette.UseVisualStyleBackColor = false;
             this.buttonColorPalette.Click += new System.EventHandler(this.buttonColorPalette_Click);
             // 
             // buttonClear
             // 
-            this.buttonClear.Location = new System.Drawing.Point(11, 848);
-            this.buttonClear.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.buttonClear.Location = new System.Drawing.Point(4, 356);
             this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(523, 70);
+            this.buttonClear.Size = new System.Drawing.Size(196, 29);
             this.buttonClear.TabIndex = 13;
             this.buttonClear.Text = "Clear";
             this.buttonClear.UseVisualStyleBackColor = true;
@@ -226,10 +217,9 @@ namespace UMLLizardSoft
             // 
             this.radioButtonRectangle1.AutoSize = true;
             this.radioButtonRectangle1.Checked = true;
-            this.radioButtonRectangle1.Location = new System.Drawing.Point(171, 343);
-            this.radioButtonRectangle1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.radioButtonRectangle1.Location = new System.Drawing.Point(64, 144);
             this.radioButtonRectangle1.Name = "radioButtonRectangle1";
-            this.radioButtonRectangle1.Size = new System.Drawing.Size(181, 36);
+            this.radioButtonRectangle1.Size = new System.Drawing.Size(74, 17);
             this.radioButtonRectangle1.TabIndex = 14;
             this.radioButtonRectangle1.TabStop = true;
             this.radioButtonRectangle1.Text = "Rectangle";
@@ -238,10 +228,9 @@ namespace UMLLizardSoft
             // 
             // buttonMove
             // 
-            this.buttonMove.Location = new System.Drawing.Point(11, 680);
-            this.buttonMove.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.buttonMove.Location = new System.Drawing.Point(4, 285);
             this.buttonMove.Name = "buttonMove";
-            this.buttonMove.Size = new System.Drawing.Size(523, 70);
+            this.buttonMove.Size = new System.Drawing.Size(196, 29);
             this.buttonMove.TabIndex = 15;
             this.buttonMove.Text = "Select/Move";
             this.buttonMove.UseVisualStyleBackColor = true;
@@ -249,10 +238,9 @@ namespace UMLLizardSoft
             // 
             // buttonStepBack
             // 
-            this.buttonStepBack.Location = new System.Drawing.Point(11, 764);
-            this.buttonStepBack.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.buttonStepBack.Location = new System.Drawing.Point(4, 320);
             this.buttonStepBack.Name = "buttonStepBack";
-            this.buttonStepBack.Size = new System.Drawing.Size(523, 70);
+            this.buttonStepBack.Size = new System.Drawing.Size(196, 29);
             this.buttonStepBack.TabIndex = 16;
             this.buttonStepBack.Text = "Step back";
             this.buttonStepBack.UseVisualStyleBackColor = true;
@@ -261,20 +249,18 @@ namespace UMLLizardSoft
             // pictureBox7
             // 
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(21, 343);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pictureBox7.Location = new System.Drawing.Point(8, 144);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(123, 112);
+            this.pictureBox7.Size = new System.Drawing.Size(46, 47);
             this.pictureBox7.TabIndex = 18;
             this.pictureBox7.TabStop = false;
             // 
             // radioButtonRectangleStack
             // 
             this.radioButtonRectangleStack.AutoSize = true;
-            this.radioButtonRectangleStack.Location = new System.Drawing.Point(171, 415);
-            this.radioButtonRectangleStack.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.radioButtonRectangleStack.Location = new System.Drawing.Point(64, 174);
             this.radioButtonRectangleStack.Name = "radioButtonRectangleStack";
-            this.radioButtonRectangleStack.Size = new System.Drawing.Size(252, 36);
+            this.radioButtonRectangleStack.Size = new System.Drawing.Size(102, 17);
             this.radioButtonRectangleStack.TabIndex = 19;
             this.radioButtonRectangleStack.TabStop = true;
             this.radioButtonRectangleStack.Text = "RectangleStack";
@@ -283,19 +269,18 @@ namespace UMLLizardSoft
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(11, 503);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox1.Location = new System.Drawing.Point(4, 211);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(523, 78);
+            this.textBox1.Size = new System.Drawing.Size(199, 35);
             this.textBox1.TabIndex = 20;
             // 
             // buttonClas
             // 
-            this.buttonClas.Location = new System.Drawing.Point(11, 596);
-            this.buttonClas.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.buttonClas.Location = new System.Drawing.Point(4, 250);
             this.buttonClas.Name = "buttonClas";
-            this.buttonClas.Size = new System.Drawing.Size(150, 70);
+            this.buttonClas.Size = new System.Drawing.Size(56, 29);
             this.buttonClas.TabIndex = 25;
             this.buttonClas.Text = "Class";
             this.buttonClas.UseVisualStyleBackColor = true;
@@ -303,10 +288,9 @@ namespace UMLLizardSoft
             // 
             // buttonFild
             // 
-            this.buttonFild.Location = new System.Drawing.Point(200, 596);
-            this.buttonFild.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.buttonFild.Location = new System.Drawing.Point(75, 250);
             this.buttonFild.Name = "buttonFild";
-            this.buttonFild.Size = new System.Drawing.Size(150, 70);
+            this.buttonFild.Size = new System.Drawing.Size(56, 29);
             this.buttonFild.TabIndex = 26;
             this.buttonFild.Text = "Fields";
             this.buttonFild.UseVisualStyleBackColor = true;
@@ -314,21 +298,46 @@ namespace UMLLizardSoft
             // 
             // buttonMetod
             // 
-            this.buttonMetod.Location = new System.Drawing.Point(384, 596);
-            this.buttonMetod.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.buttonMetod.Location = new System.Drawing.Point(144, 250);
             this.buttonMetod.Name = "buttonMetod";
-            this.buttonMetod.Size = new System.Drawing.Size(150, 70);
+            this.buttonMetod.Size = new System.Drawing.Size(56, 29);
             this.buttonMetod.TabIndex = 27;
             this.buttonMetod.Text = "Methods";
             this.buttonMetod.UseVisualStyleBackColor = true;
             this.buttonMetod.Click += new System.EventHandler(this.buttonMethod_Click);
             // 
+            // buttonSave
+            // 
+            this.buttonSave.Location = new System.Drawing.Point(4, 448);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(95, 24);
+            this.buttonSave.TabIndex = 28;
+            this.buttonSave.Text = "Save";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // buttonOpen
+            // 
+            this.buttonOpen.Location = new System.Drawing.Point(105, 448);
+            this.buttonOpen.Name = "buttonOpen";
+            this.buttonOpen.Size = new System.Drawing.Size(95, 24);
+            this.buttonOpen.TabIndex = 29;
+            this.buttonOpen.Text = "Open";
+            this.buttonOpen.UseVisualStyleBackColor = true;
+            this.buttonOpen.Click += new System.EventHandler(this.buttonOpen_Click);
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog";
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(3844, 1874);
+            this.ClientSize = new System.Drawing.Size(1282, 564);
+            this.Controls.Add(this.buttonOpen);
+            this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonMetod);
             this.Controls.Add(this.buttonFild);
             this.Controls.Add(this.buttonClas);
@@ -352,7 +361,6 @@ namespace UMLLizardSoft
             this.Controls.Add(this.radioButtonInheritance);
             this.Controls.Add(this.radioButtonAssociation);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "Form1";
             this.Text = "UML Diagram LizardSoft";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -395,6 +403,10 @@ namespace UMLLizardSoft
         private System.Windows.Forms.Button buttonClas;
         private System.Windows.Forms.Button buttonFild;
         private System.Windows.Forms.Button buttonMetod;
+        private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Button buttonOpen;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
     }
 }
 
