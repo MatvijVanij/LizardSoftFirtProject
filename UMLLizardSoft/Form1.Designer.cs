@@ -299,7 +299,7 @@ namespace UMLLizardSoft
             this.buttonClas.TabIndex = 25;
             this.buttonClas.Text = "Class";
             this.buttonClas.UseVisualStyleBackColor = true;
-            this.buttonClas.Click += new System.EventHandler(this.buttonClas_Click);
+            this.buttonClas.Click += new System.EventHandler(this.buttonClass_Click);
             // 
             // buttonFild
             // 
@@ -310,7 +310,7 @@ namespace UMLLizardSoft
             this.buttonFild.TabIndex = 26;
             this.buttonFild.Text = "Fields";
             this.buttonFild.UseVisualStyleBackColor = true;
-            this.buttonFild.Click += new System.EventHandler(this.buttonFild_Click);
+            this.buttonFild.Click += new System.EventHandler(this.buttonField_Click);
             // 
             // buttonMetod
             // 
@@ -321,7 +321,7 @@ namespace UMLLizardSoft
             this.buttonMetod.TabIndex = 27;
             this.buttonMetod.Text = "Methods";
             this.buttonMetod.UseVisualStyleBackColor = true;
-            this.buttonMetod.Click += new System.EventHandler(this.buttonMetod_Click);
+            this.buttonMetod.Click += new System.EventHandler(this.buttonMethod_Click);
             // 
             // Form1
             // 

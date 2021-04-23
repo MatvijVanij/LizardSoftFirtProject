@@ -209,25 +209,34 @@ namespace UMLLizardSoft
             }
         }
 
-        private void buttonClas_Click(object sender, EventArgs e)
+        private void buttonClass_Click(object sender, EventArgs e)
         {
-            _currentFigure.SaveElementTextClass(textBox1.Text);
-            _currentFigure.Draw(_graphics, _currentFigure.FigurePen);
-            pictureBox1.Invalidate();
+            if (_currentFigure is ClassDiagramMain)
+            {
+                _currentFigure.SaveElementTextClass(textBox1.Text);
+                _currentFigure.Draw(_graphics, _currentFigure.FigurePen);
+                pictureBox1.Invalidate();
+            }
         }
 
-        private void buttonFild_Click(object sender, EventArgs e)
+        private void buttonField_Click(object sender, EventArgs e)
         {
-            _currentFigure.SaveElementTextField(textBox1.Text);
-            _currentFigure.Draw(_graphics, _currentFigure.FigurePen);
-            pictureBox1.Invalidate();
+            if (_currentFigure is ClassDiagramMain)
+            {
+                _currentFigure.SaveElementTextField(textBox1.Text);
+                _currentFigure.Draw(_graphics, _currentFigure.FigurePen);
+                pictureBox1.Invalidate();
+            }
         }
 
-        private void buttonMetod_Click(object sender, EventArgs e)
+        private void buttonMethod_Click(object sender, EventArgs e)
         {
-            _currentFigure.SaveElementTextMethod(textBox1.Text);
-            _currentFigure.Draw(_graphics, _currentFigure.FigurePen);
-            pictureBox1.Invalidate();
+            if (_currentFigure is ClassDiagramMain)
+            {
+                _currentFigure.SaveElementTextMethod(textBox1.Text);
+                _currentFigure.Draw(_graphics, _currentFigure.FigurePen);
+                pictureBox1.Invalidate();
+            }
         }
     }
 }
