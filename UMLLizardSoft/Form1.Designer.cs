@@ -121,11 +121,11 @@ namespace UMLLizardSoft
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(12, 448);
+            this.trackBar1.Location = new System.Drawing.Point(4, 448);
             this.trackBar1.Maximum = 5;
             this.trackBar1.Minimum = 2;
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(229, 45);
+            this.trackBar1.Size = new System.Drawing.Size(237, 45);
             this.trackBar1.TabIndex = 6;
             this.trackBar1.Value = 2;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
@@ -181,7 +181,7 @@ namespace UMLLizardSoft
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Location = new System.Drawing.Point(249, 14);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(813, 481);
+            this.pictureBox1.Size = new System.Drawing.Size(1107, 623);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
@@ -191,7 +191,7 @@ namespace UMLLizardSoft
             // buttonColorPalette
             // 
             this.buttonColorPalette.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonColorPalette.Location = new System.Drawing.Point(13, 393);
+            this.buttonColorPalette.Location = new System.Drawing.Point(4, 394);
             this.buttonColorPalette.Margin = new System.Windows.Forms.Padding(2);
             this.buttonColorPalette.Name = "buttonColorPalette";
             this.buttonColorPalette.Size = new System.Drawing.Size(40, 40);
@@ -201,9 +201,9 @@ namespace UMLLizardSoft
             // 
             // buttonClear
             // 
-            this.buttonClear.Location = new System.Drawing.Point(64, 394);
+            this.buttonClear.Location = new System.Drawing.Point(49, 394);
             this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(177, 40);
+            this.buttonClear.Size = new System.Drawing.Size(192, 40);
             this.buttonClear.TabIndex = 13;
             this.buttonClear.Text = "Clear";
             this.buttonClear.UseVisualStyleBackColor = true;
@@ -215,28 +215,28 @@ namespace UMLLizardSoft
             this.radioButtonRectangle1.Checked = true;
             this.radioButtonRectangle1.Location = new System.Drawing.Point(64, 144);
             this.radioButtonRectangle1.Name = "radioButtonRectangle1";
-            this.radioButtonRectangle1.Size = new System.Drawing.Size(80, 17);
+            this.radioButtonRectangle1.Size = new System.Drawing.Size(74, 17);
             this.radioButtonRectangle1.TabIndex = 14;
             this.radioButtonRectangle1.TabStop = true;
-            this.radioButtonRectangle1.Text = "Rectangle1";
+            this.radioButtonRectangle1.Text = "Rectangle";
             this.radioButtonRectangle1.UseVisualStyleBackColor = true;
             this.radioButtonRectangle1.CheckedChanged += new System.EventHandler(this.radioButtonRectangle1_CheckedChanged);
             // 
             // buttonMove
             // 
-            this.buttonMove.Location = new System.Drawing.Point(13, 353);
+            this.buttonMove.Location = new System.Drawing.Point(4, 312);
             this.buttonMove.Name = "buttonMove";
-            this.buttonMove.Size = new System.Drawing.Size(228, 35);
+            this.buttonMove.Size = new System.Drawing.Size(237, 35);
             this.buttonMove.TabIndex = 15;
-            this.buttonMove.Text = "Move";
+            this.buttonMove.Text = "Select/Move";
             this.buttonMove.UseVisualStyleBackColor = true;
             this.buttonMove.Click += new System.EventHandler(this.buttonMove_Click);
             // 
             // buttonStepBack
             // 
-            this.buttonStepBack.Location = new System.Drawing.Point(13, 312);
+            this.buttonStepBack.Location = new System.Drawing.Point(4, 353);
             this.buttonStepBack.Name = "buttonStepBack";
-            this.buttonStepBack.Size = new System.Drawing.Size(228, 35);
+            this.buttonStepBack.Size = new System.Drawing.Size(237, 35);
             this.buttonStepBack.TabIndex = 16;
             this.buttonStepBack.Text = "Step back";
             this.buttonStepBack.UseVisualStyleBackColor = true;
@@ -265,7 +265,7 @@ namespace UMLLizardSoft
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 211);
+            this.textBox1.Location = new System.Drawing.Point(4, 211);
             this.textBox1.Margin = new System.Windows.Forms.Padding(1);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
@@ -278,7 +278,7 @@ namespace UMLLizardSoft
             this.buttonClas.Name = "buttonClas";
             this.buttonClas.Size = new System.Drawing.Size(75, 23);
             this.buttonClas.TabIndex = 25;
-            this.buttonClas.Text = "Clas";
+            this.buttonClas.Text = "Class";
             this.buttonClas.UseVisualStyleBackColor = true;
             this.buttonClas.Click += new System.EventHandler(this.buttonClas_Click);
             // 
@@ -288,17 +288,17 @@ namespace UMLLizardSoft
             this.buttonFild.Name = "buttonFild";
             this.buttonFild.Size = new System.Drawing.Size(75, 23);
             this.buttonFild.TabIndex = 26;
-            this.buttonFild.Text = "Fild";
+            this.buttonFild.Text = "Fields";
             this.buttonFild.UseVisualStyleBackColor = true;
             this.buttonFild.Click += new System.EventHandler(this.buttonFild_Click);
             // 
             // buttonMetod
             // 
-            this.buttonMetod.Location = new System.Drawing.Point(168, 250);
+            this.buttonMetod.Location = new System.Drawing.Point(166, 250);
             this.buttonMetod.Name = "buttonMetod";
             this.buttonMetod.Size = new System.Drawing.Size(75, 23);
             this.buttonMetod.TabIndex = 27;
-            this.buttonMetod.Text = "Metod";
+            this.buttonMetod.Text = "Methods";
             this.buttonMetod.UseVisualStyleBackColor = true;
             this.buttonMetod.Click += new System.EventHandler(this.buttonMetod_Click);
             // 
@@ -307,7 +307,7 @@ namespace UMLLizardSoft
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Chocolate;
-            this.ClientSize = new System.Drawing.Size(1098, 533);
+            this.ClientSize = new System.Drawing.Size(1488, 786);
             this.Controls.Add(this.buttonMetod);
             this.Controls.Add(this.buttonFild);
             this.Controls.Add(this.buttonClas);

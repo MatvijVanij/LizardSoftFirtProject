@@ -22,19 +22,19 @@ namespace UMLLizardSoftTests
         public IEnumerator GetEnumerator()
         {
             yield return new object[] {
-                new Rectangle1 { StartPoint = new Point(0, 0),EndPoint = new Point(100,100)},
+                new ClassDiagram { StartPoint = new Point(0, 0),EndPoint = new Point(100,100)},
                 new Point(50,50),
                 true
             };
 
             yield return new object[] {
-                new Rectangle1 { StartPoint = new Point(0, 0),EndPoint = new Point(100,100)},
+                new ClassDiagram { StartPoint = new Point(0, 0),EndPoint = new Point(100,100)},
                 new Point(101,101),
                 false
             };
 
             yield return new object[] {
-                new Rectangle1 { StartPoint = new Point(0, 0),EndPoint = new Point(100,100)},
+                new ClassDiagram { StartPoint = new Point(0, 0),EndPoint = new Point(100,100)},
                 new Point(0,0),
                 true
             };

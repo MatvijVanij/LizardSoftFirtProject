@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 
 namespace UMLLizardSoft.Figures
 {
-    public class RectangleStack : AbstractRectangle
+    public class ClassDiagramStack : ClassDiagramMain
     {
         public override void Draw(Graphics graphics, Pen pen)
         {
-            _moduls = new List<Rectangle>();
+            _moduls = new List<ClassDiagramMain>();
 
             FigurePen = new Pen(pen.Color, pen.Width);
             Font myFont = new Font("Arial", 12);
+            SolidBrush solidBrush = new SolidBrush(Color.White);
             SolidBrush myBrush = new SolidBrush(pen.Color);
             StringFormat strFormat1 = new StringFormat();
 
@@ -26,6 +27,14 @@ namespace UMLLizardSoft.Figures
             strFormat1.LineAlignment = StringAlignment.Near;
             strFormat1.Trimming = StringTrimming.Character;
 
+            Point point14 = new Point(StartPoint.X, StartPoint.Y);
+            Point point15 = new Point(StartPoint.X + width, StartPoint.Y);
+            Point point16 = new Point(StartPoint.X + width, StartPoint.Y + 4 * height);
+            Point point17 = new Point(StartPoint.X, StartPoint.Y + 4 * height);
+
+            Point[] points1 = { point14, point15, point16, point17 };
+
+            graphics.FillPolygon(solidBrush, points1);
 
             graphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y, width, height);
 
@@ -78,9 +87,9 @@ namespace UMLLizardSoft.Figures
             Point point11 = new Point(StartPoint.X - 2*delta + width, StartPoint.Y - 2*delta);
             Point point12 = new Point(StartPoint.X - 2*delta + width, StartPoint.Y-delta);
 
-            Point[] points1 = { point7, point8, point9, point10, point11, point12 };
+            Point[] points2 = { point7, point8, point9, point10, point11, point12 };
 
-            graphics.DrawPolygon(FigurePen, points1);
+            graphics.DrawPolygon(FigurePen, points2);
             //graphics.DrawLine(FigurePen, StartPoint.X - 2*delta + width, StartPoint.Y - 2 * delta, StartPoint.X - 2 * delta + width, StartPoint.Y);
             //graphics.DrawLine(FigurePen, StartPoint.X - 2 * delta, StartPoint.Y - 2 * delta, StartPoint.X - 2 * delta + width, StartPoint.Y - 2 * delta);
             //graphics.DrawLine(FigurePen, StartPoint.X - 2 * delta, StartPoint.Y - 2 * delta, StartPoint.X - 2 * delta, StartPoint.Y - 2 * delta + 4 * height);

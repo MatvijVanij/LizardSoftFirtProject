@@ -4,7 +4,7 @@ using System.Drawing;
 
 namespace UMLLizardSoft.Figures
 {
-    public class AbstractArrow : AbstractFigure
+    public class Arrow : AbstractFigure
     {
         bool isStartPointSelected = false;
 
@@ -71,22 +71,17 @@ namespace UMLLizardSoft.Figures
             }
         }
 
-        public override bool CheckIfTheObjectIsClicked(Point point)
+        public override void SaveElementTextClass(string text)
         {
             throw new NotImplementedException();
         }
 
-        public override void SaveElementTextClas(string text)
+        public override void SaveElementTextField(string text)
         {
             throw new NotImplementedException();
         }
 
-        public override void SaveElementTextFild(string text)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void SaveElementTextMetod(string text)
+        public override void SaveElementTextMethod(string text)
         {
             throw new NotImplementedException();
         }

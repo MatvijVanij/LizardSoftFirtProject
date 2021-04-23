@@ -38,7 +38,7 @@ namespace UMLLizardSoft
             _graphics = Graphics.FromImage(_mainBitmap);
             _graphics.Clear(Color.White);
             pictureBox1.Image = _mainBitmap;
-            _currentFactory = new Rectangle1Factory();
+            _currentFactory = new ClassDiagramFactory();
             _pen = new Pen(colorDialog1.Color, trackBar1.Value);
             _currentFigure = _currentFactory.Create(_pen);
         }
@@ -153,12 +153,12 @@ namespace UMLLizardSoft
         private void radioButtonRectangle1_CheckedChanged(object sender, EventArgs e)
         {
             _isMove = false;
-            _currentFactory = new Rectangle1Factory();
+            _currentFactory = new ClassDiagramFactory();
         }
 
         private void radioButtonRectangleStack_CheckedChanged(object sender, EventArgs e)
         {
-            _currentFactory = new RectangleStackFactory();
+            _currentFactory = new ClassDiagramStackFactory();
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
@@ -215,21 +215,21 @@ namespace UMLLizardSoft
 
         private void buttonClas_Click(object sender, EventArgs e)
         {
-            _currentFigure.SaveElementTextClas(textBox1.Text);
+            _currentFigure.SaveElementTextClass(textBox1.Text);
             _currentFigure.Draw(_graphics, _currentFigure.FigurePen);
             pictureBox1.Invalidate();
         }
 
         private void buttonFild_Click(object sender, EventArgs e)
         {
-            _currentFigure.SaveElementTextFild(textBox1.Text);
+            _currentFigure.SaveElementTextField(textBox1.Text);
             _currentFigure.Draw(_graphics, _currentFigure.FigurePen);
             pictureBox1.Invalidate();
         }
 
         private void buttonMetod_Click(object sender, EventArgs e)
         {
-            _currentFigure.SaveElementTextMetod(textBox1.Text);
+            _currentFigure.SaveElementTextMethod(textBox1.Text);
             _currentFigure.Draw(_graphics, _currentFigure.FigurePen);
             pictureBox1.Invalidate();
         }

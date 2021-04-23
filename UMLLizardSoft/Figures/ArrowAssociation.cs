@@ -2,7 +2,7 @@
 
 namespace UMLLizardSoft.Figures
 {
-    public class ArrowAssociation : AbstractArrow
+    public class ArrowAssociation : Arrow
 
     {
         int delta = 10;

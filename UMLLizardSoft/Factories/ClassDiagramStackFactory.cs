@@ -1,14 +1,16 @@
 ﻿using System.Drawing;
 using UMLLizardSoft.Figures;
+
+
 namespace UMLLizardSoft.Factories
 {
-    public class Rectangle1Factory : IFactory
+    class ClassDiagramStackFactory : IFactory
     {
         public AbstractFigure Create(Pen pen)
         {
-            return new Rectangle1() 
-            { 
-                FigurePen = pen 
+            return new ClassDiagramStack()
+            {
+                FigurePen = pen
             };
         }
     }

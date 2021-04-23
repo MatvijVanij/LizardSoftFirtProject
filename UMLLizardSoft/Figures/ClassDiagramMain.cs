@@ -4,15 +4,12 @@ using System.Drawing;
 
 namespace UMLLizardSoft.Figures
 {
-    public class AbstractRectangle : AbstractFigure, IMovable
+    public class ClassDiagramMain : AbstractFigure, IMovable
     {
-        public EnumSectionRectangle select;
-        
         public override void Draw(Graphics graphics, Pen pen)
         {
 
         }
-
         public override void Move(int deltaX, int deltaY, Point point)
         {
             StartPoint = new Point(StartPoint.X + deltaX, StartPoint.Y + deltaY);
@@ -48,43 +45,43 @@ namespace UMLLizardSoft.Figures
         //    }
         //}
 
-        public override bool CheckIfTheObjectIsClicked(Point point)
-        {
-            if (point.X >= StartPoint.X && point.X <= StartPoint.X + width
-             && point.Y >= StartPoint.Y && point.Y <= StartPoint.Y + height)
-            {
-                select = EnumSectionRectangle.FirstSection;
-                return true;
-            }
-            if (point.X >= StartPoint.X && point.X <= StartPoint.X + width
-             && point.Y >= StartPoint.Y + height && point.Y <= StartPoint.Y + 2 * height)
-            {
-                select = EnumSectionRectangle.SecondSection;
-                return true;
-            }
-            if (point.X >= StartPoint.X && point.X <= StartPoint.X + width
-             && point.Y >= StartPoint.Y + height && point.Y <= StartPoint.Y + 3 * height)
-            {
-                select = EnumSectionRectangle.ThirdSection;
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        //public override bool CheckIfTheObjectIsClicked(Point point)
+        //{
+        //    if (point.X >= StartPoint.X && point.X <= StartPoint.X + width
+        //     && point.Y >= StartPoint.Y && point.Y <= StartPoint.Y + height)
+        //    {
+        //        select = EnumSectionRectangle.FirstSection;
+        //        return true;
+        //    }
+        //    if (point.X >= StartPoint.X && point.X <= StartPoint.X + width
+        //     && point.Y >= StartPoint.Y + height && point.Y <= StartPoint.Y + 2 * height)
+        //    {
+        //        select = EnumSectionRectangle.SecondSection;
+        //        return true;
+        //    }
+        //    if (point.X >= StartPoint.X && point.X <= StartPoint.X + width
+        //     && point.Y >= StartPoint.Y + height && point.Y <= StartPoint.Y + 3 * height)
+        //    {
+        //        select = EnumSectionRectangle.ThirdSection;
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
 
-        public override void SaveElementTextClas(string strText)
+        public override void SaveElementTextClass(string strText)
         {
             _listForRect1Text.Add(strText);
         }
 
-        public override void SaveElementTextFild(string strText)
+        public override void SaveElementTextField(string strText)
         {
             _listForRect2Text.Add(strText);
         }
 
-        public override void SaveElementTextMetod(string strText)
+        public override void SaveElementTextMethod(string strText)
         {
             _listForRect3Text.Add(strText);
         }

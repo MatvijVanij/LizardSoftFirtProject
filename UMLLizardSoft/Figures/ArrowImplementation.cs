@@ -3,7 +3,7 @@ using System.Drawing.Drawing2D;
 
 namespace UMLLizardSoft.Figures
 {
-    public class ArrowImplementation : AbstractArrow
+    public class ArrowImplementation : Arrow
     {
         int delta = 10;
 

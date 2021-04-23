@@ -2,7 +2,7 @@
 
 namespace UMLLizardSoft.Figures
 {
-    public class ArrowСomposition : AbstractArrow
+    public class ArrowСomposition : Arrow
     {
         int delta = 4;
 
