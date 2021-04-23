@@ -1,7 +1,6 @@
 ﻿using System.Drawing;
 using UMLLizardSoft.Figures;
 
-
 namespace UMLLizardSoft.Factories
 {
     class ClassDiagramStackFactory : IFactory

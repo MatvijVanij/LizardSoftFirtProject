@@ -7,7 +7,6 @@ using UMLLizardSoft.Figures;
 
 namespace UMLLizardSoft
 {
-
     public partial class Form1 : Form
     {
         Bitmap _mainBitmap;
@@ -18,11 +17,9 @@ namespace UMLLizardSoft
         bool _isMove = false;
         int _arrowWeight;
         Pen _pen;
-
         List<AbstractFigure> _abstractFigures;
         IFactory _currentFactory;
         Point _newpoint;
-
 
         public Form1()
         {
@@ -32,7 +29,6 @@ namespace UMLLizardSoft
         private void Form1_Load(object sender, EventArgs e)
         {
             _abstractFigures = new List<AbstractFigure>();
-
             _arrowWeight = 1;
             _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             _graphics = Graphics.FromImage(_mainBitmap);
@@ -46,6 +42,7 @@ namespace UMLLizardSoft
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             buttonStepBack.Enabled = true;
+
             if (_isMove)
             {
                 foreach (AbstractFigure a in _abstractFigures)
@@ -80,7 +77,6 @@ namespace UMLLizardSoft
             }
 
             _isButtonPressed = true;
-            //_isSelected = false;
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)

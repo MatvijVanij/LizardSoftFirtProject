@@ -8,9 +8,7 @@ namespace UMLLizardSoft.Figures
 
         public override void Draw(Graphics graphics, Pen pen)
         {
-            DrawingDelta();
             SolidBrush solidBrush = new SolidBrush(Color.White);
-
             Point point1 = new Point(EndPoint.X, EndPoint.Y);
             Point point2 = new Point(EndPoint.X + delta, EndPoint.Y - delta);
             Point point3 = new Point(EndPoint.X + delta, EndPoint.Y + delta);
@@ -32,7 +30,6 @@ namespace UMLLizardSoft.Figures
             }
 
             FigurePen = new Pen(pen.Color, pen.Width);
-
             graphics.DrawLines(FigurePen, GetPoints().ToArray());
             Point[] points = { point1, point2, point3 };
             graphics.FillPolygon(solidBrush, points);

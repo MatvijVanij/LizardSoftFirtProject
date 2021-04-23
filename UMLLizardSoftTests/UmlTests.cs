@@ -2,7 +2,6 @@ using NUnit.Framework;
 using System.Drawing;
 using UMLLizardSoft.Figures;
 using System.Collections;
-using System;
 
 namespace UMLLizardSoftTests
 {
@@ -14,9 +13,8 @@ namespace UMLLizardSoftTests
             bool actual = absR.IsSelected(point);
             Assert.AreEqual(expected, actual);
         }
-      
     }
-    
+
     public class IsGrabbingSource : IEnumerable
     {
         public IEnumerator GetEnumerator()

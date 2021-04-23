@@ -3,14 +3,11 @@
 namespace UMLLizardSoft.Figures
 {
     public class ArrowAssociation : Arrow
-
     {
         int delta = 10;
 
         public override void Draw(Graphics graphics, Pen pen)
         {
-            DrawingDelta();
-
             Point point1 = new Point(EndPoint.X, EndPoint.Y);
             Point point2 = new Point(EndPoint.X + delta, EndPoint.Y - delta);
             Point point3 = new Point(EndPoint.X + delta, EndPoint.Y + delta);
@@ -32,7 +29,6 @@ namespace UMLLizardSoft.Figures
             }
 
             FigurePen = new Pen(pen.Color, pen.Width);
-
             graphics.DrawLines(FigurePen, GetPoints().ToArray());
             Point[] points = { point2, point1, point3 };
             graphics.DrawLines(FigurePen, points);

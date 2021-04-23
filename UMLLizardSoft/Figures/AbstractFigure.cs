@@ -1,21 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 
 namespace UMLLizardSoft.Figures
 {
     public abstract class AbstractFigure : IMovable
     {
-        protected string text1;
-        protected string text2;
-        protected string text3;
-        protected List<string> _listForRect1Text;
-        protected List<string> _listForRect2Text;
-        protected List<string> _listForRect3Text;
+        protected string _textClass;
+        protected string _textField;
+        protected string _textMethod;
+        protected int _height = 40;
+        protected int _width = 100;
+        protected List<string> _listForTextClass;
+        protected List<string> _listForTextField;
+        protected List<string> _listForTextMethod;
         protected List<ClassDiagramMain> _moduls;
-        protected ClassDiagramMain _abstractRectangle;
-        protected int height = 40;
-        protected int width = 100;
+        protected ClassDiagramMain _abstractClassDiagramMain;
 
         public Point StartPoint { get; set; }
         public Point EndPoint { get; set; }
@@ -23,9 +22,9 @@ namespace UMLLizardSoft.Figures
 
         public AbstractFigure()
         {
-            _listForRect1Text = new List<string>(); 
-            _listForRect2Text = new List<string>(); 
-            _listForRect3Text = new List<string>(); 
+            _listForTextClass = new List<string>();
+            _listForTextField = new List<string>();
+            _listForTextMethod = new List<string>();
         }
 
         public abstract void Draw(Graphics graphics, Pen pen);

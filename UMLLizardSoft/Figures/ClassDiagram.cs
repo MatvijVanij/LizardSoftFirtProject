@@ -8,55 +8,49 @@ namespace UMLLizardSoft.Figures
         public override void Draw(Graphics graphics, Pen pen)
         {
             _moduls = new List<ClassDiagramMain>();
-
             FigurePen = new Pen(pen.Color, pen.Width);
             Font myFont = new Font("Arial", 12);
             SolidBrush solidBrush = new SolidBrush(Color.White);
             SolidBrush myBrush = new SolidBrush(pen.Color);
             StringFormat strFormat1 = new StringFormat();
 
-            text1 = string.Empty;
-            text2 = string.Empty;
-            text3 = string.Empty;
+            _textClass = string.Empty;
+            _textField = string.Empty;
+            _textMethod = string.Empty;
 
             strFormat1.Alignment = StringAlignment.Near;
             strFormat1.LineAlignment = StringAlignment.Near;
             strFormat1.Trimming = StringTrimming.Character;
 
             Point point1 = new Point(StartPoint.X, StartPoint.Y);
-            Point point2 = new Point(StartPoint.X + width, StartPoint.Y);
-            Point point3 = new Point(StartPoint.X + width, StartPoint.Y + 4 * height);
-            Point point4 = new Point(StartPoint.X, StartPoint.Y + 4 * height);
-
+            Point point2 = new Point(StartPoint.X + _width, StartPoint.Y);
+            Point point3 = new Point(StartPoint.X + _width, StartPoint.Y + 4 * _height);
+            Point point4 = new Point(StartPoint.X, StartPoint.Y + 4 * _height);
             Point[] points = { point1, point2, point3, point4 };
 
             graphics.FillPolygon(solidBrush, points);
-            graphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y, width, height);
+            graphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y, _width, _height);
+            graphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y + _height, _width, _height);
+            graphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y + 2 * _height, _width, 2 * _height);
 
-
-            graphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y + height, width, height);
-
-
-            graphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y + 2 * height, width, 2 * height);
-
-            foreach (var strText in _listForRect1Text)
+            foreach (var strText in _listForTextClass)
             {
-                text1 = strText;
+                _textClass = strText;
             }
 
-            foreach (var strText in _listForRect2Text)
+            foreach (var strText in _listForTextField)
             {
-                text2 = strText;
+                _textField = strText;
             }
 
-            foreach (var strText in _listForRect3Text)
+            foreach (var strText in _listForTextMethod)
             {
-                text3 = strText;
+                _textMethod = strText;
             }
 
-            graphics.DrawString(text1, myFont, myBrush, StartPoint.X, StartPoint.Y, strFormat1);
-            graphics.DrawString(text2, myFont, myBrush, StartPoint.X, StartPoint.Y + height, strFormat1);
-            graphics.DrawString(text3, myFont, myBrush, StartPoint.X, StartPoint.Y + 2 * height, strFormat1);
+            graphics.DrawString(_textClass, myFont, myBrush, StartPoint.X, StartPoint.Y, strFormat1);
+            graphics.DrawString(_textField, myFont, myBrush, StartPoint.X, StartPoint.Y + _height, strFormat1);
+            graphics.DrawString(_textMethod, myFont, myBrush, StartPoint.X, StartPoint.Y + 2 * _height, strFormat1);
         }
     }
 }

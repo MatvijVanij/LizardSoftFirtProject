@@ -57,7 +57,6 @@
     <Compile Include="Figures\Arrow.cs" />
     <Compile Include="Figures\ClassDiagramMain.cs" />
     <Compile Include="Figures\ClassDiagramStack.cs" />
-    <Compile Include="FigureType.cs" />
     <Compile Include="Figures\AbstractFigure.cs" />
     <Compile Include="Figures\ArrowAggregation.cs" />
     <Compile Include="Figures\ArrowAssociation.cs" />

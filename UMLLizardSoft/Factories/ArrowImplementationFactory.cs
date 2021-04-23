@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using UMLLizardSoft.Figures;
+
 namespace UMLLizardSoft.Factories
 {
     public class ArrowImplementationFactory : IFactory
@@ -8,7 +9,7 @@ namespace UMLLizardSoft.Factories
         {
             return new ArrowImplementation()
             {
-                FigurePen = pen 
+                FigurePen = pen
             };
         }
     }

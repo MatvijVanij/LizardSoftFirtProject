@@ -8,9 +8,7 @@ namespace UMLLizardSoft.Figures
     {
         bool isStartPointSelected = false;
 
-        public override void Draw(Graphics graphics, Pen pen)
-        {
-        }
+        public override void Draw(Graphics graphics, Pen pen) { }
 
         protected List<Point> GetPoints()
         {
@@ -22,18 +20,6 @@ namespace UMLLizardSoft.Figures
             points.Add(EndPoint);
 
             return points;
-        }
-
-        public void DrawingDelta()
-        {
-            //if (Math.Abs(StartPoint.X - EndPoint.X) < 5)
-            //{
-            //    EndPoint = new Point(StartPoint.X, EndPoint.Y);
-            //}
-            //if (Math.Abs(StartPoint.Y - EndPoint.Y) < 5)
-            //{
-            //    EndPoint = new Point(EndPoint.X, StartPoint.Y);
-            //}
         }
 
         public override void Move(int deltaX, int deltaY, Point point)

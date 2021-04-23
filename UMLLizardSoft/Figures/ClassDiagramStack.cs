@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UMLLizardSoft.Figures
 {
@@ -12,88 +8,70 @@ namespace UMLLizardSoft.Figures
         public override void Draw(Graphics graphics, Pen pen)
         {
             _moduls = new List<ClassDiagramMain>();
-
+            int delta = 10;
             FigurePen = new Pen(pen.Color, pen.Width);
             Font myFont = new Font("Arial", 12);
             SolidBrush solidBrush = new SolidBrush(Color.White);
             SolidBrush myBrush = new SolidBrush(pen.Color);
             StringFormat strFormat1 = new StringFormat();
 
-            text1 = string.Empty;
-            text2 = string.Empty;
-            text3 = string.Empty;
+            _textClass = string.Empty;
+            _textField = string.Empty;
+            _textMethod = string.Empty;
 
             strFormat1.Alignment = StringAlignment.Near;
             strFormat1.LineAlignment = StringAlignment.Near;
             strFormat1.Trimming = StringTrimming.Character;
 
-            Point point14 = new Point(StartPoint.X, StartPoint.Y);
-            Point point15 = new Point(StartPoint.X + width, StartPoint.Y);
-            Point point16 = new Point(StartPoint.X + width, StartPoint.Y + 4 * height);
-            Point point17 = new Point(StartPoint.X, StartPoint.Y + 4 * height);
+            Point pointFillPoligon1 = new Point(StartPoint.X, StartPoint.Y);
+            Point pointFillPoligon2 = new Point(StartPoint.X + _width, StartPoint.Y);
+            Point pointFillPoligon3 = new Point(StartPoint.X + _width, StartPoint.Y + 4 * _height);
+            Point pointFillPoligon4 = new Point(StartPoint.X, StartPoint.Y + 4 * _height);
+            Point[] pointsFillPoligon = { pointFillPoligon1, pointFillPoligon2, pointFillPoligon3, pointFillPoligon4 };
 
-            Point[] points1 = { point14, point15, point16, point17 };
+            graphics.FillPolygon(solidBrush, pointsFillPoligon);
+            graphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y, _width, _height);
+            graphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y + _height, _width, _height);
+            graphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y + 2 * _height, _width, 2 * _height);
 
-            graphics.FillPolygon(solidBrush, points1);
-
-            graphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y, width, height);
-
-            graphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y + height, width, height);
-
-            graphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y + 2 * height, width, 2 * height);
-
-
-            foreach (var strText in _listForRect1Text)
+            foreach (var strText in _listForTextClass)
             {
-                text1 = strText;
+                _textClass = strText;
             }
 
-            foreach (var strText in _listForRect2Text)
+            foreach (var strText in _listForTextField)
             {
-                text2 = strText;
+                _textField = strText;
             }
 
-            foreach (var strText in _listForRect3Text)
+            foreach (var strText in _listForTextMethod)
             {
-                text3 = strText;
+                _textMethod = strText;
             }
 
-            graphics.DrawString(text1, myFont, myBrush, StartPoint.X, StartPoint.Y, strFormat1);
-            graphics.DrawString(text2, myFont, myBrush, StartPoint.X, StartPoint.Y + height, strFormat1);
-            graphics.DrawString(text3, myFont, myBrush, StartPoint.X, StartPoint.Y + 2 * height, strFormat1);
+            graphics.DrawString(_textClass, myFont, myBrush, StartPoint.X, StartPoint.Y, strFormat1);
+            graphics.DrawString(_textField, myFont, myBrush, StartPoint.X, StartPoint.Y + _height, strFormat1);
+            graphics.DrawString(_textMethod, myFont, myBrush, StartPoint.X, StartPoint.Y + 2 * _height, strFormat1);
 
-            int delta = 10;
+            Point pointSecondRectangle1 = new Point(StartPoint.X, StartPoint.Y);
+            Point pointSecondRectangle2 = new Point(StartPoint.X, StartPoint.Y - delta + 4 * _height);
+            Point pointSecondRectangle3 = new Point(StartPoint.X - delta, StartPoint.Y - delta + 4 * _height);
+            Point pointSecondRectangle4 = new Point(StartPoint.X - delta, StartPoint.Y - delta);
+            Point pointSecondRectangle5 = new Point(StartPoint.X - delta + _width, StartPoint.Y - delta);
+            Point pointSecondRectangle6 = new Point(StartPoint.X - delta + _width, StartPoint.Y);
+            Point[] pointsSecondRectangle = { pointSecondRectangle1, pointSecondRectangle2, pointSecondRectangle3, pointSecondRectangle4, pointSecondRectangle5, pointSecondRectangle6 };
 
-            //graphics.DrawLine(FigurePen, StartPoint.X - delta + width, StartPoint.Y - delta, StartPoint.X - delta + width, StartPoint.Y);
-            //graphics.DrawLine(FigurePen, StartPoint.X - delta, StartPoint.Y - delta, StartPoint.X - delta +width, StartPoint.Y - delta);
-            //graphics.DrawLine(FigurePen, StartPoint.X - delta, StartPoint.Y - delta, StartPoint.X - delta, StartPoint.Y - delta + 4*height);
-            //graphics.DrawLine(FigurePen, StartPoint.X - delta, StartPoint.Y - delta + 4 * height, StartPoint.X, StartPoint.Y - delta + 4 * height);
+            graphics.DrawPolygon(FigurePen, pointsSecondRectangle);
 
-            Point point1 = new Point(StartPoint.X, StartPoint.Y);
-            Point point2 = new Point(StartPoint.X, StartPoint.Y - delta + 4 * height);
-            Point point3 = new Point(StartPoint.X - delta, StartPoint.Y - delta + 4 * height);
-            Point point4 = new Point(StartPoint.X - delta, StartPoint.Y - delta);
-            Point point5 = new Point(StartPoint.X - delta + width, StartPoint.Y - delta);
-            Point point6 = new Point(StartPoint.X - delta + width, StartPoint.Y);
+            Point pointMethodSection1 = new Point(StartPoint.X - delta, StartPoint.Y - delta);
+            Point pointMethodSection2 = new Point(StartPoint.X - delta, StartPoint.Y - 2 * delta + 4 * _height);
+            Point pointMethodSection3 = new Point(StartPoint.X - 2 * delta, StartPoint.Y - 2 * delta + 4 * _height);
+            Point pointMethodSection4 = new Point(StartPoint.X - 2 * delta, StartPoint.Y - 2 * delta);
+            Point pointMethodSection5 = new Point(StartPoint.X - 2 * delta + _width, StartPoint.Y - 2 * delta);
+            Point pointMethodSection6 = new Point(StartPoint.X - 2 * delta + _width, StartPoint.Y - delta);
+            Point[] pointsMethodSection = { pointMethodSection1, pointMethodSection2, pointMethodSection3, pointMethodSection4, pointMethodSection5, pointMethodSection6 };
 
-            Point[] points = { point1, point2, point3, point4, point5, point6 };
-
-            graphics.DrawPolygon(FigurePen, points);
-
-            Point point7 = new Point(StartPoint.X-delta, StartPoint.Y-delta);
-            Point point8 = new Point(StartPoint.X-delta, StartPoint.Y - 2*delta + 4 * height);
-            Point point9 = new Point(StartPoint.X - 2*delta, StartPoint.Y - 2*delta + 4 * height);
-            Point point10 = new Point(StartPoint.X - 2*delta, StartPoint.Y - 2*delta);
-            Point point11 = new Point(StartPoint.X - 2*delta + width, StartPoint.Y - 2*delta);
-            Point point12 = new Point(StartPoint.X - 2*delta + width, StartPoint.Y-delta);
-
-            Point[] points2 = { point7, point8, point9, point10, point11, point12 };
-
-            graphics.DrawPolygon(FigurePen, points2);
-            //graphics.DrawLine(FigurePen, StartPoint.X - 2*delta + width, StartPoint.Y - 2 * delta, StartPoint.X - 2 * delta + width, StartPoint.Y);
-            //graphics.DrawLine(FigurePen, StartPoint.X - 2 * delta, StartPoint.Y - 2 * delta, StartPoint.X - 2 * delta + width, StartPoint.Y - 2 * delta);
-            //graphics.DrawLine(FigurePen, StartPoint.X - 2 * delta, StartPoint.Y - 2 * delta, StartPoint.X - 2 * delta, StartPoint.Y - 2 * delta + 4 * height);
-            //graphics.DrawLine(FigurePen, StartPoint.X - 2 * delta, StartPoint.Y - 2 * delta + 4 * height, StartPoint.X, StartPoint.Y - 2 * delta + 4 * height);
+            graphics.DrawPolygon(FigurePen, pointsMethodSection);
         }
     }
 }

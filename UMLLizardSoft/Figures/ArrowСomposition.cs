@@ -8,9 +8,7 @@ namespace UMLLizardSoft.Figures
 
         public override void Draw(Graphics graphics, Pen pen)
         {
-            DrawingDelta();
             SolidBrush solidBrush = new SolidBrush(pen.Color);
-
             Point point1 = new Point(EndPoint.X, EndPoint.Y);
             Point point2 = new Point(EndPoint.X + 3 * delta, EndPoint.Y - 2 * delta);
             Point point3 = new Point(EndPoint.X + 3 * delta, EndPoint.Y + 2 * delta);
