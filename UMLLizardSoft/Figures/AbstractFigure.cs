@@ -13,7 +13,6 @@ namespace UMLLizardSoft.Figures
         public List<string> _listForTextClass;
         public List<string> _listForTextField;
         public List<string> _listForTextMethod;
-        protected List<ClassDiagramMain> _moduls;
         protected ClassDiagramMain _abstractClassDiagramMain;
 
         public Point StartPoint { get; set; }
