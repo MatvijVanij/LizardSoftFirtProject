@@ -34,17 +34,17 @@ namespace UMLLizardSoft.Figures
             graphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y + _height, _width, _height);
             graphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y + 2 * _height, _width, 2 * _height);
 
-            foreach (var strText in _listForTextClass)
+            foreach (var strText in ListForTextClass)
             {
                 _textClass = strText;
             }
 
-            foreach (var strText in _listForTextField)
+            foreach (var strText in ListForTextField)
             {
                 _textField = strText;
             }
 
-            foreach (var strText in _listForTextMethod)
+            foreach (var strText in ListForTextMethod)
             {
                 _textMethod = strText;
             }
