@@ -24,9 +24,9 @@ namespace UMLLizardSoft.Helpers
                 figureObject.Color = figure.FigurePen.Color;
                 figureObject.Width = figure.FigurePen.Width;
                 figureObject.Type = figure.GetType().ToString();
-                figureObject.ListForTextClass = figure.ListForTextClass;
-                figureObject.ListForTextField = figure.ListForTextField;
-                figureObject.ListForTextMethod = figure.ListForTextMethod;
+                figureObject.ListForTextClass = figure._listForTextClass;
+                figureObject.ListForTextField = figure._listForTextField;
+                figureObject.ListForTextMethod = figure._listForTextMethod;
 
                 serializables.Add(figureObject);
             }
@@ -103,9 +103,9 @@ namespace UMLLizardSoft.Helpers
                     var box = new ClassDiagramFactory().Create(pen);
                     box.StartPoint = figure.StartPoint;
                     box.EndPoint = figure.EndPoint;
-                    box.ListForTextClass = figure.ListForTextClass;
-                    box.ListForTextField = figure.ListForTextField;
-                    box.ListForTextMethod = figure.ListForTextMethod;
+                    box._listForTextClass = figure.ListForTextClass;
+                    box._listForTextField = figure.ListForTextField;
+                    box._listForTextMethod = figure.ListForTextMethod;
 
                     abstractFigures.Add(box);
 
@@ -116,9 +116,9 @@ namespace UMLLizardSoft.Helpers
                     var box = new ClassDiagramStackFactory().Create(pen);
                     box.StartPoint = figure.StartPoint;
                     box.EndPoint = figure.EndPoint;
-                    box.ListForTextClass = figure.ListForTextClass;
-                    box.ListForTextField = figure.ListForTextField;
-                    box.ListForTextMethod = figure.ListForTextMethod;
+                    box._listForTextClass = figure.ListForTextClass;
+                    box._listForTextField = figure.ListForTextField;
+                    box._listForTextMethod = figure.ListForTextMethod;
 
                     abstractFigures.Add(box);
 

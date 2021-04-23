@@ -300,5 +300,19 @@ namespace UMLLizardSoft
 
             File.WriteAllText(filename, serializedValue);
         }
+
+        private void buttonSaveAsImage_Click(object sender, EventArgs e)
+        {
+            saveFileDialog.Filter = "JPG Image(*.jpeg)|*.jpg|BMP Image(*.bmp)|*.bmp";
+            saveFileDialog.Title = "Save Image";
+            saveFileDialog.FileName = "Untitled.jpg";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (saveFileDialog.FileName != string.Empty)
+                {
+                    pictureBox1.Image.Save(saveFileDialog.FileName);
+                }
+            }
+        }
     }
 }

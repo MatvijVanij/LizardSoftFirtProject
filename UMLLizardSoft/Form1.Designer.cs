@@ -58,6 +58,7 @@ namespace UMLLizardSoft
             this.buttonOpen = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.buttonSaveAsImage = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -196,7 +197,7 @@ namespace UMLLizardSoft
             // 
             this.buttonColorPalette.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.buttonColorPalette.Location = new System.Drawing.Point(5, 390);
-            this.buttonColorPalette.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonColorPalette.Margin = new System.Windows.Forms.Padding(2);
             this.buttonColorPalette.Name = "buttonColorPalette";
             this.buttonColorPalette.Size = new System.Drawing.Size(38, 42);
             this.buttonColorPalette.TabIndex = 11;
@@ -270,7 +271,7 @@ namespace UMLLizardSoft
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(4, 211);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(1);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(199, 35);
@@ -330,12 +331,23 @@ namespace UMLLizardSoft
             // 
             this.openFileDialog.FileName = "openFileDialog";
             // 
+            // buttonSaveAsImage
+            // 
+            this.buttonSaveAsImage.Location = new System.Drawing.Point(8, 478);
+            this.buttonSaveAsImage.Name = "buttonSaveAsImage";
+            this.buttonSaveAsImage.Size = new System.Drawing.Size(91, 23);
+            this.buttonSaveAsImage.TabIndex = 30;
+            this.buttonSaveAsImage.Text = "Save as image";
+            this.buttonSaveAsImage.UseVisualStyleBackColor = true;
+            this.buttonSaveAsImage.Click += new System.EventHandler(this.buttonSaveAsImage_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(1282, 564);
+            this.Controls.Add(this.buttonSaveAsImage);
             this.Controls.Add(this.buttonOpen);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonMetod);
@@ -407,6 +419,7 @@ namespace UMLLizardSoft
         private System.Windows.Forms.Button buttonOpen;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.Button buttonSaveAsImage;
     }
 }
 

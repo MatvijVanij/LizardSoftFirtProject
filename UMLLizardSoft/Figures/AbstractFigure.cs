@@ -10,9 +10,9 @@ namespace UMLLizardSoft.Figures
         protected string _textMethod;
         protected int _height = 40;
         protected int _width = 100;
-        public List<string> ListForTextClass;
-        public List<string> ListForTextField;
-        public List<string> ListForTextMethod;
+        public List<string> _listForTextClass;
+        public List<string> _listForTextField;
+        public List<string> _listForTextMethod;
         protected List<ClassDiagramMain> _moduls;
         protected ClassDiagramMain _abstractClassDiagramMain;
 
@@ -22,9 +22,9 @@ namespace UMLLizardSoft.Figures
 
         public AbstractFigure()
         {
-            ListForTextClass = new List<string>();
-            ListForTextField = new List<string>();
-            ListForTextMethod = new List<string>();
+            _listForTextClass = new List<string>();
+            _listForTextField = new List<string>();
+            _listForTextMethod = new List<string>();
         }
 
         public abstract void Draw(Graphics graphics, Pen pen);
