@@ -5,7 +5,6 @@ namespace UMLLizardSoft.Figures
 {
     public class ClassDiagram : ClassDiagramMain
     {
-
         const int indent = 5;
         SizeF stringSize = new SizeF();
         Font myFont = new Font("Arial", 10);

@@ -8,7 +8,7 @@ namespace UMLLizardSoft.Figures
         const int delta = 10;
         const int indent = 5;
         SizeF stringSize = new SizeF();
-        Font myFont = new Font("Arial", 12);
+        Font myFont = new Font("Arial", 10);
 
         public override void Draw(Graphics graphics, Pen pen)
         {
