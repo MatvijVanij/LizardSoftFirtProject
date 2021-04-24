@@ -13,7 +13,7 @@ namespace UMLLizardSoft.Figures
         {
             FigurePen = new Pen(pen.Color, pen.Width);
             SolidBrush solidBrush = new SolidBrush(Color.White);
-            SolidBrush myBrush = new SolidBrush(pen.Color);
+            SolidBrush myBrush = new SolidBrush(FigurePen.Color);
             StringFormat strFormat1 = new StringFormat();
 
             _textClass = string.Empty;
