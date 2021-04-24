@@ -8,7 +8,9 @@ namespace UMLLizardSoft.Figures
         protected string _textClass;
         protected string _textField;
         protected string _textMethod;
-        protected int _height = 40;
+        protected int _heightClass = 27;
+        protected int _heightFild = 10;
+        protected int _heightMethod = 10;
         protected int _width = 100;
         public List<string> _listForTextClass;
         public List<string> _listForTextField;
