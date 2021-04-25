@@ -6,7 +6,7 @@ namespace UMLLizardSoft.Figures
     public class ClassDiagramStack : ClassDiagramMain
     {
         const int delta = 10;
-        const int indent = 5;
+        const int padding = 5;
         SizeF stringSize = new SizeF();
         Font myFont = new Font("Arial", 10);
 
@@ -53,9 +53,9 @@ namespace UMLLizardSoft.Figures
             graphics.FillPolygon(solidBrush, GetPointsFillPoligonMethod().ToArray());
             graphics.DrawRectangle(FigurePen, StartPoint.X, StartPoint.Y + _heightClass + _heightFild, _width, _heightMethod);
 
-            graphics.DrawString(_textClass, myFont, myBrush, StartPoint.X + indent, StartPoint.Y + indent, strFormat1);
-            graphics.DrawString(_textField, myFont, myBrush, StartPoint.X + indent, StartPoint.Y + _heightClass + indent, strFormat1);
-            graphics.DrawString(_textMethod, myFont, myBrush, StartPoint.X + indent, StartPoint.Y + _heightClass + _heightFild + indent, strFormat1);
+            graphics.DrawString(_textClass, myFont, myBrush, StartPoint.X + padding, StartPoint.Y + padding, strFormat1);
+            graphics.DrawString(_textField, myFont, myBrush, StartPoint.X + padding, StartPoint.Y + _heightClass + padding, strFormat1);
+            graphics.DrawString(_textMethod, myFont, myBrush, StartPoint.X + padding, StartPoint.Y + _heightClass + _heightFild + padding, strFormat1);
 
             graphics.FillPolygon(solidBrush, GetPointsSecondStack().ToArray());
             graphics.FillPolygon(solidBrush, GetPointsLastStack().ToArray());
@@ -150,7 +150,7 @@ namespace UMLLizardSoft.Figures
 
             if (stringSize.Width > _width)
             {
-                _width = (int)stringSize.Width + 2 * indent;
+                _width = (int)stringSize.Width + 2 * padding;
             }
         }
 
@@ -160,7 +160,7 @@ namespace UMLLizardSoft.Figures
 
             if (stringSize.Height > _heightClass)
             {
-                _heightClass = (int)stringSize.Height + 2 * indent;
+                _heightClass = (int)stringSize.Height + 2 * padding;
             }
         }
 
@@ -170,7 +170,7 @@ namespace UMLLizardSoft.Figures
 
             if (stringSize.Height > _heightFild)
             {
-                _heightFild = (int)stringSize.Height + 2 * indent;
+                _heightFild = (int)stringSize.Height + 2 * padding;
             }
         }
 
@@ -180,7 +180,7 @@ namespace UMLLizardSoft.Figures
 
             if (stringSize.Height > _heightMethod)
             {
-                _heightMethod = (int)stringSize.Height + 2 * indent;
+                _heightMethod = (int)stringSize.Height + 2 * padding;
             }
         }
     }
