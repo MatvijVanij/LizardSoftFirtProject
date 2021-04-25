@@ -77,6 +77,7 @@ namespace UMLLizardSoft.Figures
 
             return pointspointsLastRectangle;
         }
+
         protected List<Point> GetPointsSecondStack()
         {
             List<Point> pointspointsSecondRectangle = new List<Point>();
@@ -102,6 +103,7 @@ namespace UMLLizardSoft.Figures
 
             return points;
         }
+
         protected List<Point> GetPointsFillPoligonField()
         {
             List<Point> points = new List<Point>();
@@ -113,6 +115,7 @@ namespace UMLLizardSoft.Figures
 
             return points;
         }
+
         protected List<Point> GetPointsFillPoligonMethod()
         {
             List<Point> points = new List<Point>();
@@ -140,6 +143,7 @@ namespace UMLLizardSoft.Figures
 
             return max;
         }
+
         public void ResizeWidth(Graphics graphics)
         {
             stringSize = graphics.MeasureString(GetMax(), myFont);
@@ -149,6 +153,7 @@ namespace UMLLizardSoft.Figures
                 _width = (int)stringSize.Width + 2 * indent;
             }
         }
+
         public void ResizeClassHeight(Graphics graphics)
         {
             stringSize = graphics.MeasureString(_textClass, myFont);
@@ -158,6 +163,7 @@ namespace UMLLizardSoft.Figures
                 _heightClass = (int)stringSize.Height + 2 * indent;
             }
         }
+
         public void ResizeFieldHeight(Graphics graphics)
         {
             stringSize = graphics.MeasureString(_textField, myFont);
@@ -167,6 +173,7 @@ namespace UMLLizardSoft.Figures
                 _heightFild = (int)stringSize.Height + 2 * indent;
             }
         }
+
         public void ResizeMethodHeight(Graphics graphics)
         {
             stringSize = graphics.MeasureString(_textMethod, myFont);

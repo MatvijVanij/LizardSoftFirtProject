@@ -68,6 +68,7 @@ namespace UMLLizardSoft.Figures
 
             return points;
         }
+
         protected List<Point> GetPointsFillPoligonField()
         {
             List<Point> points = new List<Point>();
@@ -79,6 +80,7 @@ namespace UMLLizardSoft.Figures
 
             return points;
         }
+
         protected List<Point> GetPointsFillPoligonMethod()
         {
             List<Point> points = new List<Point>();
@@ -93,8 +95,9 @@ namespace UMLLizardSoft.Figures
 
         public string GetMax()
         {
-            string max ;
+            string max;
             max = _textClass;
+
             if (max.Length < _textField.Length)
             {
                 max = _textField;
@@ -115,6 +118,7 @@ namespace UMLLizardSoft.Figures
                 _width = (int)stringSize.Width + 2 * indent;
             }
         }
+
         public void ResizeClassHeight(Graphics graphics)
         {
             stringSize = graphics.MeasureString(_textClass, myFont);

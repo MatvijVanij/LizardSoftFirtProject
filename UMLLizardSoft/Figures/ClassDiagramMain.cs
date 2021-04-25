@@ -4,7 +4,6 @@ namespace UMLLizardSoft.Figures
 {
     public class ClassDiagramMain : AbstractFigure, IMovable
     {
-
         public override void Draw(Graphics graphics, Pen pen) { }
 
         public override void Move(int deltaX, int deltaY, Point point)

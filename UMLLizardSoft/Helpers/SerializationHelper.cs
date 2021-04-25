@@ -23,7 +23,6 @@ namespace UMLLizardSoft.Helpers
                 figureObject.ListForTextClass = figure._listForTextClass;
                 figureObject.ListForTextField = figure._listForTextField;
                 figureObject.ListForTextMethod = figure._listForTextMethod;
-
                 serializables.Add(figureObject);
             }
 
@@ -36,10 +35,9 @@ namespace UMLLizardSoft.Helpers
                 return null;
 
             var listOfFigures = JsonConvert.DeserializeObject<List<Figure>>(json);
-
             List<AbstractFigure> abstractFigures = new List<AbstractFigure>();
 
-            foreach(var figure in listOfFigures)
+            foreach (var figure in listOfFigures)
             {
                 Pen pen = new Pen(figure.Color, figure.Width);
 
@@ -48,52 +46,46 @@ namespace UMLLizardSoft.Helpers
                     var arrow = new ArrowAggregationFactory().Create(pen);
                     arrow.StartPoint = figure.StartPoint;
                     arrow.EndPoint = figure.EndPoint;
-
                     abstractFigures.Add(arrow);
-
                     arrow.Draw(graphics, pen);
                 }
+
                 if (figure.Type == typeof(ArrowAssociation).ToString())
                 {
                     var arrow = new ArrowAssociationFactory().Create(pen);
                     arrow.StartPoint = figure.StartPoint;
                     arrow.EndPoint = figure.EndPoint;
-
                     abstractFigures.Add(arrow);
-
                     arrow.Draw(graphics, pen);
                 }
+
                 if (figure.Type == typeof(ArrowInheritance).ToString())
                 {
                     var arrow = new ArrowInheritanceFactory().Create(pen);
-
                     arrow.StartPoint = figure.StartPoint;
                     arrow.EndPoint = figure.EndPoint;
-
                     abstractFigures.Add(arrow);
-
                     arrow.Draw(graphics, pen);
                 }
+
                 if (figure.Type == typeof(ArrowImplementation).ToString())
                 {
                     var arrow = new ArrowImplementationFactory().Create(pen);
                     arrow.StartPoint = figure.StartPoint;
                     arrow.EndPoint = figure.EndPoint;
-
                     abstractFigures.Add(arrow);
-
                     arrow.Draw(graphics, pen);
                 }
+
                 if (figure.Type == typeof(ArrowСomposition).ToString())
                 {
                     var arrow = new ArrowСompositionFactory().Create(pen);
                     arrow.StartPoint = figure.StartPoint;
                     arrow.EndPoint = figure.EndPoint;
-
                     abstractFigures.Add(arrow);
-
                     arrow.Draw(graphics, pen);
                 }
+
                 if (figure.Type == typeof(ClassDiagram).ToString())
                 {
                     var box = new ClassDiagramFactory().Create(pen);
@@ -102,11 +94,10 @@ namespace UMLLizardSoft.Helpers
                     box._listForTextClass = figure.ListForTextClass;
                     box._listForTextField = figure.ListForTextField;
                     box._listForTextMethod = figure.ListForTextMethod;
-
                     abstractFigures.Add(box);
-
                     box.Draw(graphics, pen);
                 }
+
                 if (figure.Type == typeof(ClassDiagramStack).ToString())
                 {
                     var box = new ClassDiagramStackFactory().Create(pen);
@@ -115,9 +106,7 @@ namespace UMLLizardSoft.Helpers
                     box._listForTextClass = figure.ListForTextClass;
                     box._listForTextField = figure.ListForTextField;
                     box._listForTextMethod = figure.ListForTextMethod;
-
                     abstractFigures.Add(box);
-
                     box.Draw(graphics, pen);
                 }
             }
