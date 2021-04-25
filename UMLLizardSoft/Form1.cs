@@ -304,7 +304,15 @@ namespace UMLLizardSoft
             {
                 if (saveFileDialog.FileName != string.Empty)
                 {
-                    pictureBox1.Image.Save(saveFileDialog.FileName);
+                    switch (saveFileDialog.FilterIndex)
+                    {
+                        case 1:
+                            pictureBox1.Image.Save(saveFileDialog.FileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+                            break;
+                        case 2:
+                            pictureBox1.Image.Save(saveFileDialog.FileName, System.Drawing.Imaging.ImageFormat.Bmp);
+                            break;
+                    }
                 }
             }
         }
