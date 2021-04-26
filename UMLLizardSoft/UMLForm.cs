@@ -98,7 +98,7 @@ namespace UMLLizardSoft
             _isButtonPressed = true;
         }
 
-        private void PictureBox1_MouseUp(object sender, MouseEventArgs e)
+        private void PictureBox_MouseUp(object sender, MouseEventArgs e)
         {
             _isButtonPressed = false;
             _mainBitmap = _tmpBitmap;
@@ -109,7 +109,7 @@ namespace UMLLizardSoft
             }
         }
 
-        private void PictureBox1_MouseMove(object sender, MouseEventArgs e)
+        private void PictureBox_MouseMove(object sender, MouseEventArgs e)
         {
             if (_isButtonPressed && _currentFigure != null)
             {
