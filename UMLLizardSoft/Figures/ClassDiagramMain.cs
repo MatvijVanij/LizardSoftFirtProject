@@ -8,8 +8,11 @@ namespace UMLLizardSoft.Figures
 
         public override void Move(int deltaX, int deltaY, Point point)
         {
-            StartPoint = new Point(StartPoint.X + deltaX, StartPoint.Y + deltaY);
-            EndPoint = new Point(EndPoint.X + deltaX, EndPoint.Y + deltaY);
+            if (IsSelected(point))
+            {
+                StartPoint = new Point(StartPoint.X + deltaX, StartPoint.Y + deltaY);
+                EndPoint = new Point(EndPoint.X + deltaX, EndPoint.Y + deltaY);
+            }
         }
 
         public override bool IsSelected(Point point)
