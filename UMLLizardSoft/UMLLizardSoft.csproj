@@ -67,11 +67,11 @@
     <Compile Include="Figures\ArrowInheritance.cs" />
     <Compile Include="Figures\ArrowСomposition.cs" />
     <Compile Include="Figures\ClassDiagram.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="UMLForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="UMLForm.Designer.cs">
+      <DependentUpon>UMLForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\Figure.cs" />
     <Compile Include="Helpers\ISerializable.cs" />
@@ -79,8 +79,8 @@
     <Compile Include="IMovable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="UMLForm.resx">
+      <DependentUpon>UMLForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

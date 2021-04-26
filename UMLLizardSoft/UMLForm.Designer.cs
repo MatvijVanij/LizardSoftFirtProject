@@ -1,7 +1,7 @@
 ﻿
 namespace UMLLizardSoft
 {
-    partial class Form1
+    partial class UMLForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace UMLLizardSoft
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UMLForm));
             this.radioButtonAssociation = new System.Windows.Forms.RadioButton();
             this.radioButtonInheritance = new System.Windows.Forms.RadioButton();
             this.radioButtonAggregation = new System.Windows.Forms.RadioButton();
@@ -375,7 +375,7 @@ namespace UMLLizardSoft
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
             this.Text = "UML Diagram LizardSoft";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.UMLForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();

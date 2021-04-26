@@ -9,7 +9,7 @@ using UMLLizardSoft.Helpers;
 
 namespace UMLLizardSoft
 {
-    public partial class Form1 : Form
+    public partial class UMLForm : Form
     {
         Bitmap _mainBitmap;
         Bitmap _tmpBitmap;
@@ -24,18 +24,18 @@ namespace UMLLizardSoft
         Point _newpoint;
         string _json;
 
-        public Form1()
+        public UMLForm()
         {
             InitializeComponent();
         }
 
-        public Form1(string filePath)
+        public UMLForm(string filePath)
         {
             InitializeComponent();
             _json = File.ReadAllText(filePath);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void UMLForm_Load(object sender, EventArgs e)
         {
             _arrowWeight = 1;
             _mainBitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height);
